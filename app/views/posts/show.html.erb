@@ -1,17 +1,7 @@
-<p id="notice"><%= notice %></p>
+<%= render :partial => @post %>
 
-<h3><%= @post.title %></h1>
-<p><%= @post.content %></p>
-
-<a id="author">
-  <%= @post.author %>
-</a>
-
-<span>
-  <%= @post.published_at %>
-</span>
-
-
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<p>
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+  <%= link_to 'Destroy', @post, :method => :delete, :confirm =>"Are you sure?" %>|
+  <%= link_to 'See All Posts', posts_path %>
+</p>
