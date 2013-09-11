@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-
+    @post.session = Session.find (params[:post][:session])
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -74,6 +74,6 @@ class PostsController < ApplicationController
     def authenticate
       authenticate_or_request_with_http_basic do |name, password|
         name == "admin" && password =="admin"
-      end
+      end 
     end
 end

@@ -7,8 +7,32 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div id="header">
+    <nav id="navbar">
+      <a href="/" id="home_button">Home</a>
+      <a href="quem-somos">Quem Somos</a>
+      <a href="/seja-um-afiliado">Seja Um Afiliado</a>
+      <a href="/anuncie">Anuncie</a>
+      <a href="/newsletter">News Letter</a>
+      <a href="/contact">Fale Conosco</a>
+    </nav>
+    <div>
+      <img src="/header.jpg" id="header_img">
+    </div>
+  </div>
+  <div id="container">
+    <div id="categories">
+      <nav>
+        <a href="" id="poa">+Porto Alegre</a>
+        <a href="" id="saude_int">Saúde Integral</a>
+        <a href="" id="cresimento">Crescimento Pessoal</a>
+        <a href="" id="bem_estar">Bem-Estar</a>
+        <a href="" id="beleza">Beleza</a>
+        <a href="" id="familia">Família</a>
+        <a href="" id="planeta">Planeta</a>
+      </nav>
+    </div>
+    <%= yield %>
+  </div>
 </body>
 </html>
