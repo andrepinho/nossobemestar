@@ -1,3 +1,44 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#container{
+  padding: 10px;
+  width: 850px;
+  display: table;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 3px;
+  margin-top: -15px;
+}
+#container a{
+  text-decoration: none;
+  font-family: arial;
+  margin-right: 5px;
+  margin-left: 5px;
+  font-size: 1.2em;
+  border-bottom: 3px solid;
+}
+#categories{
+  text-align: center;
+}
+#poa{
+  color: #4D5255;
+}
+#saude_int{
+  color: #9AC140;
+}
+#bem_estar{
+  color: #4AACC7;
+}
+#crescimento{
+  color: #9B0185;
+}
+#beleza{
+  color: #EFAB00;
+}
+#familia{
+  color: #A34400;
+}
+#planeta{
+  color: #0A9E00;
+}

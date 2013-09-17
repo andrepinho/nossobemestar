@@ -1,7 +1,7 @@
 <%= div_for post do %>
   <h2><%= link_to_unless_current h(post.title), post %></h2>
   <%= post.content %>
-  <%= simple_format h(post.author) %>
-  <%= simple_format h(post.published_at) %>
-  <%= simple_format h(post.session.title) if post.session.present? %>
+  <a href=""><%= post.author %></a>
+  <%= post.published_at %>
+  <%= post.session.title if post.session.present? %>
 <% end %>

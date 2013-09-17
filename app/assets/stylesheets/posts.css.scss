@@ -1,21 +1,10 @@
 body{
   margin: 0;
   padding: 0;
-  background-color: #acbeca;
+  background-color: black;
 /*  background: url("/main-bg.jpg") fixed;*/
 }
-#header{
-  width: auto;
-  background-color: #424242;
-  padding-top: 8px;
-  padding-bottom: 2%;
-}
-#header a{
-  color: white;
-  margin-right: 10px;
-  text-decoration: none;
-  font-family: verdana;
-}
+
 #header a:hover{
   color: #acbeca;
 }
