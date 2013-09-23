@@ -7,3 +7,4 @@ class SessionsController < ApplicationController
       @session = Session.find(params[:id])
   end
 end
+  

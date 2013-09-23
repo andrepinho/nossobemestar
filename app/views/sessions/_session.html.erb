@@ -1,6 +1,6 @@
 <% session.posts.each do |post| %>    
   <h2><%= link_to_unless_current h(post.title), post %></h2>
-  <p id="content"><%= post.content %></p>
+  <p id="content"><%= post.content.html_safe %></p>
   <a href=""><%= post.author %></a>
   <span id="date"><%= post.published_at %></span>
 <% end %>

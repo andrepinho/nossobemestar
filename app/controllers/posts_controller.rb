@@ -73,7 +73,7 @@ class PostsController < ApplicationController
     end
     def authenticate
       authenticate_or_request_with_http_basic do |name, password|
-        name == "admin" && password =="admin"
-      end 
+        name == "admin" && Digest::MD5.hexdigest(password) == "605593df6a4323da215d22838c527489"
+      end
     end
 end
