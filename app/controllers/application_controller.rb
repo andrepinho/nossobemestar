@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_section instead.
   protect_from_forgery with: :exception
   before_filter :detect_region
+  helper_method :current_region
   private
   def detect_region
     redirect_to root_url(subdomain: Region.first.subdomain) unless current_region

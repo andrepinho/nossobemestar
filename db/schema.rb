@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130923201157) do
+ActiveRecord::Schema.define(version: 20130923204927) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20130923201157) do
     t.string   "front_title"
     t.text     "front_content"
     t.integer  "priority"
+    t.integer  "region_id"
   end
 
   add_index "posts", ["section_id"], name: "index_posts_on_section_id", using: :btree
