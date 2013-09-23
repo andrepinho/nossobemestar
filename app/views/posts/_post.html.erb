@@ -3,5 +3,5 @@
   <p><%=raw @post.content %></p>
   <a href=""><%= @post.author %></a>
   <%= @post.published_at %>
-  <%= @post.session.title if @post.session.present? %>
+  <%= @post.section.title if @post.section.present? %>
 <% end %>

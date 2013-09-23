@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-    @post.session = Session.find (params[:post][:session])
+    @post.section = Section.find (params[:post][:section])
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -70,10 +70,5 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :content, :published_at, :author)
-    end
-    def authenticate
-      authenticate_or_request_with_http_basic do |name, password|
-        name == "admin" && Digest::MD5.hexdigest(password) == "605593df6a4323da215d22838c527489"
-      end
     end
 end

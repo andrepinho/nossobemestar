@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130917153140) do
+ActiveRecord::Schema.define(version: 20130923201157) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -36,15 +36,23 @@ ActiveRecord::Schema.define(version: 20130917153140) do
     t.string   "author"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "session_id"
+    t.integer  "section_id"
     t.string   "front_title"
     t.text     "front_content"
     t.integer  "priority"
   end
 
-  add_index "posts", ["session_id"], name: "index_posts_on_session_id", using: :btree
+  add_index "posts", ["section_id"], name: "index_posts_on_section_id", using: :btree
 
-  create_table "sessions", force: true do |t|
+  create_table "regions", force: true do |t|
+    t.string   "name"
+    t.string   "subdomain"
+    t.string   "background_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sections", force: true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"

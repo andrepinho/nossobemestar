@@ -28,8 +28,8 @@
     <%= f.text_field :author %>
   </div>
   <div class="field">
-    <%= f.label :session %><br>
-    <%= f.select :session, Session.all.map { |s| [s.title, s.id]} %>
+    <%= f.label :section %><br>
+    <%= f.select :section, Section.all.map { |s| [s.title, s.id]} %>
   </div>
   <div class="actions">
     <%= f.submit %>
