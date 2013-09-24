@@ -6,10 +6,13 @@ class ApplicationController < ActionController::Base
   helper_method :current_region
   private
   def detect_region
-    redirect_to root_url(subdomain: Region.first.subdomain) unless current_region
+    unless current_region
+      region = Region.first || Region.create(name: "Porto Alegre", subdomain: "portoalegre")
+      redirect_to root_url(subdomain: region.subdomain) unless current_region
+    end
   end
   def current_region
-    @current_region ||= (Region.find_by_subdomain(request.subdomain) || Region.create(name: "Porto Alegre", subdomain: "portoalegre"))
+    @current_region ||= Region.find_by_subdomain(request.subdomain)
   end
   def authenticate
     authenticate_or_request_with_http_basic do |name, password|
