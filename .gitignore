@@ -32,4 +32,6 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
+/config/database.yml
+.DS_Store
 >>>>>>> 755fe12663d2446cf57bc413b842068ea9c6acf5
