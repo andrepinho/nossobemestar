@@ -1,0 +1,40 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #ddd;
+  font-size: 1em;
+  font-family: 'PT Sans', sans-serif;
+}
+#header_wrapper{
+  z-index: 200;
+  padding-top: 80px;
+  padding-bottom: 20px;
+}
+#header{
+  width: 980px;
+  padding: 20px 0;
+  margin: 0 auto;
+}
+#logo{
+
+}
+#content{
+  padding: 20px;
+  width: 940px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 3px;
+  z-index: 300;
+  margin-top: -20px;
+}
+#sections{
+  text-align: center;
+  margin-bottom: 20px;
+}
+#sections a{
+  text-decoration: none;
+  font-size: 1.2em;
+  border-bottom: 4px solid;
+  padding: 6px 26px;
+  margin: 0 4px;
+}
