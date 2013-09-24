@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     redirect_to root_url(subdomain: Region.first.subdomain) unless current_region
   end
   def current_region
-    @current_region ||= Region.find_by_subdomain(request.subdomain)
+    @current_region ||= (Region.find_by_subdomain(request.subdomain) || Region.create(name: "Porto Alegre", subdomain: "portoalegre"))
   end
   def authenticate
     authenticate_or_request_with_http_basic do |name, password|

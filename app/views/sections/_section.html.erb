@@ -1,6 +1,8 @@
-<% section.posts.each do |post| %>    
-  <h2><%= link_to_unless_current h(post.title), post %></h2>
-  <p id="content"><%= post.content.html_safe %></p>
-  <a href=""><%= post.author %></a>
-  <span id="date"><%= post.published_at %></span>
+<% section.posts.each do |post| %>
+
+  <h2 id="post_title"><%= link_to_unless_current h(post.title), post %></h2>
+  <div  id= "post_date"><%= post.published_at %></div><br><br>
+  <a href="" id="post_author"><%= post.author %></a>
+  <p id="post_content"><%= post.content.html_safe %></p>
+
 <% end %>
