@@ -11,6 +11,13 @@
   padding:0 40px;
   box-shadow: 0px 5px 5px 2px #bababa;
 }
+#current_section_wrapper h2{
+  margin-left: 0;
+  transition: margin-left 2.0s;
+}
+#current_section_wrapper h2:hover{
+  margin-left: 20px;
+}
 #index_table{
   margin: auto;
 }

@@ -29,11 +29,25 @@
     <%= f.text_field :author %>
   </div>
   <div class="field">
+    <%= f.label :front_title %>
+    <%= f.text_field :front_title %>
+  </div>
+  <div class="field">
+    <%= f.label :front_content %>
+    <%= f.text_field :front_content %>
+  </div>
+  <div class="field">
+    <%= f.label :priority %>
+    <%= f.select :priority, [1,2,3,4] %>*
+    
+  </div>
+  <div class="field">
     <%= f.label :section %><br>
     <%= f.select :section, Section.all.map { |s| [s.title, s.id]} %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+  *Select the priority considering 1 the Highest (more important) and 4 the lowest (less important).
 
 <% end %>

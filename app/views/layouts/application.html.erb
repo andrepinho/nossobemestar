@@ -16,10 +16,12 @@
   <div id="content">
     <nav id="sections">
       <% Section.all.each do |section| %>
-        <span style="color:<%=section.color%>"><%= link_to section.title, section_path(section) %></span>
+        <span><a href="/sections/<%=section.id%>" style="color:<%=section.color%>"><%= section.title %></a></span>
       <% end %>
     </nav>
     <%= yield %>
+    <div id="footer">
+    </div>
   </div>
 </body>
 </html>
