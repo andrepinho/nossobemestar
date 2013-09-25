@@ -1,4 +1,16 @@
 // Place all the styles related to the Sections controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+#current_section_wrapper{
+  width: 920px;
+  background-color: #ddd;
+  margin-left: -30px;
+  margin-top: 10px;
+  color: white;
+  opacity: 0.8;
+  padding:0 40px;
+  box-shadow: 0px 5px 5px 2px #bababa;
+}
+#index_table{
+  margin: auto;
+}

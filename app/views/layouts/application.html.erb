@@ -16,7 +16,7 @@
   <div id="content">
     <nav id="sections">
       <% Section.all.each do |section| %>
-        <%= link_to section.title, section_path(section) %>
+        <span style="color:<%=section.color%>"><%= link_to section.title, section_path(section) %></span>
       <% end %>
     </nav>
     <%= yield %>
