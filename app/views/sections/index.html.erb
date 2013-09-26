@@ -14,10 +14,10 @@
       <td><%= section.id %></td>
       <td><%= section.ordering %></td>
       <td style="color:<%= section.color %>;"> <%= section.color %> </td>
-      <td><%= link_to 'Show', section %></td>
-        <td><%= link_to 'Edit', edit_section_path(section) %></td>
-        <td><%= link_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Visualizar', section %></td>
+        <td><%= link_to 'Editar', edit_section_path(section) %></td>
+        <td><%= link_to 'Deletar', section, method: :delete, data: { confirm: 'Você está certo disso?' } %></td>
     </tr>
   <% end %>
 </table>
-<%= link_to 'New Section', new_section_path %>
+<%= link_to 'Nova seção', new_section_path %>

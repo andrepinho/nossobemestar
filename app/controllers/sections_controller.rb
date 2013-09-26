@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class SectionsController < ApplicationController
   before_action :set_section, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate, :except => [:index, :show]
@@ -22,7 +24,7 @@ class SectionsController < ApplicationController
     @section = Section.new(section_params)
     respond_to do |format|
       if @section.save
-        format.html { redirect_to sections_path, notice: 'Section was successfully created.' }
+        format.html { redirect_to sections_path, notice: 'Seção criada com sucesso.' }
         format.json { render action: 'show', status: :created, location: @section }
       else
         format.html { render action: 'new' }
@@ -34,7 +36,7 @@ class SectionsController < ApplicationController
   def update
     respond_to do |format|
       if @section.update(section_params)
-        format.html { redirect_to sections_path, notice: 'Section was successfully updated.' }
+        format.html { redirect_to sections_path, notice: 'Seção atualizada com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

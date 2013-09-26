@@ -4,9 +4,9 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Subdomain</th>
-      <th>Background url</th>
+      <th>Nome</th>
+      <th>Subdomínio</th>
+      <th>URL da imagem de fundo</th>
       <th></th>
       <th></th>
       <th></th>
@@ -19,9 +19,9 @@
         <td><%= region.name %></td>
         <td><%= region.subdomain %></td>
         <td><%= region.background_url %></td>
-        <td><%= link_to 'Show', region %></td>
-        <td><%= link_to 'Edit', edit_region_path(region) %></td>
-        <td><%= link_to 'Destroy', region, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Visualizar', region %></td>
+        <td><%= link_to 'Editar', edit_region_path(region) %></td>
+        <td><%= link_to 'Deletar', region, method: :delete, data: { confirm: 'Você está certo disso?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -29,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Region', new_region_path %>
+<%= link_to 'Nova região', new_region_path %>

@@ -1,7 +1,7 @@
 <%= form_for(@section) do |f| %>
   <% if @section.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@section.errors.count, "error") %> prohibited this section from being saved:</h2>
+      <h2><%= pluralize(@section.errors.count, "erro impediu", "erros impediram") %> que está seção fosse salva:</h2>
 
       <ul>
       <% @section.errors.full_messages.each do |msg| %>
@@ -22,7 +22,7 @@
     <%= f.label :color %><br>
     <%= f.text_field :color %>
   </div>
-  <span>Use HEX colors for the color field. There's a list of them <a href="http://www.w3schools.com/html/html_colornames.asp">here</a>. You can also generate your own <a href="http://www.color-hex.com/">here.</a> </span>
+  <span>Use cores HEX para o campo 'Cor'. Há uma lista de opções <a href="http://www.w3schools.com/html/html_colornames.asp">aqui</a> ou você pode gerar uma cor personalizada <a href="http://www.color-hex.com/">aqui</a>. </span>
   <div class="actions">
     <%= f.submit %>
   </div>

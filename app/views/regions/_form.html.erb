@@ -1,7 +1,7 @@
 <%= form_for(@region) do |f| %>
   <% if @region.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@region.errors.count, "error") %> prohibited this region from being saved:</h2>
+      <h2><%= pluralize(@region.errors.count, "erro impediu", "erros impediram") %> que esta região fosse salva:</h2>
 
       <ul>
       <% @region.errors.full_messages.each do |msg| %>
