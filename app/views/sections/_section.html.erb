@@ -1,3 +1,7 @@
+<% content_for :title do %>
+  <%= @section.title %>
+<% end %>
+
 <% section.posts.each do |post| %>
 
   <h2 id="post_front_title"><%= link_to_unless_current h(post.front_title), post %></h2>

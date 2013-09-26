@@ -1,4 +1,8 @@
-<h1>Editing section</h1>
+<% content_for :title do %>
+  <%= @section.title %>
+<% end %>
+
+<h1>Editando seção '<%= @section.title %>'</h1>
 
 <%= render 'form' %>
 
