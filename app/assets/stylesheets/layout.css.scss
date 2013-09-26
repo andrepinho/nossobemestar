@@ -67,3 +67,17 @@ h1{
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
+#flash div{
+  width: 920px;
+  background-color: #aaa;
+  color: #fff;
+  padding: 8px 30px;
+  margin-left: -30px;
+  margin-bottom: 20px;
+}
+#flash .notice, #flash .success{
+  background-color: #59af6d
+}
+#flash .failure, #flash .error, #flash .alert{
+  background-color: #cc1529
+}

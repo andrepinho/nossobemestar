@@ -20,6 +20,8 @@
         <%= link_to section.name, section_path(section), style: "color: #{section.color}" %>
       <% end %>
     </nav>
+    <%= "<h1#{ " style='background-color: #{yield :color}'" if content_for?(:color) }>#{yield :title}</h1>".html_safe if content_for?(:title) %>
+    <%= render "layouts/flash" unless flash.empty? %>
     <%= yield %>
   </div>
   <div id="footer">

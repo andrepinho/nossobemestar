@@ -1,6 +1,9 @@
 <% content_for :title do %>
   <%= @section.name %>
 <% end %>
+<% content_for :color do %>
+  <%= @section.color %>
+<% end %>
 
 <% section.posts.each do |post| %>
 

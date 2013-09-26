@@ -4,6 +4,7 @@ class SectionsController < ApplicationController
 
   def index
     @sections = Section.order(:ordering).all
+
   end
 
   def show
