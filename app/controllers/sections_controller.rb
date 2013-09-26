@@ -3,7 +3,7 @@ class SectionsController < ApplicationController
   before_filter :authenticate, :except => [:index, :show]
 
   def index
-    @sections = Section.all
+    @sections = Section.order(:ordering).all
   end
 
   def show
@@ -21,7 +21,7 @@ class SectionsController < ApplicationController
     @section = Section.new(section_params)
     respond_to do |format|
       if @section.save
-        format.html { redirect_to @section, notice: 'Section was successfully created.' }
+        format.html { redirect_to sections_path, notice: 'Section was successfully created.' }
         format.json { render action: 'show', status: :created, location: @section }
       else
         format.html { render action: 'new' }
@@ -33,7 +33,7 @@ class SectionsController < ApplicationController
   def update
     respond_to do |format|
       if @section.update(section_params)
-        format.html { redirect_to @section, notice: 'Section was successfully updated.' }
+        format.html { redirect_to sections_path, notice: 'Section was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -45,7 +45,7 @@ class SectionsController < ApplicationController
   def destroy
     @section.destroy
     respond_to do |format|
-      format.html { redirect_to sections_url }
+      format.html { redirect_to sections_path }
       format.json { head :no_content }
     end
   end
@@ -56,7 +56,7 @@ class SectionsController < ApplicationController
     end
 
     def section_params
-        params.require(:section).permit(:title, :color)
+        params.require(:section).permit(:title, :color, :ordering)
     end
 end
   

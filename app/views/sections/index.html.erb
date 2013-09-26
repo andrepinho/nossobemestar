@@ -4,14 +4,16 @@
 <h1>Listando seções</h1>
 <table id="index_table">
   <tr>
-    <th>Title</th>
-    <th>ID</th>
-    <th>Color</th>
+    <th>Título</th>
+    <th>Id</th>
+    <th>Ordem</th>
+    <th>Cor</th>
   </tr>
-  <% @sections.all.each do |section| %>
+  <% @sections.each do |section| %>
     <tr>
-      <td> <%= section.title %> </td>
-      <td> <%= section.id %> </td>
+      <td><%= section.title %></td>
+      <td><%= section.id %></td>
+      <td><%= section.ordering %></td>
       <td style="color:<%= section.color %>;"> <%= section.color %> </td>
       <td><%= link_to 'Show', section %></td>
         <td><%= link_to 'Edit', edit_section_path(section) %></td>
