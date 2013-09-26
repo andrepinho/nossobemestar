@@ -56,7 +56,7 @@ class SectionsController < ApplicationController
     end
 
     def section_params
-        params.require(:section).permit(:title, :color, :ordering)
+        params.require(:section).permit(:name, :color, :ordering)
     end
 end
   

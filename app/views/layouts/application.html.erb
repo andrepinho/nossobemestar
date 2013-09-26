@@ -17,7 +17,7 @@
   <div id="content">
     <nav id="sections">
       <% Section.order(:ordering).all.each do |section| %>
-        <%= link_to section.title, section_path(section), style: "color: #{section.color}" %>
+        <%= link_to section.name, section_path(section), style: "color: #{section.color}" %>
       <% end %>
     </nav>
     <%= yield %>
