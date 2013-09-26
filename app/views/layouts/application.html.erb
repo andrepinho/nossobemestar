@@ -6,6 +6,7 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon.ico' %>
 </head>
 <body>
   <div id="header_wrapper" style="background: url('<%= @current_region.background_url %>')center center no-repeat;">
@@ -16,12 +17,13 @@
   <div id="content">
     <nav id="sections">
       <% Section.all.each do |section| %>
-        <span><a href="/sections/<%=section.id%>" style="color:<%=section.color%>"><%= section.title %></a></span>
+        <%= link_to section.title, section_path(section), style: "color: #{section.color}" %>
       <% end %>
     </nav>
     <%= yield %>
-    <div id="footer">
-    </div>
+  </div>
+  <div id="footer">
+    
   </div>
 </body>
 </html>
