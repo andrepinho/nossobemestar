@@ -2,22 +2,26 @@
   Listando seções
 <% end %>
 <table id="index_table">
-  <tr>
-    <th>Título</th>
-    <th>Id</th>
-    <th>Ordem</th>
-    <th>Cor</th>
-  </tr>
-  <% @sections.each do |section| %>
+  <thead>
     <tr>
-      <td><%= section.name %></td>
-      <td><%= section.id %></td>
-      <td><%= section.ordering %></td>
-      <td style="color:<%= section.color %>;"> <%= section.color %> </td>
-      <td><%= link_to 'Visualizar', section %></td>
+      <th>Título</th>
+      <th>Ordenamento</th>
+      <th>Cor</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sections.each do |section| %>
+      <tr class=<%= cycle("even", "odd") %>>
+        <td><%= link_to section.name, section %></td>
+        <td><%= section.ordering %></td>
+        <td style="color:<%= section.color %>;"> <%= section.color %> </td>
         <td><%= link_to 'Editar', edit_section_path(section) %></td>
         <td><%= link_to 'Deletar', section, method: :delete, data: { confirm: 'Você está certo disso?' } %></td>
-    </tr>
-  <% end %>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
-<%= link_to 'Nova seção', new_section_path %>
+<div class="actions"><%= link_to 'Nova seção', new_section_path, class: "button" %></div>

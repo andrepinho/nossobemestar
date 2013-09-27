@@ -11,7 +11,7 @@ a{
   transition: color 0.3s;
 }
 a:hover{
-  color: #9B0185;
+  color: #4AACC7;
 }
 h1{
   width: 920px;
@@ -50,6 +50,28 @@ input.medium{
 input.small{
   width: 20%;
 }
+table{
+  width: 100%;
+  text-align: center;
+  margin: 40px 0;
+  border-spacing: 0;
+}
+thead{
+  background-color: #aaa;
+  color: #fff;
+}
+tr.odd{
+  background-color: #eee;
+}
+td{
+  margin: 0;
+}
+table img{
+  max-width: 200px;
+  max-height: 200px;
+  margin: 4px 0;
+  vertical-align: middle;
+}
 .button{
   width: auto;
   padding: 12px 20px;
@@ -60,17 +82,20 @@ input.small{
   border: none;
   text-transform: uppercase;
   transition:background-color 0.3s;
+  text-decoration: none;
 }
 .button:hover{
   background-color: #5eb472;
+  color: #fff;
 }
 .button:active{
   background-color: #5eb472;
   padding: 13px 19px 11px 21px;
+  color: #fff;
 }
 .actions{
   margin: 40px 0;
-  text-align: center;
+  text-align: right;
 }
 .actions .button{
   margin-bottom: 12px;

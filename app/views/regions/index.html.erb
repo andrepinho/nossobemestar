@@ -9,21 +9,19 @@
       <th>URL da imagem de fundo</th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @regions.each do |region| %>
-      <tr>
-        <td><%= region.name %></td>
+      <tr class=<%= cycle("even", "odd") %>>
+        <td><%= link_to region.name, region %></td>
         <td><%= region.subdomain %></td>
-        <td><%= region.background_url %></td>
-        <td><%= link_to 'Visualizar', region %></td>
+        <td><%= image_tag region.background_url %></td>
         <td><%= link_to 'Editar', edit_region_path(region) %></td>
         <td><%= link_to 'Deletar', region, method: :delete, data: { confirm: 'Você está certo disso?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%= link_to 'Nova região', new_region_path %>
+<div class="actions"><%= link_to 'Nova região', new_region_path, class: "button" %></div>
