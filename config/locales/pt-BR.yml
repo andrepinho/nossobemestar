@@ -5,7 +5,7 @@ pt-BR:
         id: Id
         title: Título
         content: Conteúdo
-        published_at: Data de publicação
+        published_at: Data e hora de publicação
         author: Autor
         created_at: Criado em
         updated_at: Atualizado em
@@ -28,3 +28,7 @@ pt-BR:
         background_url: URL da imagem de fundo
         created_at: Criado em
         updated_at: Atualizado em
+    models:
+      section: Seção
+      post: Post
+      region: Região

@@ -11,19 +11,21 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "medium" %>
   </div>
   <div class="field">
-    <%= f.label :ordering %><br>
-    <%= f.text_field :ordering %>
+    <%= f.label :ordering %>
+    <%= f.text_field :ordering, class: "small" %>
   </div>
   <div class="field">
-    <%= f.label :color %><br>
-    <%= f.text_field :color %>
+    <%= f.label :color %>
+    <%= f.text_field :color, class: "small" %>
   </div>
-  <span>Use cores HEX para o campo 'Cor'. Há uma lista de opções <a href="http://www.w3schools.com/html/html_colornames.asp">aqui</a> ou você pode gerar uma cor personalizada <a href="http://www.color-hex.com/">aqui</a>. </span>
+  Use cores HEX para o campo 'Cor'. Há uma lista de opções <a href="http://www.w3schools.com/html/html_colornames.asp">aqui</a> ou você pode gerar uma cor personalizada <a href="http://www.color-hex.com/">aqui</a>.
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "button" %>
+    <div>ou</div>
+    <div><a href="javascript:history.back()">cancelar</a></div>
   </div>
 <% end %>

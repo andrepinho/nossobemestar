@@ -12,18 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "small" %>
   </div>
   <div class="field">
-    <%= f.label :subdomain %><br>
-    <%= f.text_field :subdomain %>
+    <%= f.label :subdomain %>
+    <%= f.text_field :subdomain, class: "small" %>
   </div>
   <div class="field">
-    <%= f.label :background_url %><br>
+    <%= f.label :background_url %>
     <%= f.text_field :background_url %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "button"  %>
+    <div>ou</div>
+    <div><a href="javascript:history.back()">cancelar</a></div>
   </div>
 <% end %>

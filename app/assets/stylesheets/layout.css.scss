@@ -2,8 +2,16 @@ body{
   margin: 0;
   padding: 0;
   background-color: #ddd;
+  color: #333;
   font-size: 16px;
   font-family: 'PT Sans', sans-serif;
+}
+a{
+  color: #EFAB00;
+  transition: color 0.3s;
+}
+a:hover{
+  color: #9B0185;
 }
 h1{
   width: 920px;
@@ -12,6 +20,63 @@ h1{
   padding: 8px 30px;
   margin-left: -30px;
   font-size: 24px;
+}
+h2{
+  color: #aaa;
+  font-size: 20px;
+}
+label{
+  display: block;
+  padding-bottom: 4px;
+}
+input, textarea, select{
+  font-size: inherit;
+  border: 1px solid #aaa;
+  padding: 4px;
+}
+input, textarea{
+  width: 100%;
+}
+textarea{
+  height: 120px;
+  resize: none;
+}
+select{
+  color: inherit;
+}
+input.medium{
+  width: 40%;
+}
+input.small{
+  width: 20%;
+}
+.button{
+  width: auto;
+  padding: 12px 20px;
+  border-radius: 4px;
+  background-color: #59af6d;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  text-transform: uppercase;
+  transition:background-color 0.3s;
+}
+.button:hover{
+  background-color: #5eb472;
+}
+.button:active{
+  background-color: #5eb472;
+  padding: 13px 19px 11px 21px;
+}
+.actions{
+  margin: 40px 0;
+  text-align: center;
+}
+.actions .button{
+  margin-bottom: 12px;
+}
+.field{
+  margin-bottom: 20px;
 }
 #header_wrapper{
   z-index: 200;
@@ -37,6 +102,16 @@ h1{
   margin-top: -20px;
   padding-bottom: 50px;
   box-shadow: 0px 5px 30px #929292;
+}
+#error_explanation{
+  border: 2px solid #e58a94;
+  padding: 0 20px;
+  border-radius: 4px;
+  margin: 40px 0;
+  background-color: #f9e7e9;
+}
+#error_explanation h2{
+  color: #e58a94;
 }
 #sections{
   text-align: center;

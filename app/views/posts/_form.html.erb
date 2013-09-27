@@ -12,41 +12,41 @@
   <% end %>
   <%= f.hidden_field :region_id, value: current_region.id %>
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
-  <br><br>
   <div class="field">
-    <%= f.label :content %><br>
+    <%= f.label :content %>
     <%= f.cktext_area :content %>
   </div>
   <div class="field">
-    <%= f.label :published_at %><br>
-    <%= f.datetime_select :published_at %>
+    <%= f.label :author %>
+    <%= f.text_field :author, class: "medium" %>
   </div>
   <div class="field">
-    <%= f.label :author %>
-    <%= f.text_field :author %>
+    <%= f.label :section_id %>
+    <%= f.select :section_id, Section.all.map { |section| [section.name, section.id]} %>
   </div>
   <div class="field">
     <%= f.label :front_title %>
     <%= f.text_field :front_title %>
   </div>
   <div class="field">
-    <%= f.label :front_content %><br>
+    <%= f.label :front_content %>
     <%= f.text_area :front_content %>
   </div>
   <div class="field">
     <%= f.label :ordering %>
-    <%= f.select :ordering, [nil,1,2,3,4] %>
-    
+    <%= f.select :ordering, [nil,1,2,3,4] %>    
   </div>
   <div class="field">
-    <%= f.label :section_id %>
-    <%= f.select :section_id, Section.all.map { |section| [section.name, section.id]} %>
+    <%= f.label :published_at %>
+    <%= f.datetime_select :published_at %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "button" %>
+    <div>ou</div>
+    <div><a href="javascript:history.back()">cancelar</a></div>
   </div>
 
 <% end %>
