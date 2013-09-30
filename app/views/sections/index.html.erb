@@ -4,8 +4,8 @@
 <table>
   <thead>
     <tr>
-      <th>Título</th>
       <th>Ordenamento</th>
+      <th>Título</th>
       <th>Cor</th>
       <th></th>
       <th></th>
@@ -15,8 +15,8 @@
   <tbody>
     <% @sections.each do |section| %>
       <tr class=<%= cycle("even", "odd") %>>
-        <td><%= link_to section.name, section %></td>
         <td><%= section.ordering %></td>
+        <td><%= link_to section.name, section %></td>
         <td style="color:<%= section.color %>;"> <%= section.color %> </td>
         <td><%= link_to 'Editar', edit_section_path(section) %></td>
         <td><%= link_to 'Deletar', section, method: :delete, data: { confirm: 'Você está certo disso?' } %></td>

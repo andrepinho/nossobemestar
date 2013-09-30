@@ -6,7 +6,7 @@
 <% end %>
 <%= div_for @post do %>
 
-  <div id= "post_date">Há <%= time_ago_in_words(@post.published_at) %> atrásp</div>
+  <div id= "post_date">Há <%= time_ago_in_words(@post.published_at) %> atrás</div>
   <a href="" id="author_post"><%= @post.author %></a>
   <p id="post_content"><%= @post.content.html_safe %></p>
 
