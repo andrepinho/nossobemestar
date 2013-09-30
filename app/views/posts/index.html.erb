@@ -20,10 +20,10 @@
       <tr class=<%= cycle("even", "odd") %>>
         <td><%= link_to post.title, post %></td>
         <td><%= post.author %></td>
-        <td><%= l post.published_at %></td>
+        <td><%= l post.published_at, format: :short %></td>
         <td><%= post.ordering %></td>
         <td><%= post.section.name %></td>
-        <td><%= post.region_id %></td>
+        <td><%= post.region.name %></td>
         <td><%= link_to 'Editar', edit_post_path(post) %></td>
         <td><%= link_to 'Deletar', post, method: :delete, data: { confirm: 'Você está certo disso?' } %></td>
       </tr>
