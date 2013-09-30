@@ -14,6 +14,7 @@ pt-BR:
         front_content: Chamada
         ordering: Ordenamento
         region_id: Região
+        image: Imagem
       section:
         id: Id
         name: Nome
