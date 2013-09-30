@@ -1,31 +1,38 @@
 body
   margin: 0
   padding: 0
-  background-color: #ddd
-  color: #333
+  background-color: $background_color
+  color: $text_color
   font-size: 16px
   font-family: 'PT Sans', sans-serif
 a
-  color: #EFAB00
+  color: $link_color
   transition: color 0.3s
   &:hover
-    color: #4AACC7
+    color: $hover_color
 h1
   width: 920px
-  background-color: #aaa
-  color: #fff
+  background-color: $title_color
+  color: $title_text_color
   padding: 8px 30px
   margin-left: -30px
   font-size: 24px
+  margin-bottom: 40px
 h2
-  color: #aaa
+  color: $subtitle_color
   font-size: 20px
+img
+  max-width: 920px
+p
+  padding-top: 0
+  padding-bottom: 20px
+  margin: 0
 label
   display: block
   padding-bottom: 4px
 input, textarea, select
   font-size: inherit
-  border: 1px solid #aaa
+  border: 1px solid $border_color
   padding: 4px
 input, textarea
   width: 100%
@@ -50,10 +57,10 @@ table
     margin: 4px 0
     vertical-align: middle
   thead
-    background-color: #aaa
-    color: #fff
+    background-color: $table_header_color
+    color: $table_header_text_color
   tr.odd
-    background-color: #eee
+    background-color: $table_row_color
   td
     margin: 0
     padding: 4px 2px
@@ -61,20 +68,20 @@ table
   width: auto
   padding: 12px 20px
   border-radius: 4px
-  background-color: #59af6d
-  color: #fff
+  background-color: $button_color
+  color: $button_text_color
   font-weight: bold
   border: none
   text-transform: uppercase
   transition:background-color 0.3s
   text-decoration: none
   &:hover
-    background-color: #5eb472
-    color: #fff
+    background-color: $button_hover_color
+    color: $button_text_color
   &:active
-    background-color: #5eb472
+    background-color: $button_hover_color
     padding: 13px 19px 11px 21px
-    color: #fff
+    color: $button_text_color
 .actions
   margin: 40px 0
   text-align: right
@@ -94,21 +101,21 @@ table
   padding: 30px
   width: 920px
   margin: 0 auto
-  background-color: white
+  background-color: $content_color
   border-top-left-radius: 4px
   border-top-right-radius: 4px
   z-index: 300
   margin-top: -20px
   padding-bottom: 50px
-  box-shadow: 0px 5px 30px #929292
+  box-shadow: 0px 5px 30px $shadow_color
 #error_explanation
-  border: 2px solid #e58a94
+  border: 2px solid $error_border_color
   padding: 0 20px
   border-radius: 4px
   margin: 40px 0
-  background-color: #f9e7e9
+  background-color: $error_background_color
   h2
-    color: #e58a94
+    color: $error_border_color
 #sections
   text-align: center
   margin-bottom: 50px
@@ -125,8 +132,8 @@ table
   width: 900px
   padding: 0px 40px
   margin: 0 auto
-  background-color: #333
-  box-shadow: 0px 5px 30px #929292
+  background-color: $footer_color
+  box-shadow: 0px 5px 30px $shadow_color
   height: 180px
   margin-bottom: 60px
   border-bottom-left-radius: 4px
@@ -134,12 +141,11 @@ table
 #flash
   div
     width: 920px
-    background-color: #aaa
-    color: #fff
+    color: $flash_text_color
     padding: 8px 30px
     margin-left: -30px
     margin-bottom: 20px
   .notice, .success
-    background-color: #59af6d
+    background-color: $flash_success_color
   .failure, .error, .alert
-    background-color: #cc1529
+    background-color: $flash_failure_color
