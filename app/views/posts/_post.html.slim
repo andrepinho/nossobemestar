@@ -3,8 +3,12 @@
 -content_for :color do
   = post.section.color
 
-=div_for post do
-  #post_date= "Há #{time_ago_in_words(post.published_at)} atrás"
-  #author_post= post.author
-  = image_tag post.image.url(:thumb)
-  p#post_content= post.content.html_safe
+= div_for post do
+  h3= post.front_content
+  .quote= "Por #{post.author}, há #{time_ago_in_words(post.published_at)} atrás"
+  .social
+    = render "layouts/twitter"
+    = render "layouts/facebook_like"
+  .image= image_tag post.image.url
+  .content= post.content.html_safe
+  .fb-comments[data-href=request.url data-num-posts=50 data-width="919"]
