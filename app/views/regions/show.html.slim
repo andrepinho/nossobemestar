@@ -1,0 +1,10 @@
+-content_for :title do
+  =@region.name
+p Nome:
+  = @region.name
+
+p Subdomínio:
+  = @region.subdomain
+
+p Imagem de fundo:
+  = image_tag @region.background_url

@@ -3,7 +3,7 @@
 - content_for :color do
   = @section.color
 ul    
-  - section.posts.each do |post|
+  - @posts.each do |post|
     li
       = image_tag post.image.url(:medium)
       h2= link_to post.front_title, post

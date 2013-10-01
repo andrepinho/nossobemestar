@@ -1,0 +1,10 @@
+-content_for :title do
+  = post.title 
+-content_for :color do
+  = post.section.color
+
+=div_for post do
+  #post_date= "Há #{time_ago_in_words(post.published_at)} atrás"
+  #author_post= post.author
+  = image_tag post.image.url(:thumb)
+  p#post_content= post.content.html_safe

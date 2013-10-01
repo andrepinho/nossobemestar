@@ -1,3 +1,4 @@
+# coding: utf-8
 class Post < ActiveRecord::Base
   has_attached_file :image, :styles => { :medium => "200x200>", :thumb => "100x100>" }
   validates_presence_of :title, :content, :author, :front_title, :front_content
@@ -7,6 +8,9 @@ class Post < ActiveRecord::Base
   belongs_to :region
   def to_param
     "#{self.id}-#{self.title.parameterize}"    
+  end
+  def self.visible(region)
+    where(region_id: region.id).where(["published_at <= ?", Time.now])
   end
 end
 

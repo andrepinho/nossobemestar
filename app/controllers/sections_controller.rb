@@ -2,15 +2,15 @@
 
 class SectionsController < ApplicationController
   before_action :set_section, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate, :except => [:index, :show]
+  before_filter :authenticate, :except => [:show]
 
   def index
     @sections = Section.order(:ordering).all
-
   end
 
   def show
-      @section = Section.find(params[:id])
+    @section = Section.find(params[:id])
+    @posts = @section.posts.visible(current_region)
   end
 
   def new

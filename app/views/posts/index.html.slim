@@ -1,0 +1,25 @@
+-content_for :title do
+  ="Listando posts"
+table
+  thead
+    tr
+      th Título
+      th Autor
+      th Data de publicação
+      th Ordenamento
+      th Seção
+      th Região
+      th 
+      th 
+  tbody
+    -@posts.each do |post|
+      tr class= cycle("even", "odd")
+        td= link_to post.title, post 
+        td= post.author 
+        td= l post.published_at, format: :short 
+        td= post.ordering 
+        td= post.section.name 
+        td= post.region.name 
+        td= link_to 'Editar', edit_post_path(post) 
+        td= link_to 'Deletar', post, method: :delete, data: { confirm: 'Você está certo disso?' } 
+.actions = link_to 'Novo post', new_post_path, class: "button"

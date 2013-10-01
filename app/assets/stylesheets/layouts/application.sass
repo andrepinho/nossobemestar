@@ -3,7 +3,7 @@ body
   padding: 0
   background-color: $background_color
   color: $text_color
-  font-size: 16px
+  font-size: $standard_size
   font-family: 'PT Sans', sans-serif
 a
   color: $link_color
@@ -16,11 +16,11 @@ h1
   color: $title_text_color
   padding: 8px 30px
   margin-left: -30px
-  font-size: 24px
+  font-size: $big_size
   margin-bottom: 40px
 h2
   color: $subtitle_color
-  font-size: 20px
+  font-size: $medium_size
 img
   max-width: 920px
 p
@@ -118,11 +118,11 @@ table
     color: $error_border_color
 #sections
   text-align: center
-  margin-bottom: 50px
+  margin-bottom: 30px
   a
     text-decoration: none
-    font-size: 19px
-    border-bottom: 4px solid
+    font-size: $medium_size
+    // border-bottom: 4px solid
     padding: 6px 24px
     margin: 0 4px
     transition:padding 0.2s

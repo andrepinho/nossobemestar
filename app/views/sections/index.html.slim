@@ -1,0 +1,20 @@
+-content_for :title do
+  ="Listando seções"
+table
+  thead
+    tr
+      th Ordenamento
+      th Título
+      th Cor
+      th
+      th
+      th
+  tbody
+    -@sections.each do |section|
+      tr class= cycle("even", "odd")
+        td= section.ordering
+        td= link_to section.name, section
+        td style="color:#{section.color}"   =section.color
+        td= link_to 'Editar', edit_section_path(section)
+        td= link_to 'Deletar', section, method: :delete, data: { confirm: 'Você está certo disso?' }
+.actions= link_to 'Nova seção', new_section_path, class: "button"

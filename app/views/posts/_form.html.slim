@@ -1,0 +1,39 @@
+=form_for(@post) do |f|
+  -if @post.errors.any?
+    #error_explanation
+      h2= "#{pluralize(@post.errors.count, "erro impediu", "erros impediram")} que esse post fosse salvo:"
+      ul
+        -@post.errors.full_messages.each do |msg|
+          li= msg
+
+  =f.hidden_field :region_id, value: current_region.id
+  .field
+    =f.label :title
+    =f.text_field :title
+  .field
+    =f.label :content
+    =f.cktext_area :content
+  .field
+    =f.label :author
+    =f.text_field :author, class: "medium"
+  .field
+    =f.label :section_id
+    =f.select :section_id, Section.all.map { |section| [section.name, section.id]}
+  .field
+    =f.label :front_title
+    =f.text_field :front_title
+  .field
+    =f.label :front_content
+    =f.text_area :front_content
+  .field
+    =f.label :ordering
+    =f.select :ordering, [nil,1,2,3,4]    
+  .field
+    =f.label :image
+    =f.file_field :image    
+  .field
+    =f.label :published_at
+    =f.datetime_select :published_at
+  .actions
+    = f.submit  class:"button"
+    div ou <a href="javascript:history.back()">cancelar
