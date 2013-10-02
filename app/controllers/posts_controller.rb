@@ -27,7 +27,6 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-    @post.section = Section.find (params[:post][:section_id])
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post criado com sucesso.' }
@@ -71,6 +70,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:region_id, :title, :content, :published_at, :author, :front_title, :front_content, :ordering, :image)
+      params.require(:post).permit(:region_id, :title, :content, :published_at, :author, :front_title, :front_content, :ordering, :image, :section_id)
     end
 end

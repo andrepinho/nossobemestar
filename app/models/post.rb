@@ -9,8 +9,11 @@ class Post < ActiveRecord::Base
   def to_param
     "#{self.id}-#{self.title.parameterize}"    
   end
-  def self.visible(region)
-    where(region_id: region.id).where(["published_at <= ?", Time.now])
+  def self.visible
+    where(["published_at <= ?", Time.now])
+  end
+  def self.highlighted
+    visible.where("ordering IS NOT NULL").order(:ordering).limit(4)    
   end
 end
 

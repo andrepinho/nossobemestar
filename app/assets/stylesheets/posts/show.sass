@@ -2,14 +2,13 @@ body[data-action="show"][data-controller="posts"][data-namespace="null"]
   h1
     margin-bottom: 20px
     font-size: $medium_size
-  h3
-    margin-bottom: 10px
   .quote
     font-size: $small_size
     color: $subtitle_color
     margin-bottom: 20px
     float: left
   .social
+    +clearfix
     float: right
     .facebook, .twitter
       float: right
@@ -18,4 +17,3 @@ body[data-action="show"][data-controller="posts"][data-namespace="null"]
       margin-right: -35px
   .image
     margin-bottom: 20px
-    clear: both
