@@ -1,9 +1,9 @@
-=form_for(@region) do |f|
-  -if @region.errors.any?
+= form_for(@region) do |f|
+  - if @region.errors.any?
     #error_explanation
-      h2= "#{pluralize(@region.errors.count, "erro impediu", "erros impediram")} que essa região fosse salva:"
+      h2 = "#{pluralize(@region.errors.count, "erro impediu", "erros impediram")} que essa região fosse salva:"
       ul
-        -@region.errors.full_messages.each do |msg|
+        - @region.errors.full_messages.each do |msg|
           li= msg
   .field
     = f.label :name
@@ -15,5 +15,7 @@
     = f.label :background_url
     = f.text_field :background_url
   .actions
-    = f.submit class: "button" 
-  div ou <a href="javascript:history.back()">cancelar
+    = f.submit  class:"button"
+    div
+      | ou 
+      a href="javascript:history.back()" cancelar

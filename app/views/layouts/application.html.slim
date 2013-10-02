@@ -20,3 +20,17 @@ html lang="#{I18n.locale}" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http:/
       = render "layouts/flash" unless flash.empty?
       = yield
     #footer
+      ul
+        h3 Cidades
+        - Region.all.each do |region|
+          a href="#{region.subdomain}.lvh.me:3000"= region.name
+      ul
+        h3 Seções
+        - Section.order(:ordering).all.each do |section|
+          = link_to section.name, section_path(section)
+      ul
+        h3 Contato
+        a#email href="mailto:portalnossobemestar@gmail.com" portalnossobemestar@gmail.com
+        h3 Redes Sociais
+        .social
+          = render "layouts/facebook_like"
