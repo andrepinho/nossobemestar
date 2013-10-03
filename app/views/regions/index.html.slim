@@ -11,7 +11,7 @@ table
   tbody
     -@regions.each do |region|
       tr class= cycle("even", "odd")
-        td= link_to region.name, region
+        td= link_to region.name, region_path(region)
         td= region.subdomain
         td= image_tag region.background_url
         td= link_to 'Editar', edit_region_path(region)

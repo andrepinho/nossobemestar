@@ -2,7 +2,7 @@
 
 class RegionsController < ApplicationController
   before_action :set_region, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate
+  before_filter :authenticate, :except => [:show]
   # GET /regions
   # GET /regions.json
   def index
@@ -12,6 +12,7 @@ class RegionsController < ApplicationController
   # GET /regions/1
   # GET /regions/1.json
   def show
+    redirect_to root_url(subdomain: @region.subdomain)
   end
 
   # GET /regions/new
