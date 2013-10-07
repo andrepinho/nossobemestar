@@ -29,6 +29,7 @@ class RegionsController < ApplicationController
         format.html { render action: 'new' }
         format.json { render json: @region.errors, status: :unprocessable_entity }
       end
+    end
   end
 
   def update
