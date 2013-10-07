@@ -29,7 +29,7 @@ class RegionsController < ApplicationController
         format.html { render action: 'new' }
         format.json { render json: @region.errors, status: :unprocessable_entity }
       end
-    end
+  end
 
   def update
     respond_to do |format|
@@ -52,11 +52,11 @@ class RegionsController < ApplicationController
   end
 
   private
-    def set_region
-      @region = Region.find(params[:id])
-    end
+  def set_region
+    @region = Region.find(params[:id])
+  end
 
-    def region_params
-      params.require(:region).permit(:name, :subdomain, :background)
-    end
+  def region_params
+    params.require(:region).permit(:name, :subdomain, :background)
+  end
 end
