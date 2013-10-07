@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130930182817) do
+ActiveRecord::Schema.define(version: 20131003191645) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -52,9 +52,12 @@ ActiveRecord::Schema.define(version: 20130930182817) do
   create_table "regions", force: true do |t|
     t.string   "name"
     t.string   "subdomain"
-    t.string   "background_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "background_file_name"
+    t.string   "background_content_type"
+    t.integer  "background_file_size"
+    t.datetime "background_updated_at"
   end
 
   create_table "sections", force: true do |t|

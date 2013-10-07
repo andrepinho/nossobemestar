@@ -26,4 +26,14 @@ Portal::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  # config/environments/production.rb
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['AWS_BUCKET'],
+      :access_key_id => AKIAJ4VHEK6GXNBQKWZA,
+      :secret_access_key => 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
+    }
+}
 end

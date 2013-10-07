@@ -1,1 +1,1 @@
-json.extract! @region, :name, :subdomain, :background_url, :created_at, :updated_at
+json.extract! @region, :name, :subdomain, :background, :created_at, :updated_at

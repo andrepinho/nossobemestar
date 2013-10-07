@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :detect_region
   helper_method :current_region, :namespace
+
   private
   def detect_region
     unless current_region
@@ -13,17 +14,21 @@ class ApplicationController < ActionController::Base
       redirect_to root_url(subdomain: region.subdomain) unless current_region
     end
   end
+
   def current_region
     @current_region ||= Region.find_by_subdomain(request.subdomain)
   end
+
   def authenticate
     authenticate_or_request_with_http_basic do |name, password|
       name == "admin" && Digest::MD5.hexdigest(password) == "605593df6a4323da215d22838c527489"
     end
   end
+
   def namespace
     names = self.class.to_s.split('::')
     return "null" if names.length < 2
     names[0..(names.length-2)].map(&:downcase).join('_')
   end
+  
 end

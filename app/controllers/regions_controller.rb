@@ -3,29 +3,21 @@
 class RegionsController < ApplicationController
   before_action :set_region, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate, :except => [:show]
-  # GET /regions
-  # GET /regions.json
   def index
     @regions = Region.all
   end
 
-  # GET /regions/1
-  # GET /regions/1.json
   def show
     redirect_to root_url(subdomain: @region.subdomain)
   end
 
-  # GET /regions/new
   def new
     @region = Region.new
   end
 
-  # GET /regions/1/edit
   def edit
   end
 
-  # POST /regions
-  # POST /regions.json
   def create
     @region = Region.new(region_params)
 
@@ -38,10 +30,7 @@ class RegionsController < ApplicationController
         format.json { render json: @region.errors, status: :unprocessable_entity }
       end
     end
-  end
 
-  # PATCH/PUT /regions/1
-  # PATCH/PUT /regions/1.json
   def update
     respond_to do |format|
       if @region.update(region_params)
@@ -54,8 +43,6 @@ class RegionsController < ApplicationController
     end
   end
 
-  # DELETE /regions/1
-  # DELETE /regions/1.json
   def destroy
     @region.destroy
     respond_to do |format|
@@ -65,13 +52,11 @@ class RegionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_region
       @region = Region.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def region_params
-      params.require(:region).permit(:name, :subdomain, :background_url)
+      params.require(:region).permit(:name, :subdomain, :background)
     end
 end

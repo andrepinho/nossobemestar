@@ -26,7 +26,7 @@ pt-BR:
         id: Id
         name: Nome
         subdomain: Subdomínio
-        background_url: URL da imagem de fundo
+        background: Imagem de fundo
         created_at: Criado em
         updated_at: Atualizado em
     models:

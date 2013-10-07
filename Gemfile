@@ -31,6 +31,8 @@ gem "ckeditor"
 
 gem "paperclip"
 
+gem "aws-sdk"
+
 gem "slim"
 
 group :doc do
