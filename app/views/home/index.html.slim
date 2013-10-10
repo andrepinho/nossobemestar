@@ -5,6 +5,8 @@
   - unless section.posts.highlighted.empty?
     .section
       h2 style="background-color: #{section.color}"= section.name
+      #left_triangle style="border-color: transparent #{section.color} transparent transparent "
+      #right_triangle style="border-color: #{section.color} transparent transparent transparent "
       ul
         - section.posts.highlighted.each do |post|
           li

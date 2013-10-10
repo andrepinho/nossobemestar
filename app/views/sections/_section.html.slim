@@ -1,8 +1,8 @@
 - content_for :title do
-  = @section.name 
+  = @section.name
 - content_for :color do
   = @section.color
-ul    
+ul
   - @posts.each do |post|
     li
       = image_tag post.image.url(:medium)
