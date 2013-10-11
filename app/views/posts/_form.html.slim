@@ -32,6 +32,9 @@
     = f.label :image
     = f.file_field :image
   .field
+    = f.label :image_credit
+    = f.text_field :image_credit, class: "medium"
+  .field
     = f.label :published_at
     = f.datetime_select :published_at
   .actions

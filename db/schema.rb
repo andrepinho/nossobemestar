@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131003191645) do
+ActiveRecord::Schema.define(version: 20131010223644) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20131003191645) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "image_credit"
   end
 
   add_index "posts", ["section_id"], name: "index_posts_on_section_id", using: :btree

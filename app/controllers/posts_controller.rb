@@ -31,7 +31,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    respond_to do |format| 
+    respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post atualizado com sucesso.' }
         format.json { head :no_content }
@@ -56,6 +56,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:region_id, :title, :content, :published_at, :author, :front_title, :front_content, :ordering, :image, :section_id)
+      params.require(:post).permit(:region_id, :title, :content, :published_at, :author, :front_title, :front_content, :ordering, :image, :image_credit, :section_id)
     end
 end
