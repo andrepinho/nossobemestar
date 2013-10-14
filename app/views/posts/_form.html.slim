@@ -7,7 +7,7 @@
           li= msg
   .field
     = f.label :region_id
-    = f.select :region_id, ['Todas', nil] + Region.all.map { |region| [region.name, region.id]}
+    = f.select :region_id, [nil] + Region.all.map { |region| [region.name, region.id]}
   .field
     = f.label :title
     = f.text_field :title
@@ -29,6 +29,9 @@
   .field
     = f.label :ordering
     = f.select :ordering, [nil,1,2,3,4]
+  .field
+    = f.label :home_ordering
+    = f.select :home_ordering, [nil,1,2,3,4]
   .field
     = f.label :image
     = f.file_field :image

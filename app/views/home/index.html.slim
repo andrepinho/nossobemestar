@@ -1,6 +1,7 @@
 - content_for :title do
   = "Jornais de Bem Estar"
-
+- @posts.each do |post|
+  h2= 'HOME'
 - @sections.each do |section|
   - unless section.posts.highlighted.empty?
     .section

@@ -2,9 +2,19 @@
   = @section.name
 - content_for :color do
   = @section.color
-ul
-  - @posts.each do |post|
-    li
-      = image_tag post.image.url(:medium)
-      h3= link_to post.front_title, post, style: "color: #{@section.color}"
-      h4= post.front_content
+- unless section.posts.highlighted.empty?
+  .section_highlight
+    ul
+      - section.posts.highlighted.each do |post|
+        li
+          = link_to image_tag(post.image.url), post_path(post)
+          h3= link_to post.front_title, post_path(post), style: "color: #{section.color}"
+          h4= post.front_content
+  .section_list
+    ul
+      - @posts.each do |post|
+        -unless post.ordering != nil
+          li
+            = image_tag post.image.url(:medium)
+            h3= link_to post.front_title, post, style: "color: #{@section.color}"
+            h4= post.front_content

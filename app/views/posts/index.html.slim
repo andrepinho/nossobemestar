@@ -6,7 +6,8 @@ table
       th Título
       th Autor
       th Data de publicação
-      th Ordenamento
+      th Ordem Home
+      th Ordem Seção
       th Seção
       th Região
       th
@@ -17,9 +18,16 @@ table
         td= link_to post.title, post
         td= post.author
         td= l post.published_at, format: :short
-        td= post.ordering
+        -if post.home_ordering == nil
+          td= '-'
+        -else
+          td=post.home_ordering
+        -if post.ordering == nil
+          td= '-'
+        -else
+          td=post.ordering
         td= post.section.name
-        -if post.region_id != 0
+        -if post.region_id != nil
           td= post.region.name
         -else
           td= 'Todas'
