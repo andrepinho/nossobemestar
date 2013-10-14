@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_section instead.
   protect_from_forgery with: :exception
-  before_filter :detect_region
+  # before_filter :detect_region
   helper_method :current_region, :namespace
 
   private

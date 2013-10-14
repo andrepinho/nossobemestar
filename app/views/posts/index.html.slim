@@ -14,12 +14,15 @@ table
   tbody
     - @posts.each do |post|
       tr class= cycle("even", "odd")
-        td= link_to post.title, post 
-        td= post.author 
-        td= l post.published_at, format: :short 
-        td= post.ordering 
-        td= post.section.name 
-        td= post.region.name 
-        td= link_to 'Editar', edit_post_path(post) 
-        td= link_to 'Deletar', post, method: :delete, data: { confirm: 'Você está certo disso?' } 
+        td= link_to post.title, post
+        td= post.author
+        td= l post.published_at, format: :short
+        td= post.ordering
+        td= post.section.name
+        -if post.region_id != 0
+          td= post.region.name
+        -else
+          td= 'Todas'
+        td= link_to 'Editar', edit_post_path(post)
+        td= link_to 'Deletar', post, method: :delete, data: { confirm: 'Você está certo disso?' }
 .actions= link_to 'Novo post', new_post_path, class: "button"

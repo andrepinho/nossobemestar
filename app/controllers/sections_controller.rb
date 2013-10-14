@@ -10,7 +10,7 @@ class SectionsController < ApplicationController
 
   def show
     @section = Section.find(params[:id])
-    @posts = current_region.posts.visible.where(section: @section)
+    @posts = @section.posts.visible
   end
 
   def new
@@ -62,4 +62,3 @@ class SectionsController < ApplicationController
         params.require(:section).permit(:name, :color, :ordering)
     end
 end
-  

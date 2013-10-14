@@ -5,8 +5,9 @@
       ul
         - @post.errors.full_messages.each do |msg|
           li= msg
-
-  = f.hidden_field :region_id, value: current_region.id
+  .field
+    = f.label :region_id
+    = f.select :region_id, ['Todas', nil] + Region.all.map { |region| [region.name, region.id]}
   .field
     = f.label :title
     = f.text_field :title
@@ -40,5 +41,5 @@
   .actions
     = f.submit  class:"button"
     div
-      | ou
+      | ou 
       a href="javascript:history.back()" cancelar
