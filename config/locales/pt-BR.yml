@@ -12,7 +12,8 @@ pt-BR:
         section_id: Seção
         front_title: Manchete
         front_content: Chamada
-        ordering: Ordenamento
+        ordering: Ordem na Seção
+        home_ordering: Ordem na Home
         region_id: Região
         image: Imagem
         image_credit: Crédito da imagem
