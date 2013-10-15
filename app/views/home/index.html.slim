@@ -1,7 +1,16 @@
 - content_for :title do
   = "Jornais de Bem Estar"
-- @posts.each do |post|
-  h2= 'HOME'
+#home_highlighted
+  - @posts.each do |post|
+    h2 style="background-color: #999"="Destaques"
+    #left_triangle style="border-color: transparent #999 transparent transparent "
+    #right_triangle style="border-color: #999 transparent transparent transparent "
+    ul
+      - @posts.each do |post|
+        li
+          = link_to image_tag(post.image.url), post_path(post)
+          h3= link_to post.front_title, post_path(post), style: "color: #999"
+          h4= post.front_content
 - @sections.each do |section|
   - unless section.posts.highlighted.empty?
     .section
