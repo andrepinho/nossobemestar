@@ -14,5 +14,6 @@
   .post_image
     .image= image_tag post.image.url
     .image_credit= post.image_credit
+    .image_caption= post.image_caption
   .content= post.content.html_safe
   .fb-comments[data-href=request.url data-num-posts=50 data-width="919"]

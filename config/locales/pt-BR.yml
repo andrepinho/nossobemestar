@@ -17,6 +17,7 @@ pt-BR:
         region_id: Região
         image: Imagem
         image_credit: Crédito da imagem
+        image_caption: Legenda da imagem
       section:
         id: Id
         name: Nome
