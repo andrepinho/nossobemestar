@@ -10,7 +10,7 @@ class SectionsController < ApplicationController
 
   def show
     @section = Section.find(params[:id])
-    @posts = @section.posts.visible
+    @posts = @section.posts.visible.order("published_at")
   end
 
   def new

@@ -3,13 +3,13 @@
 table
   thead
     tr
-      th Título
-      th Autor
-      th Data de publicação
-      th Ordem Home
-      th Ordem Seção
-      th Seção
-      th Região
+      th= sortable "title", "Título"
+      th= sortable "author", "Autor"
+      th= sortable "published_at", "Data de publicação"
+      th= sortable "home_ordering", "Ordem Home"
+      th= sortable "ordering", "Ordem Seção"
+      th= sortable "section_id", "Seção"
+      th= sortable "region_id", "Região"
       th
       th
   tbody
@@ -17,7 +17,7 @@ table
       tr class= cycle("even", "odd")
         td= link_to post.title, post
         td= post.author
-        td= l post.published_at, format: :short
+        td= l post.published_at, format: :simple
         -if post.home_ordering == nil
           td= '-'
         -else
@@ -33,4 +33,5 @@ table
           td= 'Todas'
         td= link_to 'Editar', edit_post_path(post)
         td= link_to 'Deletar', post, method: :delete, data: { confirm: 'Você está certo disso?' }
+= paginate @posts
 .actions= link_to 'Novo post', new_post_path, class: "button"
