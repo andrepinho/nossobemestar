@@ -36,3 +36,9 @@ pt-BR:
       section: Seção
       post: Post
       region: Região
+  views:
+    pagination:
+      first: "<<"
+      previous: "<"
+      next: ">"
+      last: ">>"

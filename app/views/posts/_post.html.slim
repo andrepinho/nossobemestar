@@ -7,8 +7,9 @@
   h3= post.front_content
   .quote= "Por #{post.author}, há #{time_ago_in_words(post.published_at)} atrás."
   .social
-    = render "layouts/twitter"
+    = render "layouts/mail_to"
     = render "layouts/facebook_like_small"
+    = render "layouts/twitter"
   br
   br
   .post_image
