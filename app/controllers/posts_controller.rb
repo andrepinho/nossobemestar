@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post criado com sucesso.' }
+        format.html { redirect_to redirect_to action: "index", notice: 'Post criado com sucesso.' }
         format.json { render action: 'show', status: :created, location: @post }
       else
         format.html { render action: 'new' }
@@ -34,7 +34,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post atualizado com sucesso.' }
+        format.html { redirect_to action: "index", notice: 'Post atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -61,8 +61,8 @@ class PostsController < ApplicationController
     end
 
     def sort_column
-      params[:sort] || "title"
-      Post.column_names.include?(params[:sort]) ? params[:sort] : "title"
+      params[:sort] || "published_at"
+      Post.column_names.include?(params[:sort]) ? params[:sort] : "published_at"
     end
 
     def sort_direction

@@ -170,6 +170,7 @@ table
   border-style: solid
   border-width: 10px 21px 0 0
 .pagination
+  text-align: center
   a
     text-decoration: none
 #footer
@@ -185,15 +186,30 @@ table
   ul
     display: inline-block
     vertical-align: top
-    margin-right: 95px
+    margin-right: 20px
   a
     display: block
     text-decoration: none
     padding 3px 0
-  #email
-    margin-bottom: 20px
   h3
     color: $title_text_color
+  #email
+    margin-bottom: 15px
+  #newsletter
+    #newsletter_input
+      display: inline
+      font-size: 14px
+      #newsletter_email_field
+        width: 150px
+      #newsletter_button
+        color: $title_text_color
+        background-color: $link_color
+        transition: background-color 0.3s
+        width: 30px
+      #newsletter_button:hover
+        background-color: $hover_color
+    #newsletter_title
+      margin-top: 15px
 #flash
   div
     width: 920px

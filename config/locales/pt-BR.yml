@@ -42,3 +42,4 @@ pt-BR:
       previous: "<"
       next: ">"
       last: ">>"
+      truncate: "..."
