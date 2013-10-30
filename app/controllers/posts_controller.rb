@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     respond_to do |format|
       if @post.save
-        format.html { redirect_to redirect_to action: "index", notice: 'Post criado com sucesso.' }
+        format.html { redirect_to action: "index", notice: 'Post criado com sucesso.' }
         format.json { render action: 'show', status: :created, location: @post }
       else
         format.html { render action: 'new' }
@@ -66,7 +66,7 @@ class PostsController < ApplicationController
     end
 
     def sort_direction
-      params[:direction] || "asc"
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+      params[:direction] || "decs"
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
     end
 end
