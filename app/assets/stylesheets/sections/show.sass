@@ -1,19 +1,8 @@
 body[data-action="show"][data-controller="sections"][data-namespace="null"]
   .section_highlight
-    margin-bottom: 30px
-    border-top-right-radius: 12px
+    margin-bottom: 20px
     border-bottom: 1px dashed $border_color
     padding-bottom: 10px
-    h2
-      // opacity: 0.95
-      width: 920px
-      margin-top: 0
-      color: $title_text_color
-      padding: 4px 50px
-      margin-left: -50px
-      font-size: $big_size
-      margin-bottom: 40px
-      box-shadow: 0px 2px 5px $shadow_color
     ul
       list-style: none
       padding: 10px 0 0 0
@@ -21,21 +10,22 @@ body[data-action="show"][data-controller="sections"][data-namespace="null"]
       +clearfix
       li
         vertical-align: top
-        width: 460px
+        width: 330px
         margin-bottom: 20px
-        float: right
+        display: inline-block
         a
           text-transform: uppercase
           text-decoration: none
           &:hover
             text-decoration: underline
         img
-          width: 100px
+          width: 120px
           margin-right: 20px
           box-shadow: 2px 2px 5px $shadow_color
           float: left
           margin-bottom: 10px
         &:first-child
+          width: 380px
           float: left
           margin-right: 20px
           img
