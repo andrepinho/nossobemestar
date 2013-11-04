@@ -1,2 +1,2 @@
-.mail_to= mail_to "", subject: "", body: "#{request.original_url}" do
+.mail_to= mail_to "", subject: "#{@post.title}", body: "#{request.original_url}" do
   =image_tag("email.jpg")
