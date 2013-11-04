@@ -1,4 +1,6 @@
 #home_highlighted
+  #ad
+      =image_tag("ad.jpg")
   h1 style="background-color: #999"="Destaques"
   #left_triangle style="border-color: transparent #999 transparent transparent "
   ul
@@ -9,10 +11,11 @@
         h4= post.front_content
 - @sections.each do |section|
   - unless section.posts.highlighted.empty?
+    #ad
+      =image_tag("ad.jpg")
     .section
       h1 style="background-color: #{section.color}"= section.name
       #left_triangle style="border-color: transparent #{section.color} transparent transparent "
-      #right_triangle style="border-color: #{section.color} transparent transparent transparent "
       ul
         - section.posts.highlighted.each do |post|
           li

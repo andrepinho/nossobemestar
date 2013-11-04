@@ -4,6 +4,8 @@
   = post.section.color
 
 = div_for post do
+  #ad
+      =image_tag("ad.jpg")
   h3= post.front_content
   .quote= "Por #{post.author}, há #{time_ago_in_words(post.published_at)} atrás."
   .social

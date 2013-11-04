@@ -4,6 +4,8 @@
   = section.color
 
 - unless @highlighted_section.empty? || @page != nil
+  #ad
+      =image_tag("ad.jpg")
   .section_highlight
     ul
       - @highlighted_section.each do |post|
