@@ -161,6 +161,7 @@ DEPENDENCIES
   aws-sdk
   ckeditor
   coffee-rails (~> 4.0.0)
+  compass
   compass-960-plugin
   jbuilder (~> 1.2)
   jquery-rails
