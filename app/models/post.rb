@@ -1,6 +1,6 @@
 # coding: utf-8
 class Post < ActiveRecord::Base
-  has_attached_file :image, :styles => { :medium => "200x200>", :thumb => "100x100>" }
+  has_attached_file :image, :styles => { :medium => "472x314>", :thumb => "100x100>" }
   validates_presence_of :title, :content, :author, :front_title, :front_content, :image_credit
   validates_attachment :image, :presence => true,
   :content_type => { :content_type => "image/jpeg" }
