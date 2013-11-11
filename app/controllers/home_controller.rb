@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @sections = Section.all
+    @sections = Section.order(:ordering).all
     @posts = Post.visible.home_page
   end
 end
