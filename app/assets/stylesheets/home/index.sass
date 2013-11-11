@@ -2,9 +2,24 @@ body[data-action="index"][data-controller="home"][data-namespace="null"]
   .section, #home_highlighted
     margin-bottom: 20px
     height: 645px
+    .more
+      +grid(1)
+      +omega
+      a
+        text-align: center
+        font-size: $big_size
+        font-weight: bold
+        display: block
+        width: 100%
+        padding-top: 104px
+        height: 126px
+        color: $title_text_color
+        text-decoration: none
+        +transition(0.3s)
+        &:hover
+          +opacity(0.8)
     ul
       margin-top: 10px
-      +clearfix
       li
         +grid(4)
         +clearfix
@@ -38,8 +53,8 @@ body[data-action="index"][data-controller="home"][data-namespace="null"]
             font-size: $small_size
         &:nth-child(2)
           +alpha
-        &:nth-child(4)
-          +omega
+        // &:nth-child(4)
+        //   +omega
         &:first-child
           +grid(13)
           +alpha

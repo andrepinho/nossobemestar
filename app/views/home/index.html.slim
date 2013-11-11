@@ -8,6 +8,8 @@
         .text
           h3= link_to post.front_title, post_path(post), style: "color: #777"
           h4= post.front_content
+  .more
+    = link_to "+", "#", style: "background-color: #777"
 - @sections.each do |section|
   - unless section.posts.highlighted.empty?
     .section
@@ -20,3 +22,5 @@
             .text
               h3= link_to post.front_title, post_path(post), style: "color: #{section.color}"
               h4= post.front_content
+      .more
+        = link_to "+", section_path(section), style: "background-color: #{section.color}"
