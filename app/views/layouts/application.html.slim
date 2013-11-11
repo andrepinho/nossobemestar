@@ -20,7 +20,7 @@ html lang="#{I18n.locale}" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http:/
           nav
             - Region.all.each do |region|
               =link_to region.name, region_path(region)
-    #menu_wrapper style="background: url('#{(current_region ? current_region.background : 'http://i17.photobucket.com/albums/b91/latinohunk/13treze/pano3-4.jpg' )}') center center no-repeat;"
+    #menu_wrapper style="background: #fff url('#{(current_region ? current_region.background : 'http://i17.photobucket.com/albums/b91/latinohunk/13treze/pano3-4.jpg' )}') center center no-repeat;"
       #menu
     #content
       nav#sections

@@ -119,8 +119,8 @@ table
       background-color: $hover_color
 #header_wrapper
   background-color: $header_color
+  border-bottom: 1px solid $border_color
   +clearfix
-  margin-bottom: 200px
   #header
     +grid-system(16)
     padding: 4px 0
@@ -165,6 +165,11 @@ table
       padding-top: 12px
       select
         width: 100%
+#menu_wrapper
+  padding-top: 80px
+  +clearfix
+  #menu
+    +grid-system(16)
 #content
   padding: 10px
   width: 920px
@@ -174,7 +179,6 @@ table
   border-top-right-radius: 2px
   margin-top: -20px
   padding-bottom: 50px
-  // box-shadow: 0px 5px 10px $shadow_color
 #error_explanation
   border: 2px solid $error_border_color
   padding: 0 20px
