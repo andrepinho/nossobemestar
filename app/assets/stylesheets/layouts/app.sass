@@ -167,9 +167,23 @@ table
         width: 100%
 #menu_wrapper
   padding-top: 80px
+  margin-bottom: 200px
   +clearfix
   #menu
-    +grid-system(16)
+    background: image-url("ribbon.png") top center no-repeat
+    height: 53px
+  #sections
+    padding: 10px 0 8px
+    text-align: center
+    a
+      text-decoration: none
+      text-transform: uppercase
+      font-size: $standard_size
+      padding: 0 16px
+      &.local
+        color: $text_color
+      &:hover
+        text-decoration: underline
 #content
   padding: 10px
   width: 920px
@@ -187,18 +201,6 @@ table
   background-color: $error_background_color
   h2
     color: $error_border_color
-#sections
-  text-align: center
-  margin-bottom: 30px
-  a
-    text-decoration: none
-    font-size: $medium_size
-    // border-bottom: 4px solid
-    padding: 6px 24px
-    margin: 0 4px
-    transition:padding 0.2s
-    &:active
-      padding: 4px 24px
 #left_triangle
   opacity: 0.6
   margin-left: -31px
