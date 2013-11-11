@@ -4,7 +4,10 @@ body
   background-color: $background_color
   color: $text_color
   font-size: $standard_size
+  line-height: 130%
   font-family: 'PT Sans', sans-serif
+  -webkit-font-smoothing: antialiased  
+  font-smoothing: antialiased  
 a
   color: $link_color
   transition: color 0.3s
@@ -167,8 +170,8 @@ table
       select
         width: 100%
 #menu_wrapper
-  padding-top: 80px
-  margin-bottom: 30px
+  padding-top: 70px
+  margin-bottom: 10px
   +clearfix
   #menu
     background: image-url("ribbon.png") top center no-repeat
@@ -180,7 +183,7 @@ table
       text-decoration: none
       text-transform: uppercase
       font-size: $standard_size
-      padding: 0 16px
+      padding: 0 24px
       &.local
         color: $text_color
       &:hover
