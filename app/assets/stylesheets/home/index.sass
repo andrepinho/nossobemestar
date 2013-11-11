@@ -49,12 +49,15 @@ body[data-action="index"][data-controller="home"][data-namespace="null"]
             a
               text-decoration: none
               font-size: $standard_size
+              &:hover
+                text-decoration: underline
           h4
-            font-size: $small_size
+            a
+              color: $subtitle_color
+              text-decoration: none
+              font-size: $small_size
         &:nth-child(2)
           +alpha
-        // &:nth-child(4)
-        //   +omega
         &:first-child
           +grid(13)
           +alpha
@@ -78,5 +81,8 @@ body[data-action="index"][data-controller="home"][data-namespace="null"]
               a
                 text-decoration: none
                 font-size: $big_size
+                &:hover
+                  text-decoration: underline
             h4
-              font-size: $medium_size
+              a
+                font-size: $medium_size
