@@ -9,9 +9,19 @@ html lang="#{I18n.locale}" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http:/
     = favicon_link_tag 'favicon.png'
   body[data-namespace="#{namespace}" data-controller="#{controller_name}" data-action="#{action_name}" data-locale="#{I18n.locale}"]
     = render "layouts/facebook_sdk"
-    #header_wrapper style="background: url('#{(current_region ? current_region.background : 'http://i17.photobucket.com/albums/b91/latinohunk/13treze/pano3-4.jpg' )}') center center no-repeat;"
+    #header_wrapper
       #header
-        a[href="/"]= image_tag "logo.png"
+        #logo= link_to image_tag("logo.png"), root_path
+        = render "layouts/newsletter_form"
+        #current_region
+          a.open href="#"
+            = (current_region ? current_region.name : "Sua região")
+            span  ▾
+          nav
+            - Region.all.each do |region|
+              =link_to region.name, region_path(region)
+    #menu_wrapper style="background: url('#{(current_region ? current_region.background : 'http://i17.photobucket.com/albums/b91/latinohunk/13treze/pano3-4.jpg' )}') center center no-repeat;"
+      #menu
     #content
       nav#sections
         - Section.order(:ordering).all.each do |section|
@@ -19,6 +29,8 @@ html lang="#{I18n.locale}" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http:/
       = "<h1#{ " style='background-color: #{yield :color}'" if content_for?(:color) }>#{yield :title}</h1>".html_safe if content_for?(:title)
       #left_triangle style="border-color: transparent #{yield :color} transparent transparent "
       = render "layouts/flash" unless flash.empty?
+      #sidebar
+        = image_tag("ad.jpg")
       = yield
     #footer
       ul

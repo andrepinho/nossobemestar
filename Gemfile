@@ -10,15 +10,6 @@ gem 'thin'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
-
-gem 'compass'
-
-gem 'compass-960-plugin'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
@@ -44,7 +35,10 @@ gem "slim"
 
 gem "kaminari"
 
-# gem 'sass-960gs'
+gem "sass-rails"
+gem "compass-rails"
+gem 'uglifier'
+gem 'compass-960-plugin'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -52,14 +46,3 @@ group :doc do
 end
 
 gem 'rails_12factor', group: :production
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
