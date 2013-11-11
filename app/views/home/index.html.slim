@@ -4,7 +4,7 @@
   ul
     - @posts.each do |post|
       li
-        .image= link_to image_tag(post.image.url(:medium)), post_path(post)
+        .image= link_to image_tag(post.image.url), post_path(post)
         .text
           h3= link_to post.front_title, post_path(post), style: "color: #777"
           h4= link_to post.front_content, post_path(post)
@@ -18,7 +18,7 @@
       ul
         - section.posts.highlighted.each do |post|
           li
-            .image= link_to image_tag(post.image.url(:medium)), post_path(post)
+            .image= link_to image_tag(post.image.url), post_path(post)
             .text
               h3= link_to post.front_title, post_path(post), style: "color: #{section.color}"
               h4= link_to post.front_content, post_path(post)
