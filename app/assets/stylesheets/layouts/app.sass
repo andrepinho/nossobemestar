@@ -11,7 +11,7 @@ a
   &:hover
     color: $hover_color
 h1
-  width: 920px
+  width: 730px
   background-color: $title_color
   color: $title_text_color
   padding: 10px 30px 8px
@@ -32,7 +32,7 @@ h4
   font-weight: normal
   margin: 0
 h5
-  color: $border_color
+  color: $subtitle_color
 img
   max-width: 730px
 p
@@ -150,7 +150,7 @@ table
         display: block
         padding-top: 8px
         text-decoration: none
-        color: $border_color
+        color: $subtitle_color
         &:hover
           color: $hover_color
       nav
@@ -188,9 +188,15 @@ table
 #content_wrapper
   +grid-system(16)
   +clearfix
-  background-color: $content_color
+  border-left: 1px solid $border_color
+  border-right: 1px solid $border_color
   #content
-    +grid(16)
+    +grid(13)
+  #sidebar
+    +grid(3)
+    img
+      margin-left: -10px
+      border: 10px solid $border_color
 #error_explanation
   border: 2px solid $error_border_color
   padding: 0 20px
