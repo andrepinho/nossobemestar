@@ -11,12 +11,13 @@ a
   &:hover
     color: $hover_color
 h1
-  width: 880px
+  width: 920px
   background-color: $title_color
   color: $title_text_color
-  padding: 4px 30px
-  margin-left: -10px
-  font-size: $big_size
+  padding: 10px 30px 8px
+  margin-left: -30px
+  font-size: $medium_size
+  text-transform: uppercase
   margin-bottom: 40px
 h2
   color: $subtitle_color
@@ -167,7 +168,7 @@ table
         width: 100%
 #menu_wrapper
   padding-top: 80px
-  margin-bottom: 200px
+  margin-bottom: 30px
   +clearfix
   #menu
     background: image-url("ribbon.png") top center no-repeat
@@ -184,15 +185,12 @@ table
         color: $text_color
       &:hover
         text-decoration: underline
-#content
-  padding: 10px
-  width: 920px
-  margin: 0 auto
+#content_wrapper
+  +grid-system(16)
+  +clearfix
   background-color: $content_color
-  border-top-left-radius: 2px
-  border-top-right-radius: 2px
-  margin-top: -20px
-  padding-bottom: 50px
+  #content
+    +grid(16)
 #error_explanation
   border: 2px solid $error_border_color
   padding: 0 20px
@@ -202,7 +200,7 @@ table
   h2
     color: $error_border_color
 #left_triangle
-  opacity: 0.6
+  opacity: 0.8
   margin-left: -31px
   margin-top: -40px
   padding: 0
@@ -214,51 +212,50 @@ table
   text-align: center
   a
     text-decoration: none
-#footer
-  width: 860px
-  padding: 5px 40px
-  margin: 0 auto
+#footer_wrapper
+  +grid-system(16)
+  +clearfix
   background-color: $footer_color
-  margin-bottom: 60px
-  border-bottom-left-radius: 2px
-  border-bottom-right-radius: 2px
   color: $title_text_color
-  // box-shadow: 0px 2px 15px $shadow_color
-  ul
-    display: inline-block
-    vertical-align: top
-    margin-right: 20px
-  a
-    display: block
-    text-decoration: none
-    padding 3px 0
-  h3
-    color: $title_text_color
-  #email
-    margin-bottom: 15px
-  #newsletter
-    #newsletter_input
-      display: inline
-      font-size: 14px
-      #newsletter_email_field
-        width: 150px
-      #newsletter_button
-        color: $title_text_color
-        background-color: $link_color
-        transition: background-color 0.3s
-        width: 30px
-        &:hover
-          background-color: $hover_color
-    #newsletter_title
-      margin-top: 15px
-#flash
-  div
-    width: 920px
-    color: $flash_text_color
-    padding: 8px 30px
-    margin-left: -30px
-    margin-bottom: 20px
-  .notice, .success
-    background-color: $flash_success_color
-  .failure, .error, .alert
-    background-color: $flash_failure_color
+  margin-bottom: 60px
+  #footer
+    +grid(16)
+    padding: 10px 0
+    ul
+      display: inline-block
+      vertical-align: top
+      margin-right: 20px
+    a
+      display: block
+      text-decoration: none
+      padding 3px 0
+    h3
+      color: $title_text_color
+    #email
+      margin-bottom: 15px
+    #newsletter
+      #newsletter_input
+        display: inline
+        font-size: 14px
+        #newsletter_email_field
+          width: 150px
+        #newsletter_button
+          color: $title_text_color
+          background-color: $link_color
+          transition: background-color 0.3s
+          width: 30px
+          &:hover
+            background-color: $hover_color
+      #newsletter_title
+        margin-top: 15px
+  #flash
+    div
+      width: 920px
+      color: $flash_text_color
+      padding: 8px 30px
+      margin-left: -30px
+      margin-bottom: 20px
+    .notice, .success
+      background-color: $flash_success_color
+    .failure, .error, .alert
+      background-color: $flash_failure_color
