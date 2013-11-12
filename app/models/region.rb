@@ -10,8 +10,8 @@ class Region < ActiveRecord::Base
     "#{self.id}-#{self.name.parameterize}"
   end
 
-  def self.closest_to(latitude, longitude)
-    near([latitude, longitude], 1000, units: :km).limit(1).first
+  def self.closest_to(coordinates)
+    near(coordinates, 1000, units: :km).limit(1).first
   end
 
 end
