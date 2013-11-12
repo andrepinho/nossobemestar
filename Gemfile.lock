@@ -60,6 +60,7 @@ GEM
     eventmachine (1.0.3)
     execjs (2.0.1)
     fssm (0.2.10)
+    geocoder (1.1.8)
     hike (1.2.3)
     i18n (0.6.5)
     jbuilder (1.5.1)
@@ -165,6 +166,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   compass-960-plugin
   compass-rails
+  geocoder
   jbuilder (~> 1.2)
   jquery-rails
   kaminari

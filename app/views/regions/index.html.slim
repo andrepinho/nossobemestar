@@ -5,6 +5,8 @@ table
     tr
       th Nome
       th Subdomínio
+      th Latitude
+      th Longitude
       th Imagem de fundo
       th
       th
@@ -13,6 +15,8 @@ table
       tr class= cycle("even", "odd")
         td= link_to region.name, region_path(region)
         td= region.subdomain
+        td= region.latitude
+        td= region.longitude
         td= image_tag region.background
         td= link_to 'Editar', edit_region_path(region)
         td= link_to 'Deletar', region, method: :delete, data: { confirm: 'Você está certo disso?' }

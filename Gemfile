@@ -35,6 +35,8 @@ gem "slim"
 
 gem "kaminari"
 
+gem "geocoder"
+
 gem "sass-rails"
 gem "compass-rails"
 gem 'uglifier'

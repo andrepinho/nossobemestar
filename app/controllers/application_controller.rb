@@ -4,14 +4,18 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_section instead.
   protect_from_forgery with: :exception
-  # before_filter :detect_region
+  before_filter :detect_region
   helper_method :current_region, :namespace
 
   private
   def detect_region
     unless current_region
-      region = Region.first || Region.create(name: "Porto Alegre", subdomain: "portoalegre")
-      redirect_to root_url(subdomain: region.subdomain) unless current_region
+      if region = Region.closest_to(request.location.latitude, request.location.longitude)
+        flash[:notice] = "Nós detectamos que nosso afiliado mais próximo de você é o Nosso Bem Estar #{region.name}, por isto o redirecionamos para cá. Se preferir, escolha outra região abaixo."
+        redirect_to root_url(subdomain: region.subdomain)
+      elsif request.subdomain != "www"
+        redirect_to root_url(subdomain: "www")
+      end
     end
   end
 
