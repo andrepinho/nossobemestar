@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   private
   def detect_region
     unless current_region
+      puts "@@@HEYYY@@@: #{request.location.inspect}"
       if region = Region.closest_to(request.location.latitude, request.location.longitude)
         flash[:notice] = "Nós detectamos que nosso afiliado mais próximo de você é o Nosso Bem Estar #{region.name}, por isto o redirecionamos para cá. Se preferir, escolha outra região abaixo."
         redirect_to root_url(subdomain: region.subdomain)
