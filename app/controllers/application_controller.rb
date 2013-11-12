@@ -5,15 +5,14 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_section instead.
   protect_from_forgery with: :exception
   before_filter :detect_region
-  helper_method :current_region, :namespace
+  helper_method :current_region, :namespace, :current_coordinates
 
   private
+
   def detect_region
     unless current_region
-      puts "@@@HEYYY@@@: #{request.location.inspect}"
-      if region = Region.closest_to(request.location.latitude, request.location.longitude)
-        flash[:notice] = "Nós detectamos que nosso afiliado mais próximo de você é o Nosso Bem Estar #{region.name}, por isto o redirecionamos para cá. Se preferir, escolha outra região abaixo."
-        redirect_to root_url(subdomain: region.subdomain)
+      if region = Region.closest_to(current_coordinates || [request.location.latitude, request.location.longitude])
+        redirect_to root_url(subdomain: region.subdomain), notice: "Nós detectamos que nosso afiliado mais próximo de você está em #{region.name}. Se preferir, escolha outra região abaixo."
       elsif request.subdomain != "www"
         redirect_to root_url(subdomain: "www")
       end
@@ -22,6 +21,14 @@ class ApplicationController < ActionController::Base
 
   def current_region
     @current_region ||= Region.find_by_subdomain(request.subdomain)
+  end
+
+  def current_coordinates
+    if params[:latitude] && params[:longitude]
+      session[:current_coordinates] = [params[:latitude], params[:longitude]]
+    else
+      session[:current_coordinates]
+    end
   end
 
   def authenticate
