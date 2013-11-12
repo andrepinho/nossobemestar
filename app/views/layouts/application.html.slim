@@ -44,18 +44,10 @@ html lang="#{I18n.locale}" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http:/
         = image_tag("ad1.png")
     #footer_wrapper
       #footer
-        ul
-          h3 Cidades
-          - Region.all.each do |region|
-            =link_to region.name, region_path(region)
-          = render "layouts/newsletter_form"
-        ul
-          h3 Seções
-          - Section.order(:ordering).all.each do |section|
-            = link_to section.name, section_path(section)
-        ul
-          h3 Contato
-          =mail_to "portalnossobemestar@gmail.com","portalnossobemestar@gmail.com", id: "email"
-          h3 Redes Sociais
-          .social
-            = render "layouts/facebook_like"
+        .social
+          h5 Curta nosso Facebook
+          = render "layouts/facebook_like"
+        .contact
+          h5 Entre em contato
+          =mail_to "portalnossobemestar@gmail.com","portalnossobemestar@gmail.com"
+        = render "layouts/newsletter_form"
