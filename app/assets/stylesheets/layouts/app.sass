@@ -175,37 +175,45 @@ table
       select
         width: 100%
 #menu_wrapper
-  padding-top: 80px
-  margin-bottom: 10px
   +clearfix
+  padding-top: 100px
   #menu
-    background: image-url("ribbon.png") top center no-repeat
-    height: 53px
+    +grid-system(16)
+    margin: 0 auto
+    background-color: $content_color
+    height: 35px
   #sections
-    padding: 10px 0 8px
+    padding: 10px
     text-align: center
+    overflow: hidden
+    border-left: 1px solid $border_color
+    border-right: 1px solid $border_color
     a
       text-decoration: none
       text-transform: uppercase
       font-size: $standard_size
-      padding: 0 24px
+      padding: 0 15px
+      border-bottom: 4px solid
+      margin-right: 5px
       &.local
-        color: $text_color
+        color: $local_section_color
       &:hover
-        text-decoration: underline
+        
 #content_wrapper
   +grid-system(16)
   +clearfix
   border-left: 1px solid $border_color
   border-right: 1px solid $border_color
+  background-color: $content_color
+  padding-top: 20px
   #content
     +grid(13)
   #sidebar
     +grid(3)
     img
-      margin-left: -10px
-      margin-bottom: 30px
-      border: 10px solid $border_color
+      margin-left: -6px
+      margin-bottom: 44px
+      border: 2px solid $border_color
 #error_explanation
   border: 2px solid $error_border_color
   padding: 0 20px
