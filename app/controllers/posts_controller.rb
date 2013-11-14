@@ -57,7 +57,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:region_id, :title, :content, :published_at, :author, :front_title, :front_content, :ordering,:home_ordering, :image, :image_credit, :image_caption, :section_id)
+      params.require(:post).permit(:region_id, :title, :subtitle, :content, :published_at, :author, :front_title, :front_content, :ordering,:home_ordering, :image, :image_credit, :image_caption, :section_id)
     end
 
     def sort_column

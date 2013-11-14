@@ -7,7 +7,10 @@
         .image= link_to image_tag(post.image.url), post_path(post)
         .text
           h3= link_to post.front_title, post_path(post), style: "color: #777"
-          h4= link_to post.front_content, post_path(post)
+          -if post.front_content.empty?
+            h4= link_to post.subtitle , post_path(post)
+          -else
+            h4= link_to post.front_content , post_path(post)
   .more
     = link_to "+", "#", style: "background-color: #777"
 - @sections.each do |section|
@@ -21,6 +24,9 @@
             .image= link_to image_tag(post.image.url), post_path(post)
             .text
               h3= link_to post.front_title, post_path(post), style: "color: #{section.color}"
-              h4= link_to post.front_content, post_path(post)
+              -if post.front_content.empty?
+                h4= link_to post.subtitle , post_path(post)
+              -else
+                h4= link_to post.front_content , post_path(post)
       .more
         = link_to "+", section_path(section), style: "background-color: #{section.color}"

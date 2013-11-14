@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131112200911) do
+ActiveRecord::Schema.define(version: 20131114162402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20131112200911) do
     t.string   "image_credit"
     t.integer  "home_ordering"
     t.string   "image_caption"
+    t.text     "subtitle"
   end
 
   add_index "posts", ["section_id"], name: "index_posts_on_section_id", using: :btree

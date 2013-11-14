@@ -4,14 +4,15 @@ pt-BR:
       post:
         id: Id
         title: Título
+        subtitle: Linha de apoio
         content: Conteúdo
         published_at: Data e hora de publicação
         author: Autor
         created_at: Criado em
         updated_at: Atualizado em
         section_id: Seção
-        front_title: Manchete
-        front_content: Chamada
+        front_title: Título da manchete
+        front_content: Texto da manchete
         ordering: Ordem na Seção
         home_ordering: Ordem na Home
         region_id: Região
