@@ -59,6 +59,6 @@ class RegionsController < ApplicationController
   end
 
   def region_params
-    params.require(:region).permit(:name, :subdomain, :latitude, :longitude, :background)
+    params.require(:region).permit(:name, :subdomain, :latitude, :longitude, :background, :facebook)
   end
 end

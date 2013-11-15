@@ -5,6 +5,7 @@ table
     tr
       th Nome
       th Subdomínio
+      th Facebook
       th Latitude
       th Longitude
       th Imagem de fundo
@@ -15,6 +16,10 @@ table
       tr class= cycle("even", "odd")
         td= link_to region.name, region_path(region)
         td= region.subdomain
+        -if region.facebook.empty?
+          td= '-'
+        -else
+          td=link_to 'Facebook', region.facebook
         td= region.latitude
         td= region.longitude
         td= image_tag region.background
