@@ -236,13 +236,12 @@ table
   a
     text-decoration: none
 #footer_wrapper
-  +grid-system(16)
-  +clearfix
   background-color: $footer_color
   color: $title_text_color
-  margin-bottom: 60px
   padding: 40px 0
+  +clearfix
   #footer
+    +grid-system(16)
     padding: 0 10px
     h5
       color: $title_text_color
@@ -251,17 +250,11 @@ table
       margin-bottom: 8px
     .social
       +grid(5)
-      +omega
     .contact
-      +alpha
-      +omega
       +grid(5)
       a
         font-size: $medium_size
         text-decoration: none
-    .newsletter_form
-      +alpha
-      +omega
 #flash
   div
     color: $flash_text_color
