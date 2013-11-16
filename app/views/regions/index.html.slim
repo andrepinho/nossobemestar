@@ -16,9 +16,9 @@ table
       tr class= cycle("even", "odd")
         td= link_to region.name, region_path(region)
         td= region.subdomain
-        -if region.facebook.empty?
+        - if region.facebook.nil? || region.facebook.empty?
           td= '-'
-        -else
+        - else
           td=link_to 'Facebook', region.facebook
         td= region.latitude
         td= region.longitude
