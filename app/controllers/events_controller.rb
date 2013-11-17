@@ -3,11 +3,11 @@ class EventsController < ApplicationController
   before_filter :authenticate, :except => [:index, :show, :new, :create]
 
   def index
-    @events = ((current_region && current_region.events ) || Event.where("region_id IS NULL")).future.order(:starts_at)
+    @events = ((current_region && current_region.events ) || Event.where("region_id IS NULL")).order(:starts_at).page(params[:page]).per(9)
   end
 
   def admin
-    @events = ((current_region && current_region.events ) || Event.where("region_id IS NULL")).order(:starts_at)
+    @events = ((current_region && current_region.events ) || Event.where("region_id IS NULL")).order(:starts_at).page(params[:page]).per(10)
   end
 
   def show
@@ -61,6 +61,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :starts_at, :ends_at, :image, :description, :url, :address, :email, :phone_number)
+    params.require(:event).permit(:name, :starts_at, :ends_at, :image, :description, :url, :address, :email, :phone_number, :region_id)
   end
 end
