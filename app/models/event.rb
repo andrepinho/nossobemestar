@@ -4,6 +4,9 @@ class Event < ActiveRecord::Base
   validates_presence_of :name, :starts_at, :ends_at, :description
   belongs_to :region
 
+  geocoded_by :full_address
+  after_validation :geocode
+
   include PgSearch
   pg_search_scope :search, against: [
       [:name, 'A'],
@@ -29,16 +32,9 @@ class Event < ActiveRecord::Base
     ends_at < Time.now
   end
 
-  def coordinates
-    Geocoder.coordinates("#{self.address} #{self.region.name if self.region}")
-  end
-
-  def latitude
-    self.coordinates[0] if self.coordinates
-  end
-
-  def longitude
-    self.coordinates[1] if self.coordinates
+  def full_address
+    return self.address unless self.region and not self.address.match(/#{self.region.name}/i)
+    "#{self.address} #{self.region.name}".strip
   end
 
 end
