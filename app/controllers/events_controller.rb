@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_filter :authenticate, :except => [:index, :show, :new, :create]
 
   def index
-    @events = ((current_region && current_region.events ) || Event.where("region_id IS NULL")).order(:starts_at).page(params[:page]).per(9)
+    @events = ((current_region && current_region.events ) || Event.where("region_id IS NULL")).future.order(:starts_at).page(params[:page]).per(9)
   end
 
   def admin

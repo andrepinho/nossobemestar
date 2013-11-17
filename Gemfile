@@ -36,6 +36,8 @@ gem "compass-rails"
 gem 'uglifier'
 gem 'compass-960-plugin'
 gem 'icomoon-rails'
+gem 'underscore-rails'
+gem 'gmaps4rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

@@ -16,4 +16,16 @@ class Event < ActiveRecord::Base
     self.description.gsub(/\n/, '<br/>').html_safe
   end
 
+  def coordinates
+    Geocoder.coordinates("#{self.address} #{self.region.name if self.region}")
+  end
+
+  def latitude
+    self.coordinates[0] if self.coordinates
+  end
+
+  def longitude
+    self.coordinates[1] if self.coordinates
+  end
+
 end

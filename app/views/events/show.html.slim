@@ -26,6 +26,7 @@ h1 Agenda
   .description= @event.display_description
   .info
     - if @event.address.present?
+      #map data-latitude=@event.latitude data-longitude=@event.longitude
       .address.icon-location= @event.address
     - if @event.url.present?
       .url.icon-link= link_to truncate(@event.url, length: 40), @event.url, target: :_blank
