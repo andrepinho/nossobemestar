@@ -1,0 +1,25 @@
+- content_for :title do
+  ="Listando eventos"
+table
+  thead
+    tr
+      th Nome
+      th Início
+      th Fim
+      th Website
+      th Email
+      th Telefone
+      th
+      th
+  tbody
+    - @events.each do |event|
+      tr class= cycle("even", "odd")
+        td= link_to event.name, event_path(event)
+        td= l event.starts_at, format: :simple
+        td= l event.ends_at, format: :simple
+        td= link_to("Clique aqui", event.url) if event.url.present?
+        td= mail_to(event.email, "Clique aqui") if event.email.present?
+        td= event.phone_number
+        td= link_to 'Editar', edit_event_path(event)
+        td= link_to 'Deletar', event, method: :delete, data: { confirm: 'Você está certo disso?' }
+.actions= link_to 'Novo evento', new_event_path, class: "button"

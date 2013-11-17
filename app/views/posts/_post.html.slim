@@ -18,7 +18,7 @@
   h3= post.subtitle
   .quote= "Por #{post.author}, há #{time_ago_in_words(post.published_at)} atrás."
   .social
-    = render "layouts/mail_to"
+    = render partial: "layouts/mail_to", locals: { subject: post.title }
     = render "layouts/facebook_like"
     = render "layouts/twitter"
   br

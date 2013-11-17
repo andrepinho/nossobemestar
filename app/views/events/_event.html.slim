@@ -1,0 +1,9 @@
+= link_to event_path(event), class: "event" do
+  .image= image_tag(event.image.present? ? event.image : (current_region.background if current_region))
+  .content
+    .date
+      .month= l event.starts_at, format: "%B"
+      .day= l event.starts_at, format: "%d"
+    h2
+      = truncate event.name, length: 60
+    .description= truncate event.description, length: 180

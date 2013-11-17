@@ -25,6 +25,7 @@ h1
 h2
   color: $subtitle_color
   font-size: $medium_size
+  margin-bottom: 10px
 h3
   font-size: $standard_size
   color: $subtitle_color
@@ -37,7 +38,7 @@ h4
 h5
   color: $subtitle_color
 img
-  max-width: 730px
+  max-width: 760px
 p
   padding-top: 0
   padding-bottom: 20px
@@ -50,7 +51,7 @@ input, textarea, select
   border: 1px solid $border_color
   padding: 4px
 input, textarea
-  width: 100%
+  width: 750px
 textarea
   height: 120px
   resize: none
@@ -196,6 +197,7 @@ table
       #region_menu
         position: relative
         display: inline-block
+        z-index: 500
         a
           color: $region_menu_color
           margin-left: 0
@@ -232,7 +234,7 @@ table
       border: 2px solid $border_color
 #error_explanation
   border: 2px solid $error_border_color
-  padding: 0 20px
+  padding: 20px
   border-radius: 4px
   margin: 40px 0
   background-color: $error_background_color
@@ -242,11 +244,13 @@ table
   opacity: 0.8
   margin-left: -31px
   margin-top: -40px
+  margin-bottom: 20px
   padding: 0
   width: 0px
   height: 0px
   border-style: solid
   border-width: 0 20px 9px 0
+  border-color: transparent #777 transparent transparent
 .pagination
   text-align: center
   a

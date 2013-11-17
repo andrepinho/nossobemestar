@@ -26,21 +26,16 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem "ckeditor"
-
 gem "paperclip"
-
 gem "aws-sdk"
-
 gem "slim"
-
 gem "kaminari"
-
 gem "geocoder"
-
 gem "sass-rails"
 gem "compass-rails"
 gem 'uglifier'
 gem 'compass-960-plugin'
+gem 'icomoon-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

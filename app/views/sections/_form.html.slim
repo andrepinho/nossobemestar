@@ -1,7 +1,7 @@
 = form_for(@section) do |f|
   - if @section.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@post.errors.count, "erro impediu", "erros impediram")} que esse post fosse salvo:"
+      h2 = "#{pluralize(@post.errors.count, "erro impediu", "erros impediram")} que este post fosse salvo:"
       ul
         -@post.errors.full_messages.each do |msg|
           li= msg
@@ -16,7 +16,7 @@
     = f.text_field :color, class: "small"
   p Use cores HEX para o campo 'Cor'. Há uma lista de opções <a href="http://www.w3schools.com/html/html_colornames.asp">aqui</a> ou você pode gerar uma cor personalizada <a href="http://www.color-hex.com/">aqui</a>.
   .actions
-    = f.submit  class:"button"
+    = f.submit class: "button"
     div
       | ou 
       a href="javascript:history.back()" cancelar

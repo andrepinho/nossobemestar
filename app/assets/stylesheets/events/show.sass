@@ -1,0 +1,69 @@
+body[data-action="show"][data-controller="events"][data-namespace="null"]
+  .event
+    position: relative
+  .image
+    +grid(13)
+    +alpha
+    +omega
+    max-height: 290px
+    margin-bottom: 10px
+    overflow: hidden
+    img
+      width: 760px
+  .name
+    position: absolute
+    top: 0
+    right: 0
+    height: 56px
+    width: 645px
+    padding-top: 12px
+    padding-left: 12px
+    background: $box_title_color
+    color: $title_text_color
+    text-transform: uppercase
+  .date
+    position: absolute
+    top: 0
+    left: 0
+    height: 56px
+    width: 103px
+    padding-top: 12px
+    background: $box_subtitle_color
+    text-align: center
+    color: $title_text_color
+    .month
+      text-transform: uppercase
+      font-size: $standard_size
+      line-height: 110%
+    .day
+      font-weight: bold
+      font-size: $big_size
+      line-height: 150%
+  .social
+    +clearfix
+    margin-bottom: 20px
+    .facebook, .twitter, .mail_to
+      float: right
+    .twitter
+      margin-left: 12px
+      margin-right: -26px
+    .mail_to
+      padding: 0
+      margin-top: -5px
+      margin-left: 5px
+      img
+        height: 29px
+  .description
+    +grid(7)
+    width: 389px
+    border-right: 1px solid $border_color
+    padding-right: 10px
+    min-height: 140px
+    +alpha
+  .info
+    +grid(6)
+    +omega
+    div
+      margin-bottom: 10px
+      &:before
+        margin-right: 10px

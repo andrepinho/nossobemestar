@@ -48,7 +48,7 @@ class RegionsController < ApplicationController
   def destroy
     @region.destroy
     respond_to do |format|
-      format.html { redirect_to regions_path }
+      format.html { redirect_to regions_path, notice: 'Região excluida com sucesso.' }
       format.json { head :no_content }
     end
   end

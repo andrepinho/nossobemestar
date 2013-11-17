@@ -1,0 +1,39 @@
+- content_for :title do
+  = "#{@event.name} · Agenda"
+- content_for :meta_tags do
+  meta name="description"         content=@event.description
+  meta name="keywords"            content="#{@event.name} #{@event.description} #{current_region.name if current_region} Nosso Bem Estar"
+  meta property="og:title"        content=@event.name
+  meta property="og:type"         content="event"
+  meta property="og:url"          content=request.url
+  meta property="og:image"        content=(@event.image ? @event.image.url : (current_region.background.url if current_region))
+  meta property="og:site_name"    content="Nosso Bem Estar#{" · #{current_region.name}" if current_region}"
+  meta property="fb:app_id"       content="222690041241578"
+  meta property="og:description"  content=@event.description
+  meta property="fb:admins"       content="100000316028111"
+h1 Agenda
+#left_triangle
+= div_for @event do
+  .image= image_tag(@event.image.present? ? @event.image : (current_region.background if current_region))
+  .date
+    .month= l @event.starts_at, format: "%B"
+    .day= l @event.starts_at, format: "%d"
+  .name= @event.name
+  .social
+    = render partial: "layouts/mail_to", locals: { subject: @event.name }
+    = render "layouts/facebook_like"
+    = render "layouts/twitter"
+  .description= @event.display_description
+  .info
+    - if @event.address.present?
+      .address.icon-location= @event.address
+    - if @event.url.present?
+      .url.icon-link= link_to truncate(@event.url, length: 40), @event.url
+    - if @event.email.present?
+      .email.icon-mail= mail_to @event.email
+    - if @event.phone_number.present?
+      .email.icon-phone= mail_to @event.phone_number
+    .dates.icon-calendar
+      = l @event.starts_at, format: :simple
+      = " - "
+      = l @event.ends_at, format: :simple

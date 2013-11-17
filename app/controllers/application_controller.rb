@@ -5,9 +5,21 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_section instead.
   protect_from_forgery with: :exception
   before_filter :detect_region
-  helper_method :current_region, :namespace, :current_coordinates
+  helper_method :current_region, :namespace, :current_coordinates, :display_title!, :hide_title!, :display_title?
 
   private
+
+  def display_title?
+    !@hide_title
+  end
+
+  def display_title!
+    @hide_title = false
+  end
+
+  def hide_title!
+    @hide_title = true
+  end
 
   def detect_region
     unless current_region

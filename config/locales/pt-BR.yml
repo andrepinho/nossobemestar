@@ -33,10 +33,24 @@ pt-BR:
         background: Imagem de fundo
         created_at: Criado em
         updated_at: Atualizado em
+      event:
+        id: Id
+        name: Nome
+        starts_at: Início
+        ends_at: Fim
+        image: Imagem
+        description: Descrição
+        url: Website
+        address: Endereço
+        email: Email
+        phone_number: Telefone
+        created_at: Criado em
+        updated_at: Atualizado em
     models:
       section: Seção
       post: Post
       region: Região
+      event: Evento
   views:
     pagination:
       first: "<<"

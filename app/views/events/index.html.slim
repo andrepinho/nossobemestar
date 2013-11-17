@@ -1,0 +1,6 @@
+- content_for :title do
+  = "Agenda"
+.events
+  = render @events
+.actions
+  = link_to "Cadastre seu evento", new_event_path, class: "button"
