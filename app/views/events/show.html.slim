@@ -28,11 +28,11 @@ h1 Agenda
     - if @event.address.present?
       .address.icon-location= @event.address
     - if @event.url.present?
-      .url.icon-link= link_to truncate(@event.url, length: 40), @event.url
+      .url.icon-link= link_to truncate(@event.url, length: 40), @event.url, target: :_blank
     - if @event.email.present?
       .email.icon-mail= mail_to @event.email
     - if @event.phone_number.present?
-      .email.icon-phone= mail_to @event.phone_number
+      .email.icon-phone= @event.phone_number
     .dates.icon-calendar
       = l @event.starts_at, format: :simple
       = " - "
