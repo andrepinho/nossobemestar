@@ -8,12 +8,16 @@ class Event < ActiveRecord::Base
     "#{self.id}-#{self.name.parameterize}"
   end
 
-  def self.future
-    where(["ends_at >= ?", Time.now])
+  def self.by_relevance
+    order("CASE WHEN ends_at >= current_timestamp THEN starts_at END ASC, CASE WHEN ends_at < current_timestamp THEN starts_at END DESC")
   end
 
   def display_description
     self.description.gsub(/\n/, '<br/>').html_safe
+  end
+
+  def past?
+    ends_at < Time.now
   end
 
   def coordinates
