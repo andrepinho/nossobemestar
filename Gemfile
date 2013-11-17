@@ -38,6 +38,7 @@ gem 'compass-960-plugin'
 gem 'icomoon-rails'
 gem 'underscore-rails'
 gem 'gmaps4rails'
+gem 'pg_search'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

@@ -4,6 +4,15 @@ class Event < ActiveRecord::Base
   validates_presence_of :name, :starts_at, :ends_at, :description
   belongs_to :region
 
+  include PgSearch
+  pg_search_scope :search, against: [
+      [:name, 'A'],
+      [:description, 'B'],
+      [:address, 'C']
+    ],
+    using: {tsearch: {dictionary: "portuguese"}},
+    ignoring: :accents
+
   def to_param
     "#{self.id}-#{self.name.parameterize}"
   end

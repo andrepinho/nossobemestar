@@ -1,4 +1,24 @@
 body[data-action="index"][data-controller="events"][data-namespace="null"]
+  .search
+    +clearfix
+    margin-bottom: 20px
+    position: relative
+    [type=text]
+      +grid(12)
+      +alpha
+      +omega
+      padding: 9px
+    [type=submit]
+      +grid(1)
+      +alpha
+      +omega
+      padding: 9px
+      border: 1px solid $background_color
+      background-color: $link_color
+      color: $title_text_color
+      transition: background-color 0.3s
+      &:hover
+        background-color: $hover_color
   .events
     +clearfix
     margin-left: -10px
