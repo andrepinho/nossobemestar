@@ -37,3 +37,4 @@ h1 Agenda
       = l @event.starts_at, format: :simple
       = " - "
       = l @event.ends_at, format: :simple
+    .actions= link_to "Cadastre seu evento", new_event_path, class: "button"
