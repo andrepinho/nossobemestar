@@ -2,7 +2,7 @@
 
 class SectionsController < ApplicationController
   before_action :set_section, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate, :except => [:show, :highlighted]
+  before_filter :authenticate, :except => [:show, :highlighted, :local]
 
   def index
     @sections = Section.order(:ordering).all
@@ -59,6 +59,10 @@ class SectionsController < ApplicationController
     @page = params[:page]
     @highlighted = Post.visible.home_page
     @posts = Post.visible.where(highlighted: true).page(params[:page]).per(9)
+  end
+
+  def local
+    @posts = Post.visible.where(region: current_region).page(params[:page]).per(9)
   end
 
   private

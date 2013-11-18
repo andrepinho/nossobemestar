@@ -5,7 +5,10 @@ Portal::Application.routes.draw do
   resources :regions
   resources :posts
   resources :sections do
-    get 'highlighted', on: :collection
+    collection do
+      get 'highlighted'
+      get 'local'
+    end
   end
   resources :events do
     get 'admin', on: :collection

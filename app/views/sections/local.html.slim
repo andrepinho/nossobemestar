@@ -1,0 +1,3 @@
+- content_for :title do
+  = "Notícias#{" de #{current_region.name}" if current_region}"
+= render "section"

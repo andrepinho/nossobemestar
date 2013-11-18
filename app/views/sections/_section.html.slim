@@ -6,7 +6,7 @@
   - content_for :sidebar do
     = image_tag("ad_#{@section.name.parameterize}.png")
 
-- unless @highlighted.empty? || @page
+- if @highlighted && !@highlighted.empty? && !@page
   .highlighted
     ul= render partial: "layouts/post", collection: @highlighted, locals: ({color: @section.color} if @section)
 .posts
