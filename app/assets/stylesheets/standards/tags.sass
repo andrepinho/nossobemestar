@@ -1,0 +1,96 @@
+body
+  margin: 0
+  padding: 0
+  background-color: $background_color
+  color: $text_color
+  font-size: $standard_size
+  line-height: 130%
+  font-family: 'PT Sans', sans-serif
+  -webkit-font-smoothing: antialiased  
+  font-smoothing: antialiased
+a
+  color: $link_color
+  transition: color 0.3s
+  &:hover
+    color: $hover_color
+h1
+  width: 730px
+  background-color: $title_color
+  color: $title_text_color
+  padding: 10px 30px 8px
+  margin-left: -30px
+  font-size: $medium_size
+  text-transform: uppercase
+  margin-bottom: 40px
+h2
+  color: $subtitle_color
+  font-size: $medium_size
+  margin-bottom: 10px
+h3
+  font-size: $standard_size
+  color: $subtitle_color
+  margin: 0 0 10px 0
+h4
+  font-size: $standard_size
+  color: $subtitle_color
+  font-weight: normal
+  margin: 0
+h5
+  color: $subtitle_color
+img
+  max-width: 760px
+p
+  padding-top: 0
+  padding-bottom: 20px
+  margin: 0
+label
+  display: block
+  padding-bottom: 4px
+button, input, textarea, select
+  font-size: inherit
+  border: 1px solid $border_color
+  padding: 4px
+input, textarea
+  width: 750px
+textarea
+  height: 120px
+  resize: none
+select
+  color: inherit
+input
+  &.medium
+    width: 40%
+  &.small
+    width: 20%
+  &[type=checkbox]
+    width: auto
+strong
+  font-weight: bold
+table
+  width: 100%
+  margin: 40px 0
+  border-spacing: 0
+  margin-top: 0
+  img
+    max-width: 200px
+    max-height: 200px
+    margin: 4px 0
+    vertical-align: middle
+  thead
+    background-color: $table_header_color
+    color: $table_header_text_color
+    a
+      color: $table_header_text_color
+      text-decoration: none
+    th
+      text-align: center
+    th .asc
+      text-decoration: underline
+    th .desc
+      text-decoration: underline
+  tr.odd
+    background-color: $table_row_color
+  td
+    text-align: center
+    margin: 0
+    padding: 4px 2px

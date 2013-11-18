@@ -8,35 +8,16 @@
   = image_tag("ad1.png")
   = image_tag("ad2.png")
   = image_tag("ad1.png")
-#home_highlighted
-  h1 style="background-color: #777"="Destaques"
-  #left_triangle style="border-color: transparent #777 transparent transparent "
-  ul
-    - @posts.each do |post|
-      li
-        .image= link_to image_tag(post.image.url), post_path(post)
-        .text
-          h3= link_to post.front_title, post_path(post), style: "color: #777"
-          -if post.front_content.empty?
-            h4= link_to post.subtitle , post_path(post)
-          -else
-            h4= link_to post.front_content , post_path(post)
-  .more
-    = link_to "+", highlighted_sections_path, style: "background-color: #777"
+h1 style="background-color: #777"="Destaques"
+#left_triangle style="border-color: transparent #777 transparent transparent "
+.section
+  ul= render partial: "layouts/post", collection: @posts
+  .more= link_to "+", highlighted_sections_path, style: "background-color: #777"
 - @sections.each do |section|
   - unless section.posts.highlighted.empty?
+    h1 style="background-color: #{section.color}"= section.name
+    #left_triangle style="border-color: transparent #{section.color} transparent transparent "
     .section
-      h1 style="background-color: #{section.color}"= section.name
-      #left_triangle style="border-color: transparent #{section.color} transparent transparent "
-      ul
-        - section.posts.highlighted.each do |post|
-          li
-            .image= link_to image_tag(post.image.url), post_path(post)
-            .text
-              h3= link_to post.front_title, post_path(post), style: "color: #{section.color}"
-              -if post.front_content.empty?
-                h4= link_to post.subtitle , post_path(post)
-              -else
-                h4= link_to post.front_content , post_path(post)
+      ul= render partial: "layouts/post", collection: section.posts.highlighted, locals: {color: section.color}
       .more
         = link_to "+", section_path(section), style: "background-color: #{section.color}"

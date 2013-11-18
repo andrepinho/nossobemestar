@@ -1,30 +1,14 @@
-- content_for :title do
-  = section.name
-- content_for :color do
-  = section.color
-- content_for :sidebar do
-  = image_tag("ad_#{section.name.parameterize}.png")
+- if @section
+  - content_for :title do
+    = @section.name
+  - content_for :color do
+    = @section.color
+  - content_for :sidebar do
+    = image_tag("ad_#{@section.name.parameterize}.png")
 
-- unless @highlighted_section.empty? || @page != nil
-  .section_highlight
-    ul
-      - @highlighted_section.each do |post|
-        li
-          = link_to image_tag(post.image.url), post_path(post)
-          h3= link_to post.front_title, post_path(post), style: "color: #{section.color}"
-          -if post.front_content.empty?
-            h4= link_to post.subtitle , post_path(post)
-          -else
-            h4= link_to post.front_content , post_path(post)
-.section_list
-  ul
-    - @posts.each do |post|
-      -unless post.ordering != nil
-        li
-          = image_tag post.image.url(:medium)
-          h3= link_to post.front_title, post, style: "color: #{@section.color}"
-          -if post.front_content.empty?
-            h4= link_to post.subtitle , post_path(post)
-          -else
-            h4= link_to post.front_content , post_path(post)
+- unless @highlighted.empty? || @page
+  .highlighted
+    ul= render partial: "layouts/post", collection: @highlighted, locals: ({color: @section.color} if @section)
+.posts
+  ul= render partial: "layouts/post", collection: @posts, locals: ({color: @section.color} if @section)
 = paginate @posts
