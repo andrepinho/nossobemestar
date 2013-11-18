@@ -2,14 +2,14 @@
 
 class SectionsController < ApplicationController
   before_action :set_section, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate, :except => [:show]
+  before_filter :authenticate, :except => [:show, :highlighted]
 
   def index
     @sections = Section.order(:ordering).all
   end
 
   def show
-    @page = (params[:page])
+    @page = params[:page]
     @highlighted_section = Section.find(params[:id]).posts.highlighted
     @section = Section.find(params[:id])
     @posts = @section.posts.unhighlighted.visible.order("published_at desc").page(params[:page]).per(4)
@@ -56,16 +56,18 @@ class SectionsController < ApplicationController
   end
 
   def highlighted
-    @page = (params[:page])
-    @posts = Post.where('highlighted is TRUE').page(params[:page]).per(4)
+    @page = params[:page]
+    @posts = Post.where(highlighted: true).page(params[:page]).per(4)
   end
 
   private
-    def set_section
-      @section = Section.find(params[:id])
-    end
 
-    def section_params
-        params.require(:section).permit(:name, :color, :ordering)
-    end
+  def set_section
+    @section = Section.find(params[:id])
+  end
+
+  def section_params
+    params.require(:section).permit(:name, :color, :ordering)
+  end
+
 end

@@ -1,7 +1,5 @@
 - content_for :title do
   = "Destaques"
-- content_for :color do
-  = "#777"
 #home_highlighted
   ul
     - @posts.each do |post|
@@ -13,3 +11,4 @@
             h4= link_to post.subtitle , post_path(post)
           -else
             h4= link_to post.front_content , post_path(post)
+= paginate @posts
