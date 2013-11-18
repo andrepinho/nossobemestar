@@ -15,17 +15,22 @@
   meta property="fb:admins"       content="100000316028111"
 
 = div_for post do
+  h1 style="background-color: #{post.section.color}"= post.section.name
+  #left_triangle style="border-color: transparent #{post.section.color} transparent transparent "
+  h4.when
+    = l post.published_at, format: :simple
+    = " - Atualizado em #{l post.updated_at, format: :simple}" if post.updated_at > post.published_at
+  h2= post.title
   h3= post.subtitle
-  .quote= "Por #{post.author}, há #{time_ago_in_words(post.published_at)} atrás."
+  h4.author= "Por #{post.author}"
   .social
     = render partial: "layouts/mail_to", locals: { subject: post.title }
     = render "layouts/facebook_like"
     = render "layouts/twitter"
-  br
-  br
-  .post_image
-    .image= image_tag post.image.url
-    .image_credit= post.image_credit
-    .image_caption= post.image_caption
+  .image
+    = image_tag post.image.url
+    h4
+      = post.image_caption
+      = " (#{post.image_credit})" if post.image_credit
   .content= post.content.html_safe
-  .fb-comments[data-href=request.url data-num-posts=50 data-width="919"]
+  .fb-comments[data-href=request.url data-num-posts=50 data-width="760"]

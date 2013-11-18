@@ -9,6 +9,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    hide_title!
   end
 
   def new

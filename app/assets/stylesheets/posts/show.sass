@@ -1,39 +1,35 @@
 body[data-action="show"][data-controller="posts"][data-namespace="null"]
-  h1
-    width: 700px
+  h2
+    color: $text_color
+    font-size: $huge_size
+    line-height: 100%
+    margin-bottom: 0
+  h3
+    color: $title_color
+    font-size: $big_size
+    line-height: 100%
     margin-bottom: 20px
-    font-size: $medium_size
-    margin-left: -30px
-  #left_triangle
-    margin-top: -20px
-  .quote
-    font-size: $small_size
-    color: $subtitle_color
-    margin-bottom: 20px
-    float: left
+  .when
+    color: $title_color
+  .author
+    +grid(5)
+    +alpha
   .social
-    +clearfix
-    float: right
-    .facebook, .twitter, .mail_to
-      float: right
-    .twitter
-      margin-left: 12px
-      margin-right: -26px
-    .mail_to
-      padding: 0
-      margin-top: -5px
-      margin-left: 5px
-      margin-right: 10px
-      img
-        height: 29px
-  .post_image
-    margin-bottom: 20px
-    margin-right: 10px
+    +grid(8)
+    +omega
+  .image
+    +grid(7)
+    +alpha
     float: left
-    width: auto
-    .image_caption
-      max-width: inherit
-      font-size: $small_size
-      color: $subtitle_color
-      display: block
-      margin-top: -5px
+    margin-right: 20px
+    img
+      max-width: 400px
+    background: $border_color
+    h4
+      font-size: $tiny_size
+      line-height: 110%
+      padding: 8px
+      margin: 0 0 4px 0
+      color: $title_color
+  .content
+    margin: 20px 0
