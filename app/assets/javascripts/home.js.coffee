@@ -4,7 +4,6 @@
 
 $(document).ready ->
   unless $("body").data("coordinates") or $("body").data("region")
-    console.log "foi!"
     if navigator.geolocation
       navigator.geolocation.getCurrentPosition (position) ->
         window.location.href="#{window.location.href}?latitude=#{position.coords.latitude}&longitude=#{position.coords.longitude}"
