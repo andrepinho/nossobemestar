@@ -7,7 +7,7 @@
   meta property="og:type"         content="business.business"
   meta property="business:contact_data:street_address" content=@service.address
   meta property="business:contact_data:locality" content=(@service.region.name if @service.region)
-  meta property="business:contact_data:postal_code" content=""
+  meta property="business:contact_data:postal_code" content=@service.postal_code
   meta property="business:contact_data:country_name" content="Brasil"
   meta property="business:contact_data:email" content=@service.email
   meta property="business:contact_data:phone_number" content=@service.phone_number

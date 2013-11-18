@@ -4,7 +4,13 @@ class Service < ActiveRecord::Base
   validates_presence_of :name, :image, :description
   belongs_to :region
 
-  geocoded_by :full_address
+  geocoded_by :full_address do |object, results|
+    if geo = results.first
+      object.latitude = geo.latitude
+      object.longitude = geo.longitude
+      object.postal_code = geo.postal_code
+    end
+  end
   after_validation :geocode
 
   include PgSearch
