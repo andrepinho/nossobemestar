@@ -19,6 +19,7 @@ pt-BR:
         image: Imagem
         image_credit: Crédito da imagem
         image_caption: Legenda da imagem
+        highlighted: Destaque
       section:
         id: Id
         name: Nome

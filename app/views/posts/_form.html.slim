@@ -36,6 +36,9 @@
     = f.label :home_ordering
     = f.select :home_ordering, [nil,1,2,3,4]
   .field
+    = f.label :highlighted
+    = f.check_box :highlighted
+  .field
     = f.label :image
     = f.file_field :image
   .field

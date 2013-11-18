@@ -18,11 +18,11 @@ table
         td= link_to post.title, post
         td= post.author
         td= l post.published_at, format: :simple
-        -if post.home_ordering.empty?
+        -if post.home_ordering.blank?
           td= '-'
         -else
           td=post.home_ordering
-        -if post.ordering.empty?
+        -if post.ordering.blank?
           td= '-'
         -else
           td=post.ordering

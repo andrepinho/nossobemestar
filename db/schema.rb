@@ -11,11 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131117211348) do
+ActiveRecord::Schema.define(version: 20131118080820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "unaccent"
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -73,6 +72,7 @@ ActiveRecord::Schema.define(version: 20131117211348) do
     t.integer  "home_ordering"
     t.string   "image_caption"
     t.text     "subtitle"
+    t.boolean  "highlighted"
   end
 
   add_index "posts", ["section_id"], name: "index_posts_on_section_id", using: :btree
