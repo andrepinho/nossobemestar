@@ -14,7 +14,7 @@
           -else
             h4= link_to post.front_content , post_path(post)
   .more
-    = link_to "+", "#", style: "background-color: #777"
+    = link_to "+", "sections/highlighted", style: "background-color: #777"
 - @sections.each do |section|
   - unless section.posts.highlighted.empty?
     .section

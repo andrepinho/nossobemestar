@@ -55,6 +55,11 @@ class SectionsController < ApplicationController
     end
   end
 
+  def highlighted
+    @page = (params[:page])
+    @posts = Post.where('highlighted is TRUE').page(params[:page]).per(4)
+  end
+
   private
     def set_section
       @section = Section.find(params[:id])
