@@ -1,7 +1,7 @@
-class Event < ActiveRecord::Base
+class Service < ActiveRecord::Base
 
   has_attached_file :image
-  validates_presence_of :name, :image, :starts_at, :ends_at, :description
+  validates_presence_of :name, :description
   belongs_to :region
 
   geocoded_by :full_address
@@ -20,16 +20,8 @@ class Event < ActiveRecord::Base
     "#{self.id}-#{self.name.parameterize}"
   end
 
-  def self.by_relevance
-    order("CASE WHEN ends_at >= current_timestamp THEN starts_at END ASC, CASE WHEN ends_at < current_timestamp THEN starts_at END DESC")
-  end
-
   def display_description
     self.description.gsub(/\n/, '<br/>').html_safe
-  end
-
-  def past?
-    ends_at < Time.now
   end
 
   def full_address

@@ -47,11 +47,23 @@ pt-BR:
         phone_number: Telefone
         created_at: Criado em
         updated_at: Atualizado em
+      service:
+        id: Id
+        name: Nome
+        image: Imagem
+        description: Descrição
+        url: Website
+        address: Endereço
+        email: Email
+        phone_number: Telefone
+        created_at: Criado em
+        updated_at: Atualizado em
     models:
       section: Seção
       post: Post
       region: Região
       event: Evento
+      service: Serviço
   views:
     pagination:
       first: "<<"

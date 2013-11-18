@@ -1,0 +1,56 @@
+body[data-action="show"][data-controller="services"][data-namespace="null"]
+  .service
+    position: relative
+  #map
+    +grid(13)
+    +alpha
+    +omega
+    height: 290px
+    margin-bottom: 10px
+  .name
+    position: absolute
+    top: 0
+    left: 0
+    height: 44px
+    width: 736px
+    padding: 12px
+    background: $box_title_color
+    color: $title_text_color
+    text-transform: uppercase
+  .social
+    +clearfix
+    margin-bottom: 20px
+    .facebook, .twitter, .mail_to
+      float: right
+    .twitter
+      margin-left: 12px
+      margin-right: -26px
+    .mail_to
+      padding: 0
+      margin-top: -5px
+      margin-left: 5px
+      img
+        height: 29px
+  .image
+    +grid(7)
+    +alpha
+    width: 389px
+    border-right: 1px solid $border_color
+    padding-right: 10px
+    min-height: 180px
+    img
+      max-width: 389px
+  .info
+    +grid(6)
+    +omega
+    div
+      margin-bottom: 10px
+      &:before
+        margin-right: 10px
+  .description
+    +grid(13)
+    +alpha
+    +omega
+    border-top: 1px solid $border_color
+    margin-top: 20px
+    padding-top: 20px

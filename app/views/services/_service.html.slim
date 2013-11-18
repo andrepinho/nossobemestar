@@ -1,0 +1,6 @@
+= link_to service_path(service), class: "service" do
+  .image= image_tag(service.image.present? ? service.image : (current_region.background if current_region))
+  .content
+    h2
+      = truncate service.name, length: 60
+    .description= truncate service.description, length: 180

@@ -1,0 +1,22 @@
+- content_for :title do
+  ="Listando serviços"
+table
+  thead
+    tr
+      th Nome
+      th Website
+      th Email
+      th Telefone
+      th
+      th
+  tbody
+    - @services.each do |service|
+      tr class= cycle("even", "odd")
+        td= link_to service.name, service_path(service)
+        td= link_to("Clique aqui", service.url) if service.url.present?
+        td= mail_to(service.email, "Clique aqui") if service.email.present?
+        td= service.phone_number
+        td= link_to 'Editar', edit_service_path(service)
+        td= link_to 'Deletar', service, method: :delete, data: { confirm: 'Você está certo disso?' }
+= paginate @services
+.actions= link_to 'Novo serviço', new_service_path, class: "button"

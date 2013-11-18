@@ -1,0 +1,41 @@
+- content_for :title do
+  = "#{@service.name} · Guia de qualidade"
+- content_for :meta_tags do
+  meta name="description"         content=@service.description
+  meta name="keywords"            content="#{@service.name} #{@service.description} #{current_region.name if current_region} Nosso Bem Estar"
+  meta property="og:title"        content=@service.name
+  meta property="og:type"         content="business"
+  meta property="business:contact_data:street_address" content=@service.address
+  meta property="business:contact_data:locality" content=(@service.region.name if @service.region)
+  meta property="business:contact_data:postal_code" content=""
+  meta property="business:contact_data:country_name" content="Brasil"
+  meta property="business:contact_data:email" content=@service.email
+  meta property="business:contact_data:phone_number" content=@service.phone_number
+  meta property="business:contact_data:website" content=@service.url
+  meta property="og:url"          content=request.url
+  meta property="og:image"        content=(@service.image ? @service.image.url : (current_region.background.url if current_region))
+  meta property="og:site_name"    content="Nosso Bem Estar#{" · #{current_region.name}" if current_region}"
+  meta property="fb:app_id"       content="222690041241578"
+  meta property="og:description"  content=@service.description
+  meta property="fb:admins"       content="100000316028111"
+h1 Guia de qualidade
+#left_triangle
+= div_for @service do
+  #map data-latitude=@service.latitude data-longitude=@service.longitude
+  .name= @service.name
+  .social
+    = render partial: "layouts/mail_to", locals: { subject: @service.name }
+    = render "layouts/facebook_like"
+    = render "layouts/twitter"
+  .image= image_tag(@service.image.present? ? @service.image : (current_region.background if current_region))
+  .info
+    - if @service.address.present?
+      .address.icon-location= @service.address
+    - if @service.url.present?
+      .url.icon-link= link_to truncate(@service.url, length: 40), @service.url, target: :_blank
+    - if @service.email.present?
+      .email.icon-mail= mail_to @service.email
+    - if @service.phone_number.present?
+      .email.icon-phone= @service.phone_number
+    .actions= link_to "Cadastre seu serviço", new_service_path, class: "button"
+  .description= @service.display_description

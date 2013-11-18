@@ -1,0 +1,12 @@
+- content_for :title do
+  = "Guia de qualidade"
+.search
+  = form_tag services_path, :method => 'GET' do
+    = text_field_tag :search, params[:search], autocomplete: "off"
+    button.icon-search type="submit"
+- if @services.empty?
+  h2 Nenhum serviço encontrado.
+- else
+  .services= render @services
+= paginate @services
+.actions= link_to "Cadastre seu serviço", new_service_path, class: "button"

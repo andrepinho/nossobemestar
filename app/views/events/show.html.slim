@@ -5,6 +5,10 @@
   meta name="keywords"            content="#{@event.name} #{@event.description} #{current_region.name if current_region} Nosso Bem Estar"
   meta property="og:title"        content=@event.name
   meta property="og:type"         content="event"
+  meta property="event:start_time" content=@event.starts_at
+  meta property="event:end_time" content=@event.ends_at
+  meta property="event:location:latitude" content=@event.latitude
+  meta property="event:location:longitude" content=@event.longitude
   meta property="og:url"          content=request.url
   meta property="og:image"        content=(@event.image ? @event.image.url : (current_region.background.url if current_region))
   meta property="og:site_name"    content="Nosso Bem Estar#{" · #{current_region.name}" if current_region}"
@@ -25,8 +29,9 @@ h1 Agenda
     = render "layouts/twitter"
   .description= @event.display_description
   .info
-    - if @event.address.present?
+    - if @event.latitude && @event.longitude
       #map data-latitude=@event.latitude data-longitude=@event.longitude
+    - if @event.address.present?
       .address.icon-location= @event.address
     - if @event.url.present?
       .url.icon-link= link_to truncate(@event.url, length: 40), @event.url, target: :_blank

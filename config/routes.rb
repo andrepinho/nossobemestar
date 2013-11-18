@@ -8,6 +8,9 @@ Portal::Application.routes.draw do
   resources :events do
     get 'admin', on: :collection
   end
+  resources :services do
+    get 'admin', on: :collection
+  end
 
   root 'home#index'
 

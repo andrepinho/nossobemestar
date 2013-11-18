@@ -1,0 +1,80 @@
+body[data-action="index"][data-controller="services"][data-namespace="null"]
+  .search
+    +clearfix
+    margin-bottom: 20px
+    position: relative
+    [type=text]
+      +grid(12)
+      +alpha
+      +omega
+      padding: 9px
+    [type=submit]
+      +grid(1)
+      +alpha
+      +omega
+      padding: 9px
+      border: 1px solid $background_color
+      background-color: $link_color
+      color: $title_text_color
+      transition: background-color 0.3s
+      &:hover
+        background-color: $hover_color
+  .services
+    +clearfix
+    margin-left: -10px
+  .service
+    position: relative
+    +grid(4)
+    height: 136px
+    margin-bottom: 20px
+    text-decoration: none
+    .description
+      display: none
+      position: absolute
+      bottom: 0
+      left: 0
+      width: 204px
+      height: 68px
+      padding: 8px
+      background: $box_background_color
+      color: $text_color
+      font-size: $tiny_size
+      line-height: 110%
+    .image, .content
+      position: absolute
+      top: 0
+      left: 0
+      width: 220px
+      height: 136px
+      overflow: hidden
+    .image
+      z-index: 100
+      img
+        width: 220px
+        min-height: 136px
+    .content
+      z-index: 200
+      color: $title_text_color
+      position: relative
+      h2
+        position: absolute
+        overflow: hidden
+        bottom: 0
+        left: 0
+        color: $title_text_color
+        height: 36px
+        width: 204px
+        padding: 8px
+        background: $box_title_color
+        margin-bottom: 0
+        text-transform: uppercase
+        font-size: $tiny_size
+        line-height: 110%
+    &:hover
+      .description
+        display: block
+      .content
+        h2
+          top: 0
+        .date
+          top: 0
