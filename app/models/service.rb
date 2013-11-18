@@ -1,7 +1,7 @@
 class Service < ActiveRecord::Base
 
   has_attached_file :image
-  validates_presence_of :name, :description
+  validates_presence_of :name, :image, :description
   belongs_to :region
 
   geocoded_by :full_address
