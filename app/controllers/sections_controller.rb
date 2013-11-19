@@ -62,7 +62,8 @@ class SectionsController < ApplicationController
   end
 
   def local
-    @posts = Post.visible.where(region: current_region).page(params[:page]).per(9)
+    return redirect_to root_path, alert: 'Você precisa estar em uma região para ver notícias locais.' unless current_region
+    @posts = current_region.posts.visible.page(params[:page]).per(9)
   end
 
   private
