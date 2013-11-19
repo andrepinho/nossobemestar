@@ -1,4 +1,5 @@
 body[data-action="show"][data-controller="posts"][data-namespace="null"]
+  h1
   h2
     color: $text_color
     font-size: $huge_size
@@ -9,8 +10,11 @@ body[data-action="show"][data-controller="posts"][data-namespace="null"]
     font-size: $big_size
     line-height: 100%
     margin-bottom: 20px
+  h4
+    margin-bottom: 0
   .when
     color: $title_color
+    font-size: $small_size
   .author
     +grid(5)
     +alpha
@@ -33,3 +37,5 @@ body[data-action="show"][data-controller="posts"][data-namespace="null"]
       color: $title_color
   .content
     margin: 20px 0
+  #left_triangle
+    margin-bottom: 10px

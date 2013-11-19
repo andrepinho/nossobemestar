@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20131118173828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "unaccent"
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
