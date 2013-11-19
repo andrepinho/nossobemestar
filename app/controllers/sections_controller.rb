@@ -12,7 +12,7 @@ class SectionsController < ApplicationController
     @page = params[:page]
     @highlighted = Section.find(params[:id]).posts.highlighted
     @section = Section.find(params[:id])
-    @posts = @section.posts.unhighlighted.visible.order("published_at desc").page(params[:page]).per(9)
+    @posts = @section.posts.not_highlighted.order("published_at desc").page(params[:page]).per(9)
   end
 
   def new
@@ -58,7 +58,7 @@ class SectionsController < ApplicationController
   def highlighted
     @page = params[:page]
     @highlighted = Post.visible.home_page
-    @posts = Post.visible.where(highlighted: true).page(params[:page]).per(9)
+    @posts = Post.not_home_page.where(highlighted: true).page(params[:page]).per(9)
   end
 
   def local

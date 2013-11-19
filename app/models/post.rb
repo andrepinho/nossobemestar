@@ -16,10 +16,13 @@ class Post < ActiveRecord::Base
   def self.highlighted
     visible.where("ordering IS NOT NULL").order(:ordering).limit(4)
   end
-  def self.unhighlighted
+  def self.not_highlighted
     visible.where("ordering IS NULL")
   end
   def self.home_page
     visible.where("home_ordering IS NOT NULL").order(:home_ordering).limit(4)
+  end
+  def self.not_home_page
+    visible.where("home_ordering IS NULL").order(:home_ordering).limit(4)
   end
 end
