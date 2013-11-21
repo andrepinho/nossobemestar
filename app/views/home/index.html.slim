@@ -2,11 +2,11 @@
   = "Se você lê no Nosso Bem Estar você leva para sua vida"
 - content_for :sidebar do
   = image_tag("ad_destaques.jpg")
-h1 style="background-color: #999"="Destaques"
-#left_triangle style="border-color: transparent #999 transparent transparent "
+h1 style="background-color: #a2a2a2"="Destaques"
+#left_triangle style="border-color: transparent #a2a2a2 transparent transparent "
 .section
   ul= render partial: "layouts/post", collection: @posts
-  .more= link_to "+", highlighted_sections_path, style: "background-color: #999"
+  .more= link_to "+", highlighted_sections_path, style: "background-color: #a2a2a2"
 - @sections.each do |section|
   - unless section.posts.highlighted.empty?
     h1 style="background-color: #{section.color}"= section.name
