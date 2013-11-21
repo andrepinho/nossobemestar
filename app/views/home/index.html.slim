@@ -1,13 +1,7 @@
 - content_for :title do
   = "Se você lê no Nosso Bem Estar você leva para sua vida"
 - content_for :sidebar do
-  = image_tag("ad1.png")
-  = image_tag("ad2.png")
-  = image_tag("ad1.png")
-  = image_tag("ad2.png")
-  = image_tag("ad1.png")
-  = image_tag("ad2.png")
-  = image_tag("ad1.png")
+  = image_tag("ad_destaques.jpg")
 h1 style="background-color: #999"="Destaques"
 #left_triangle style="border-color: transparent #999 transparent transparent "
 .section
@@ -21,3 +15,5 @@ h1 style="background-color: #999"="Destaques"
       ul= render partial: "layouts/post", collection: section.posts.highlighted, locals: {color: section.color}
       .more
         = link_to "+", section_path(section), style: "background-color: #{section.color}"
+  - content_for :sidebar do
+    = image_tag("ad_#{section.name.parameterize}.jpg")

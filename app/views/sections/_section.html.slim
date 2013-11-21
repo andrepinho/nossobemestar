@@ -4,7 +4,7 @@
   - content_for :color do
     = @section.color
   - content_for :sidebar do
-    = image_tag("ad_#{@section.name.parameterize}.png")
+    = image_tag("ad_#{@section.name.parameterize}.jpg")
 
 - if @highlighted && !@highlighted.empty? && !@page
   .highlighted
