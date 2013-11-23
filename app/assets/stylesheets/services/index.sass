@@ -1,17 +1,14 @@
 body[data-action="index"][data-controller="services"][data-namespace="null"]
   .search
-    +clearfix
     margin-bottom: 20px
-    position: relative
     [type=text]
-      +grid(12)
+      +grid(6)
       +alpha
       +omega
       padding: 9px
     [type=submit]
       +grid(1)
       +alpha
-      +omega
       padding: 9px
       border: 1px solid $background_color
       background-color: $link_color
@@ -19,6 +16,10 @@ body[data-action="index"][data-controller="services"][data-namespace="null"]
       transition: background-color 0.3s
       &:hover
         background-color: $hover_color
+  .actions
+    +grid(6)
+    +omega
+    margin-top: 13px
   .services
     +clearfix
     margin-left: -10px
@@ -76,5 +77,6 @@ body[data-action="index"][data-controller="services"][data-namespace="null"]
       .content
         h2
           top: 0
+          background: $box_title_hover_color
         .date
           top: 0

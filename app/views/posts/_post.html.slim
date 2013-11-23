@@ -19,8 +19,7 @@
   #left_triangle style="border-color: transparent #{post.section.color} transparent transparent "
   h4.when
     = l post.published_at, format: :simple
-    = " - Atualizado em #{l post.updated_at, format: :simple}" if post.updated_at > post.published_at
-  h2= post.title
+  h2 style="color: #{post.section.color}"= post.title
   h3= post.subtitle
   h4.author= "Por #{post.author}"
   .social
@@ -28,9 +27,10 @@
     = render "layouts/facebook_like"
     = render "layouts/twitter"
   .image
+    #img_credit= post.image_credit if post.image_credit
     = image_tag post.image.url
-    h4
-      = post.image_caption
-      = " (#{post.image_credit})" if post.image_credit
+    -if post.image_caption.present?
+      h4= post.image_caption
+      
   .content= post.content.html_safe
   .fb-comments[data-href=request.url data-num-posts=50 data-width="760"]
