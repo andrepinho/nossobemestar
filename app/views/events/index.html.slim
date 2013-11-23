@@ -4,9 +4,9 @@
   = form_tag events_path, :method => 'GET' do
     = text_field_tag :search, params[:search], autocomplete: "off"
     button.icon-search type="submit"
+.actions= link_to "Cadastre seu evento gratuitamente", new_event_path, class: "button"
 - if @events.empty?
   h2 Nenhum evento encontrado.
 - else
   .events= render @events
 = paginate @events
-.actions= link_to "Cadastre seu evento", new_event_path, class: "button"
