@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
+
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate, :except => [:index, :show, :new, :create]
+  before_filter :authenticate_user!, except: [:index, :show]
+  authorize_resource
 
   def index
     @events = ((current_region && current_region.events ) || Event.where("region_id IS NULL")).by_relevance.page(params[:page]).per(9)
@@ -24,7 +26,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-
+    @event.user = current_user
     respond_to do |format|
       if @event.save
         format.html { redirect_to event_path(@event), notice: 'Seu evento foi criado com sucesso!' }

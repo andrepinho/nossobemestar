@@ -36,4 +36,7 @@ Portal::Application.configure do
     }
   }
 
+  config.action_mailer.default_url_options = { :host => 'lvh.me:3000' }
+  config.action_mailer.delivery_method = :letter_opener
+
 end

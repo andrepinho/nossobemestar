@@ -39,6 +39,10 @@ gem 'icomoon-rails'
 gem 'underscore-rails'
 gem 'gmaps4rails'
 gem 'pg_search'
+gem 'devise'
+gem 'devise-i18n'
+gem "letter_opener", :group => :development
+gem "cancan"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

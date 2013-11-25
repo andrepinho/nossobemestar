@@ -1,3 +1,4 @@
 #flash
   - for key, msg in flash
-    div class="#{key}" = msg
+    - unless key == :timedout
+      div class="#{key}" = msg

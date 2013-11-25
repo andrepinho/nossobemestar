@@ -32,19 +32,31 @@ html lang="#{I18n.locale}" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http:/
     #header_wrapper
       #header
         #logo= link_to image_tag("logo.png"), root_path
-        #current_region
+        #current_region.menu
           a.open href="#"
             = (current_region ? current_region.name : "Sua região")
             span  ▾
           nav
             - Region.all.each do |region|
-              =link_to region.name, region_path(region)
+              = link_to region.name, region_path(region)
         = render "layouts/newsletter_form"
+        - if current_user
+          #current_user.menu
+            a.open href="#"
+              = "Minha conta"
+              span  ▾
+            nav
+              = link_to "Cadastro", edit_user_registration_path
+              = link_to "Eventos", "#"
+              = link_to "Serviços", "#"
+              = link_to "Sair", destroy_user_session_path, method: :delete
+        - else
+          .sign_in= link_to "Conecte-se", new_user_session_path, class: "button"
     #menu_wrapper style="background: url('#{(current_region ? current_region.background : 'http://i17.photobucket.com/albums/b91/latinohunk/13treze/pano3-4.jpg' )}') center center repeat-x;"
       #menu
         nav#sections
           - if current_region
-            #region_menu
+            #region_menu.menu
               a.open href="#"= "+ #{current_region.name}"
               nav
                 - unless current_region.posts.visible.empty?

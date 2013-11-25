@@ -3,6 +3,7 @@ class Event < ActiveRecord::Base
   has_attached_file :image
   validates_presence_of :name, :image, :starts_at, :ends_at, :description
   belongs_to :region
+  belongs_to :user
 
   geocoded_by :full_address
   after_validation :geocode

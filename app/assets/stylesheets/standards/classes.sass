@@ -155,3 +155,26 @@
   ul
     li
       margin-bottom: 20px
+.menu
+  position: relative
+  .open
+    text-decoration: none
+    color: $subtitle_color
+    &:hover
+      color: $hover_color
+  nav
+    position: absolute
+    top: 40px
+    left: 0
+    min-width: 100%
+    display: none
+    background-color: $header_color
+    border: 1px solid $background_color
+    a
+      text-decoration: none
+      display: block
+      padding: 8px 4px
+      color: $title_color
+      &:hover
+        background-color: $ribbon_color
+        color: $title_text_color

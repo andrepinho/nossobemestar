@@ -58,12 +58,21 @@ pt-BR:
         phone_number: Telefone
         created_at: Criado em
         updated_at: Atualizado em
+      user:
+        id: Id
+        name: Nome
+        email: Email
+        password: Senha
+        password_confirmation: Confirmação da senha
+        created_at: Criado em
+        updated_at: Atualizado em
     models:
       section: Seção
       post: Post
       region: Região
       event: Evento
       service: Serviço
+      user: Usuário
   views:
     pagination:
       first: "<<"

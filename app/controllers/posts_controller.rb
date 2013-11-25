@@ -3,7 +3,9 @@
 class PostsController < ApplicationController
   helper_method :sort_column, :sort_direction
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate, :except => [:show]
+  before_filter :authenticate_user!, except: [:show]
+  authorize_resource
+
   def index
     @posts = Post.all.order(sort_column + " " + sort_direction).page(params[:page]).per(10)
   end

@@ -2,7 +2,8 @@
 
 class SectionsController < ApplicationController
   before_action :set_section, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate, :except => [:show, :highlighted, :local]
+  before_filter :authenticate_user!, except: [:show, :highlighted, :local]
+  authorize_resource
 
   def index
     @sections = Section.order(:ordering).all

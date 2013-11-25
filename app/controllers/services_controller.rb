@@ -2,7 +2,8 @@
 
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate, :except => [:index, :show, :new, :create]
+  before_filter :authenticate_user!, except: [:index, :show]
+  authorize_resource
 
   def index
     @services = ((current_region && current_region.services ) || Service.where("region_id IS NULL")).page(params[:page]).per(9)
@@ -26,7 +27,7 @@ class ServicesController < ApplicationController
 
   def create
     @service = Service.new(service_params)
-
+    @service.user = current_user
     respond_to do |format|
       if @service.save
         format.html { redirect_to service_path(@service), notice: 'Seu serviço foi criado com sucesso!' }
