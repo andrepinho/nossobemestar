@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :detect_region
+  before_filter :set_current_user_region
   helper_method :current_region, :namespace, :current_coordinates, :display_title!, :hide_title!, :display_title?
 
   rescue_from CanCan::AccessDenied do |exception|
@@ -35,6 +36,11 @@ class ApplicationController < ActionController::Base
         redirect_to root_url(subdomain: "www")
       end
     end
+  end
+
+  def set_current_user_region
+    return unless current_user && current_region
+    current_user.update_attribute :region_id, current_region.id
   end
 
   def current_region

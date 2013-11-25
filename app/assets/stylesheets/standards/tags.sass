@@ -43,6 +43,8 @@ p
   padding-top: 0
   padding-bottom: 20px
   margin: 0
+em
+  color: $subtitle_color
 label
   display: block
   padding-bottom: 4px
@@ -58,12 +60,16 @@ textarea
 select
   color: inherit
 input
+  width: 97%
   &.medium
     width: 40%
   &.small
     width: 20%
   &[type=checkbox]
+    display: inline
     width: auto
+  & + label
+    display: inline
 strong
   font-weight: bold
 table

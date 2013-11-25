@@ -5,6 +5,7 @@ class Region < ActiveRecord::Base
   has_many :sections, through: :posts
   has_many :events
   has_many :services
+  has_many :users
 
   reverse_geocoded_by :latitude, :longitude
 

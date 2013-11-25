@@ -1,5 +1,8 @@
 - content_for :title do
   = "#{@service.name} · Guia de qualidade"
+- content_for :external_js
+    script src="//maps.google.com/maps/api/js?v=3.13&libraries=geometry&sensor=false" type="text/javascript"
+    script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'
 - content_for :meta_tags do
   meta name="description"         content=@service.description
   meta name="keywords"            content="#{@service.name} #{@service.description} #{current_region.name if current_region} Nosso Bem Estar"
