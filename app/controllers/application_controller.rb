@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
   def detect_region
     unless current_region
       if current_coordinates && region = Region.closest_to(current_coordinates)
-        redirect_to root_url(subdomain: region.subdomain), notice: "Nós detectamos que nosso afiliado mais próximo de você está em #{region.name}. Se preferir, escolha outra região abaixo."
+        redirect_to root_url(subdomain: region.subdomain), notice: "Identificamos que o portal mais próximo a você é #{region.name}. Se preferir, escolha outra região abaixo."
       elsif request.subdomain != "www"
         redirect_to root_url(subdomain: "www")
       end
