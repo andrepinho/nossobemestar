@@ -26,6 +26,7 @@ h1 Agenda
     .month= l @event.starts_at, format: "%B"
     .day= l @event.starts_at, format: "%d"
   .name= @event.name
+  .user= "De #{@event.user ? @event.user.name : 'anônimo'}"
   .social
     = render partial: "layouts/mail_to", locals: { subject: @event.name }
     = render "layouts/facebook_like"
@@ -46,4 +47,8 @@ h1 Agenda
       = l @event.starts_at, format: :simple
       = " - "
       = l @event.ends_at, format: :simple
-    .actions= link_to "Cadastre seu evento", new_event_path, class: "button"
+    .actions
+      - if can? :update, @event
+        = link_to "Clique aqui para editar o seu evento", edit_event_path(@event), class: "button"
+      - else
+        = link_to "Cadastre seu evento gratuitamente", new_event_path, class: "button"

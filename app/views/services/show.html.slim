@@ -26,6 +26,7 @@ h1 Guia de qualidade
 = div_for @service do
   #map data-latitude=@service.latitude data-longitude=@service.longitude
   .name= @service.name
+  .user= "De #{@service.user ? @service.user.name : 'anônimo'}"
   .social
     = render partial: "layouts/mail_to", locals: { subject: @service.name }
     = render "layouts/facebook_like"
@@ -40,5 +41,9 @@ h1 Guia de qualidade
       .email.icon-mail= mail_to @service.email
     - if @service.phone_number.present?
       .email.icon-phone= @service.phone_number
-    .actions= link_to "Cadastre seu serviço", new_service_path, class: "button"
+    .actions
+      - if can? :update, @service
+        = link_to "Clique aqui para editar o seu serviço", edit_service_path(@service), class: "button"
+      - else
+        = link_to "Cadastre seu serviço gratuitamente", new_service_path, class: "button"
   .description= @service.display_description

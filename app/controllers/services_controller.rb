@@ -42,7 +42,7 @@ class ServicesController < ApplicationController
   def update
     respond_to do |format|
       if @service.update(service_params)
-        format.html { redirect_to admin_services_path, notice: 'Serviço atualizado com sucesso.' }
+        format.html { redirect_to service_path(@service), notice: 'Seu serviço foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
