@@ -20,7 +20,7 @@
   meta property="fb:admins"       content="100000316028111"
 h1 Agenda
 #left_triangle
-= div_for @event do
+.show_event
   .image= image_tag(@event.image.present? ? @event.image : (current_region.background if current_region))
   .date
     .month= l @event.starts_at, format: "%B"

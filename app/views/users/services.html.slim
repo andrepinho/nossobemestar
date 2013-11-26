@@ -1,0 +1,7 @@
+- content_for :title do
+  = "Meus serviços"
+- if @services.empty?
+  h2 Nenhum serviço encontrado.
+- else
+  .services= render partial: "services/service", collection: @services
+.actions= link_to "Cadastre seu serviço gratuitamente", new_service_path, class: "button"

@@ -1,0 +1,7 @@
+- content_for :title do
+  = "Meus eventos"
+- if @events.empty?
+  h2 Nenhum evento encontrado.
+- else
+  .services= render partial: "events/event", collection: @events
+.actions= link_to "Cadastre seu evento gratuitamente", new_event_path, class: "button"

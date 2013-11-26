@@ -17,6 +17,12 @@ Portal::Application.routes.draw do
   resources :services do
     get 'admin', on: :collection
   end
+  resources :users, except: [:show, :new, :create] do
+    member do
+      get 'services'
+      get 'events'
+    end
+  end
 
   root 'home#index'
 

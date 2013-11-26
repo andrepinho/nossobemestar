@@ -155,6 +155,145 @@
   ul
     li
       margin-bottom: 20px
+.services
+  +clearfix
+  margin-left: -10px
+.service
+  position: relative
+  +grid(4)
+  height: 136px
+  margin-bottom: 20px
+  text-decoration: none
+  .description
+    display: none
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 204px
+    height: 68px
+    padding: 8px
+    background: $box_background_color
+    color: $text_color
+    font-size: $tiny_size
+    line-height: 110%
+  .image, .content
+    position: absolute
+    top: 0
+    left: 0
+    width: 220px
+    height: 136px
+    overflow: hidden
+  .image
+    z-index: 100
+    img
+      width: 220px
+      min-height: 136px
+  .content
+    z-index: 200
+    color: $title_text_color
+    position: relative
+    h2
+      position: absolute
+      overflow: hidden
+      bottom: 0
+      left: 0
+      color: $title_text_color
+      height: 36px
+      width: 204px
+      padding: 8px
+      background: $box_title_color
+      margin-bottom: 0
+      text-transform: uppercase
+      font-size: $tiny_size
+      line-height: 110%
+  &:hover
+    .description
+      display: block
+    .content
+      h2
+        top: 0
+        background: $box_title_hover_color
+      .date
+        top: 0
+.events
+  +clearfix
+  margin-left: -10px
+.event
+  position: relative
+  +grid(4)
+  height: 136px
+  margin-bottom: 20px
+  text-decoration: none
+  &.past
+    +opacity(0.6)
+  .description
+    display: none
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 204px
+    height: 68px
+    padding: 8px
+    background: $box_background_color
+    color: $text_color
+    font-size: $tiny_size
+    line-height: 110%
+  .image, .content
+    position: absolute
+    top: 0
+    left: 0
+    width: 220px
+    height: 136px
+    overflow: hidden
+  .image
+    z-index: 100
+    img
+      width: 220px
+      min-height: 136px
+  .content
+    z-index: 200
+    color: $title_text_color
+    position: relative
+    h2
+      position: absolute
+      overflow: hidden
+      bottom: 0
+      right: 0
+      color: $title_text_color
+      height: 44px
+      width: 132px
+      padding: 8px 0 0 4px
+      background: $box_title_color
+      margin-bottom: 0
+      text-transform: uppercase
+      font-size: $tiny_size
+      line-height: 110%
+    .date
+      position: absolute
+      bottom: 0
+      left: 0
+      height: 44px
+      width: 84px
+      padding-top: 8px
+      background: $box_subtitle_color
+      text-align: center
+      .month
+        text-transform: uppercase
+        font-size: $tiny_size
+        line-height: 110%
+      .day
+        font-weight: bold
+        font-size: $medium_size
+        line-height: 172%
+  &:hover
+    .description
+      display: block
+    .content
+      h2
+        top: 0
+        background: $box_title_hover_color
+      .date
+        top: 0
 .menu
   position: relative
   .open
@@ -174,7 +313,8 @@
     a
       text-decoration: none
       display: block
-      padding: 8px 4px
+      padding: 4px
+      padding-right: 0
       color: $title_color
       &:hover
         background-color: $ribbon_color

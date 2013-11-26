@@ -1,0 +1,22 @@
+-content_for :title do
+  ="Listando usuários"
+table
+  thead
+    tr
+      th Nome
+      th Email
+      th Admin
+      th
+      th
+      th
+      th
+  tbody
+    - @users.each do |user|
+      tr class= cycle("even", "odd")
+        td= user.name
+        td= user.email
+        td= user.admin ? "Sim" : "Não"
+        td= link_to 'Ver eventos', events_user_path(user)
+        td= link_to 'Ver serviços', services_user_path(user)
+        td= link_to 'Editar', edit_user_path(user)
+        td= link_to 'Deletar', user, method: :delete, data: { confirm: 'Você está certo disso?' }

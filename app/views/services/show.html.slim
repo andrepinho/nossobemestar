@@ -23,7 +23,7 @@
   meta property="fb:admins"       content="100000316028111"
 h1 Guia de qualidade
 #left_triangle
-= div_for @service do
+.show_service
   #map data-latitude=@service.latitude data-longitude=@service.longitude
   .name= @service.name
   .user= "De #{@service.user ? @service.user.name : 'anônimo'}"

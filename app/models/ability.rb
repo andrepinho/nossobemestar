@@ -11,8 +11,10 @@ class Ability
     cannot :index, Post
     cannot :index, Region
     cannot :index, Section
+    cannot :index, User
 
     can [:create, :update], [Event, Service], user_id: user.id
+    can [:events, :services], [User], id: user.id
 
     can :manage, :all if user.admin?
 
