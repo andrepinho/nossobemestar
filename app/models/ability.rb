@@ -13,7 +13,9 @@ class Ability
     cannot :index, Section
     cannot :index, User
 
-    can [:create, :update], [Event, Service], user_id: user.id
+    unless user.new_record?
+      can [:create, :update], [Event, Service], user_id: user.id
+    end
     can [:events, :services], [User], id: user.id
 
     can :manage, :all if user.admin?
