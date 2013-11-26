@@ -43,7 +43,7 @@ h1 Guia de qualidade
       .email.icon-phone= @service.phone_number
     .actions
       - if can? :update, @service
-        = link_to "Clique aqui para editar o seu serviço", edit_service_path(@service), class: "button"
+        = link_to "Clique aqui para editar seu serviço", edit_service_path(@service), class: "button"
       - else
         = link_to "Cadastre seu serviço gratuitamente", new_service_path, class: "button"
   .description= @service.display_description
