@@ -14,6 +14,7 @@ class Region < ActiveRecord::Base
   end
 
   def self.closest_to(coordinates)
+    return unless coordinates
     near(coordinates, 1000, units: :km).limit(1).first
   end
 
