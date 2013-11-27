@@ -4,4 +4,9 @@ class HomeController < ApplicationController
     @sections = Section.order(:ordering).all
     @posts = Post.visible.home_page
   end
+
+  def no_region
+  	@regions = Region.all
+  	render :layout => false
+  end
 end

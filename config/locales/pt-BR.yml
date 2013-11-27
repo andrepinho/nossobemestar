@@ -34,6 +34,7 @@ pt-BR:
         background: Imagem de fundo
         created_at: Criado em
         updated_at: Atualizado em
+        group: Região do Brasil
       event:
         id: Id
         name: Nome

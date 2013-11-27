@@ -15,6 +15,9 @@
     = f.label :facebook
     = f.text_field :facebook, class: "medium"
   .field
+    = f.label :group
+    = f.select :group, ['Sul','Sudeste','Centro-Oeste','Nordeste','Norte']
+  .field
     = f.label :latitude
     = f.text_field :latitude, class: "small"
   .field

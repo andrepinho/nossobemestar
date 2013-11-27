@@ -23,7 +23,11 @@ Portal::Application.routes.draw do
       get 'events'
     end
   end
-
+  resources :home do
+    collection do
+      get 'no_region'
+    end
+  end
   root 'home#index'
 
 end
