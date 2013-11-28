@@ -10,7 +10,11 @@ class HomeController < ApplicationController
   end
 
   def no_region
-  	@regions = Region.all.order(:name)
-  	render :layout => false
+    if @current_region.present?
+      redirect_to root_path
+    else
+    	@regions = Region.all.order(:name)
+    	render :layout => false
+    end
   end
 end
