@@ -13,31 +13,36 @@ body[data-action="no_region"][data-controller="home"][data-namespace="null"]
 
   #wrapper
     background-color: $transparent_box_color
-    padding: 2%
-    width: 33%
-    margin: 10% 0 1% 4%
+    padding: 1%
+    width: 60%
+    margin: auto
+    margin-top: 3%
     text-align: center
     border-top: 5px solid $border_color
     border-bottom: 5px solid $border_color
   #logo
     img
-      width: 50%
+      width: 25%
   #text
-    padding: 3% 8% 6% 8%
+    font-size: 0.9em
+    padding: 2% 0
   #regions
     ul
       text-align: left
       color: $white
-      height: 180px
-      -webkit-column-count: 3
-      -moz-column-count: 3
-      column-count: 3
+      height: 120px
+      -webkit-column-count: 5
+      -moz-column-count: 5
+      column-count: 5
       li
-        width: 135px
+        width: 100%
         display: inline-block
         a
           color: $shadow_color
           text-decoration: none
+          border-bottom: 1px dashed $border_color
+        a.hover
+          color: $hover_color
       .group
         padding-left: 2px
         background-color: $blue
