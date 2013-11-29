@@ -19,8 +19,31 @@ head
 body[data-namespace="null" data-controller="home" data-action="no_region"]
   #wrapper
     #logo= link_to image_tag("logo.png"), root_path
-    #text= 'Não conseguimos detectar sua localização, por favor escolha um de nossos Portais abaixo:'
+    #text= 'Bem vindo ao <strong>nossobemestar</strong>!<br>Para que você possa acessar toda possitividade do nosso conteúdo é só escolher uma cidade.'.html_safe
     #regions
-      -@regions.each do |region|
-        #region
-          = link_to region.name, region_path(region)
+      ul
+        
+        -if @region_midwest.present?
+          li.group= 'Centro-Oeste'
+          -@region_midwest.each do |region|
+            li= link_to region.name, region_path(region)
+
+        -if @region_north.present?
+          li.group= 'Norte'
+          -@region_north.each do |region|
+            li= link_to region.name, region_path(region)
+        
+        -if @region_south_west.present?
+          li.group= 'Sudeste'
+          -@region_south_west.each do |region|
+            li= link_to region.name, region_path(region)
+
+        -if @region_northeast.present?
+          li.group= 'Nordeste'
+          -@region_northeast.each do |region|
+            li= link_to region.name, region_path(region)
+
+        -if @region_south.present?
+          li.group= 'Sul'
+          -@region_south.each do |region|
+            li= link_to region.name, region_path(region)

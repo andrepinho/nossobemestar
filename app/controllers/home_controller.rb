@@ -13,7 +13,11 @@ class HomeController < ApplicationController
     if @current_region.present?
       redirect_to root_path
     else
-    	@regions = Region.all.order(:name)
+    	@region_south = Region.where(group: 'Sul').order(:name)
+      @region_north = Region.where(group: 'Norte').order(:name)
+      @region_midwest = Region.where(group: 'Centro-Oeste').order(:name)
+      @region_south_west = Region.where(group: 'Sudeste').order(:name)
+      @region_northeast = Region.where(group: 'Nordeste').order(:name)
     	render :layout => false
     end
   end

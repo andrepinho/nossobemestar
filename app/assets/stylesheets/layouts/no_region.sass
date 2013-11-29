@@ -1,24 +1,43 @@
 body[data-action="no_region"][data-controller="home"][data-namespace="null"]
-  background: $white
-  color: $text_color
+  background-image: url('no_region_background.jpg')
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  -o-background-size: cover
+  background-size: cover
+  color: $shadow_color
   font-size: $standard_size
   line-height: 130%
   font-family: 'PT Sans', sans-serif
   -webkit-font-smoothing: antialiased  
   font-smoothing: antialiased
+
   #wrapper
-    width: 700px
-    margin: auto
+    background-color: $transparent_box_color
+    padding: 2%
+    width: 33%
+    margin: 10% 0 1% 4%
     text-align: center
-    margin-top: 6%
+    border-top: 5px solid $border_color
+    border-bottom: 5px solid $border_color
+  #logo
+    img
+      width: 50%
   #text
-    padding: 10px 0 30px 0
+    padding: 3% 8% 6% 8%
   #regions
-    text-align: left
-    #region
-      width: 220px
-      display: inline-block
-      text-align: center
-      padding: 10px 0
-      a
-        text-decoration: none
+    ul
+      text-align: left
+      color: $white
+      height: 180px
+      -webkit-column-count: 3
+      -moz-column-count: 3
+      column-count: 3
+      li
+        width: 150px
+        display: inline-block
+        a
+          color: $shadow_color
+          text-decoration: none
+      .group
+        padding-left: 2px
+        background-color: $blue
