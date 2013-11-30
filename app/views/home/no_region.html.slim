@@ -17,12 +17,24 @@ head
   meta property="fb:admins"       content="100000316028111"
 
 body[data-namespace="null" data-controller="home" data-action="no_region"]
+  #line_left
+  #line_right
   #wrapper
     #logo= link_to image_tag("logo.png"), root_path
-    #text= 'Bem vindo ao <strong>nossobemestar</strong>! Para que você possa acessar toda possitividade do nosso conteúdo é só escolher uma cidade.'.html_safe
+    #text= 'Bem vindo ao <strong>nossobemestar</strong>! Para acessar toda positividade de nosso conteúdo, escolha o portal mais próximo a você.'.html_safe
     #regions
       ul
+
+        -if @region_south.present?
+          li.group= 'Sul'
+          -@region_south.each do |region|
+            li= link_to region.name, region_path(region)
         
+        -if @region_south_west.present?
+          li.group= 'Sudeste'
+          -@region_south_west.each do |region|
+            li= link_to region.name, region_path(region)
+
         -if @region_midwest.present?
           li.group= 'Centro-Oeste'
           -@region_midwest.each do |region|
@@ -32,18 +44,8 @@ body[data-namespace="null" data-controller="home" data-action="no_region"]
           li.group= 'Norte'
           -@region_north.each do |region|
             li= link_to region.name, region_path(region)
-        
-        -if @region_south_west.present?
-          li.group= 'Sudeste'
-          -@region_south_west.each do |region|
-            li= link_to region.name, region_path(region)
 
         -if @region_northeast.present?
           li.group= 'Nordeste'
           -@region_northeast.each do |region|
-            li= link_to region.name, region_path(region)
-
-        -if @region_south.present?
-          li.group= 'Sul'
-          -@region_south.each do |region|
             li= link_to region.name, region_path(region)

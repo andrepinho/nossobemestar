@@ -5,7 +5,7 @@ body[data-action="no_region"][data-controller="home"][data-namespace="null"]
   -o-background-size: cover
   background-size: cover
   color: $shadow_color
-  font-size: $standard_size
+  font-size: $small_size
   line-height: 130%
   font-family: 'PT Sans', sans-serif
   -webkit-font-smoothing: antialiased  
@@ -14,12 +14,12 @@ body[data-action="no_region"][data-controller="home"][data-namespace="null"]
   #wrapper
     background-color: $transparent_box_color
     padding: 1%
-    width: 60%
+    width: 55%
     margin: auto
     margin-top: 3%
     text-align: center
-    border-top: 5px solid $border_color
-    border-bottom: 5px solid $border_color
+    border-top: 3px solid $white
+    border-bottom: 3px solid $white
   #logo
     img
       width: 25%
@@ -30,7 +30,7 @@ body[data-action="no_region"][data-controller="home"][data-namespace="null"]
     ul
       text-align: left
       color: $white
-      height: 120px
+      height: 100px
       -webkit-column-count: 5
       -moz-column-count: 5
       column-count: 5
@@ -46,3 +46,21 @@ body[data-action="no_region"][data-controller="home"][data-namespace="null"]
       .group
         padding-left: 2px
         background-color: $blue
+  #line_left
+    background-color: $white
+    opacity: 0.8
+    width: 1px
+    height: 130px
+    float: left
+    margin-left: 15%
+    margin-top: 4%
+    border: 1px solid $medium_light_gray
+  #line_right
+    background-color: $white
+    opacity: 0.8
+    width: 1px
+    height: 130px
+    float: right
+    margin-right: 15%
+    margin-top: 4%
+    border: 1px solid $medium_light_gray
