@@ -1,5 +1,7 @@
 Portal::Application.routes.draw do
 
+  get "static_pages/survey"
+  get "static_pages/about"
   devise_for :users, controllers: { :passwords => "passwords" }
   mount Ckeditor::Engine => '/ckeditor'
 
