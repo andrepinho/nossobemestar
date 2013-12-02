@@ -6,6 +6,7 @@ table
       th Nome
       th Email
       th Admin
+      th Região
       th
       th
       th
@@ -16,6 +17,10 @@ table
         td= user.name
         td= user.email
         td= user.admin ? "Sim" : "Não"
+        -if user.region.present?
+          td= user.region.name
+        -else
+          td= '-'
         td= link_to 'Ver eventos', events_user_path(user)
         td= link_to 'Ver serviços', services_user_path(user)
         td= link_to 'Editar', edit_user_path(user)

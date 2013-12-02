@@ -12,6 +12,9 @@
     = f.label :email
     = f.email_field :email, class: "medium"
   .field
+    = f.label :region_id
+    = f.select :region_id, Region.all.map { |region| [region.name, region.id]}
+  .field
     = f.check_box :admin
     = f.label :admin
   .actions

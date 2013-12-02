@@ -69,6 +69,7 @@ pt-BR:
         remember_me: Continuar conectado
         created_at: Criado em
         updated_at: Atualizado em
+        region_id: Região
     models:
       section: Seção
       post: Post
