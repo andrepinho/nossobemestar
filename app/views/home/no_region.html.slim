@@ -29,7 +29,8 @@ body[data-namespace="null" data-controller="home" data-action="no_region"]
           li.group= 'Sul'
           -@region_south.each do |region|
             li= link_to region.name, region_path(region)
-
+        li
+        li
         -if @region_midwest.present?
           li.group= 'Centro-Oeste'
           -@region_midwest.each do |region|
