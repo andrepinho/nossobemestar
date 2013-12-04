@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
   def detect_region
     unless current_region
       if region = (Region.find_by_id(cookies[:current_region_id]) || Region.closest_to(current_coordinates))
-        redirect_to root_url(subdomain: region.subdomain), notice: "Identificamos que o portal mais próximo a você é <strong>#{region.name}.</strong> Se preferir, escolha outra região abaixo.".html_safe
+        redirect_to root_url(subdomain: region.subdomain), notice: "Você está no portal <strong>#{region.name}.</strong> Se preferir, escolha outra região abaixo.".html_safe
       elsif request.subdomain != "www"
         redirect_to root_url(subdomain: "www")
       end
