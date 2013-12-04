@@ -6,8 +6,7 @@ table
       th Nome
       th Início
       th Fim
-      th Website
-      th Email
+      th Região
       th Telefone
       th
       th
@@ -17,8 +16,7 @@ table
         td= link_to event.name, event_path(event)
         td= l event.starts_at, format: :simple
         td= l event.ends_at, format: :simple
-        td= link_to("Clique aqui", event.url) if event.url.present?
-        td= mail_to(event.email, "Clique aqui") if event.email.present?
+        td= event.region.name
         td= event.phone_number
         td= link_to 'Editar', edit_event_path(event)
         td= link_to 'Deletar', event, method: :delete, data: { confirm: 'Você está certo disso?' }

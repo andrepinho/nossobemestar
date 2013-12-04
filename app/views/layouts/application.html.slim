@@ -1,7 +1,7 @@
 doctype 5
 html lang="#{I18n.locale}" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml"
   head
-    title= "Nosso Bem Estar · #{"#{yield :title} · " if content_for?(:title)}#{"#{current_region.name}  " if current_region}"
+    title= "#{"#{yield :title} · " if content_for?(:title)}#{"#{current_region.name} · " if current_region}Nosso Bem Estar"
     - if content_for? :external_js
       = yield :external_js
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
