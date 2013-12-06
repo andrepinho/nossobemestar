@@ -59,12 +59,12 @@ class SectionsController < ApplicationController
   def highlighted
     @page = params[:page]
     @highlighted = Post.visible.home_page
-    @posts = Post.not_home_page.where(highlighted: true).page(params[:page]).per(9)
+    @posts = Post.not_home_page.where(highlighted: true).order("published_at desc").page(params[:page]).per(9)
   end
 
   def local
     return redirect_to root_path, alert: 'Você precisa estar em uma região para ver notícias locais.' unless current_region
-    @posts = current_region.posts.visible.page(params[:page]).per(9)
+    @posts = current_region.posts.visible.order("published_at desc").page(params[:page]).per(9)
   end
 
   private
