@@ -11,7 +11,7 @@ class ServicesController < ApplicationController
   end
 
   def admin
-    @services = ((current_region && current_region.services ) || Service.where("region_id IS NULL")).page(params[:page]).per(10)
+    @services = Service.all.page(params[:page]).per(10)
   end
 
   def show

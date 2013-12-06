@@ -7,6 +7,7 @@ table
       th Website
       th Email
       th Telefone
+      th Região
       th
       th
   tbody
@@ -16,6 +17,7 @@ table
         td= link_to("Clique aqui", service.url) if service.url.present?
         td= mail_to(service.email, "Clique aqui") if service.email.present?
         td= service.phone_number
+        td= service.region.name
         td= link_to 'Editar', edit_service_path(service)
         td= link_to 'Deletar', service, method: :delete, data: { confirm: 'Você está certo disso?' }
 = paginate @services
