@@ -24,8 +24,9 @@
   h4.author= "Por #{post.author}"
   .social
     = render partial: "layouts/mail_to", locals: { subject: post.title }
-    = render "layouts/facebook_like"
+    = render "layouts/google_plus_one"
     = render "layouts/twitter"
+    = render "layouts/facebook_like"
   .image
     #img_credit= post.image_credit if post.image_credit
     = image_tag post.image.url
