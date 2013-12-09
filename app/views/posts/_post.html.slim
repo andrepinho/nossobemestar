@@ -29,7 +29,7 @@
     = render "layouts/facebook_like"
   .image
     #img_credit= post.image_credit if post.image_credit
-    = image_tag post.image.url
+    = image_tag post.image.url(:medium)
     -if post.image_caption.present?
       h4= post.image_caption
       
