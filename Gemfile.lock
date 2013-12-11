@@ -92,6 +92,10 @@ GEM
     letter_opener (1.1.2)
       launchy (~> 2.2)
     libv8 (3.16.14.3)
+    lograge (0.2.2)
+      actionpack (>= 3)
+      activesupport (>= 3)
+      railties (>= 3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -111,6 +115,8 @@ GEM
       activesupport (>= 3.1)
       arel
     polyglot (0.3.3)
+    quiet_assets (1.0.2)
+      railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-google-analytics (0.12.0)
     rack-test (0.6.2)
@@ -202,9 +208,11 @@ DEPENDENCIES
   jquery-rails
   kaminari
   letter_opener
+  lograge
   paperclip
   pg
   pg_search
+  quiet_assets
   rack-google-analytics
   rails (= 4.0.0)
   rails_12factor

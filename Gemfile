@@ -44,6 +44,8 @@ gem 'devise'
 gem 'devise-i18n'
 gem "letter_opener", :group => :development
 gem "cancan"
+gem 'quiet_assets', :group => :development
+gem "lograge"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
