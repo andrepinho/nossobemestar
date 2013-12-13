@@ -6,7 +6,7 @@ class ServicesController < ApplicationController
   authorize_resource
 
   def index
-    @services = ((current_region && current_region.services ) || Service.where("region_id IS NULL")).page(params[:page]).per(9)
+    @services = ((current_region && current_region.services ) || Service.where("region_id IS NULL")).order("created_at desc").page(params[:page]).per(9)
     @services = @services.search(params[:search]) if params[:search].present?
   end
 
