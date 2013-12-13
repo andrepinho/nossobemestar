@@ -9,6 +9,7 @@ table
       th Latitude
       th Longitude
       th Imagem de fundo
+      th Neswletter
       th
       th
   tbody
@@ -23,6 +24,10 @@ table
         td= region.latitude
         td= region.longitude
         td= image_tag region.background
+        - if region.newsletter_id.nil?
+          td= '-'
+        - else
+          td=link_to 'link', "https://us3.admin.mailchimp.com/lists/members/?id=#{region.newsletter_id}"
         td= link_to 'Editar', edit_region_path(region)
         td= link_to 'Deletar', region, method: :delete, data: { confirm: 'Você está certo disso?' }
 .actions= link_to 'Nova região', new_region_path, class: "button"
