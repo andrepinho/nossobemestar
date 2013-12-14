@@ -21,4 +21,7 @@ class HomeController < ApplicationController
     	render :layout => false
     end
   end
+  def email
+    redirect_to root_path, notice: 'Obrigado por seu cadastro. Para concluir o seu cadastro, confirme em seu email.'
+  end
 end

@@ -28,6 +28,7 @@ Portal::Application.routes.draw do
   resources :home do
     collection do
       get 'no_region'
+      get 'email'
     end
   end
   root 'home#index'
