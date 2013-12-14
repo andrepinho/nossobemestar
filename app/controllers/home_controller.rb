@@ -22,6 +22,6 @@ class HomeController < ApplicationController
     end
   end
   def email
-    redirect_to root_path, notice: 'Obrigado por seu cadastro. Para concluir o seu cadastro, confirme em seu email.'
+    redirect_to root_path, notice: 'Obrigado por seu cadastro. Para concluir, enviamos a confirmação para o seu email.'
   end
 end
