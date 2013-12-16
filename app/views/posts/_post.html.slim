@@ -26,6 +26,7 @@
     = render partial: "layouts/mail_to", locals: { subject: post.title }
     = render "layouts/google_plus_one"
     = render "layouts/twitter"
+    = render "layouts/facebook_share"
     = render partial: "layouts/facebook_like", locals: { url: post_url(post) }
   .image
     #img_credit= post.image_credit if post.image_credit
