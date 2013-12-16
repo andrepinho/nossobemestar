@@ -29,8 +29,10 @@ h1 Guia de qualidade
   .user= "De #{@service.user ? @service.user.name : 'anônimo'}"
   .social
     = render partial: "layouts/mail_to", locals: { subject: @service.name }
-    = render "layouts/facebook_like"
+    = render "layouts/google_plus_one"
     = render "layouts/twitter"
+    = render "layouts/facebook_share"
+    = render partial: "layouts/facebook_like", locals: { url: service_url(@service) }
   .image= image_tag(@service.image.present? ? @service.image : (current_region.background if current_region))
   .info
     - if @service.address.present?

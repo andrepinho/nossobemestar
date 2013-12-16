@@ -29,8 +29,10 @@ h1 Agenda
   .user= "De #{@event.user ? @event.user.name : 'anônimo'}"
   .social
     = render partial: "layouts/mail_to", locals: { subject: @event.name }
-    = render "layouts/facebook_like"
+    = render "layouts/google_plus_one"
     = render "layouts/twitter"
+    = render "layouts/facebook_share"
+    = render partial: "layouts/facebook_like", locals: { url: event_url(@event) }
   .description= @event.display_description
   .info
     - if @event.latitude && @event.longitude

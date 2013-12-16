@@ -27,7 +27,7 @@ table
         - if region.newsletter_id.nil?
           td= '-'
         - else
-          td=link_to 'link', "https://us3.admin.mailchimp.com/lists/members/?id=#{region.newsletter_id}"
+          td=region.newsletter_id
         td= link_to 'Editar', edit_region_path(region)
         td= link_to 'Deletar', region, method: :delete, data: { confirm: 'Você está certo disso?' }
 .actions= link_to 'Nova região', new_region_path, class: "button"
