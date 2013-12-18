@@ -63,6 +63,7 @@ pt-BR:
       user:
         id: Id
         name: Nome
+        surname: Sobrenome
         email: Email
         password: Senha
         password_confirmation: Confirmação da senha
