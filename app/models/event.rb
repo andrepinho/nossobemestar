@@ -1,6 +1,8 @@
+# coding: utf-8
 class Event < ActiveRecord::Base
 
   has_attached_file :image
+  before_save :smart_add_url_protocol
   validates_presence_of :name, :image, :starts_at, :ends_at, :description
   belongs_to :region
   belongs_to :user
@@ -38,4 +40,13 @@ class Event < ActiveRecord::Base
     "#{self.address} #{self.region.name}".strip
   end
 
+  def smart_add_url_protocol
+    if self.url && !url_protocol_present?
+      self.url = "http://#{self.url}"
+    end
+  end
+
+  def url_protocol_present?
+    self.url[/^http:\/\//] || self.url[/^https:\/\//]
+  end
 end
