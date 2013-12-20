@@ -19,7 +19,7 @@ head
 body[data-namespace="null" data-controller="home" data-action="no_region"]
   #wrapper
     #logo= link_to image_tag("logo.png"), root_path
-    #text= 'Bem vindo ao <strong>nossobemestar</strong>! <br> Para acessar toda positividade de nosso conteúdo, escolha o portal mais próximo a você.'.html_safe
+    #text= 'Bem vindo ao <strong>nossobemestar</strong>! Para acessar toda positividade de nosso conteúdo, escolha o portal mais próximo a você.'.html_safe
     #regions
       ul
 
@@ -27,13 +27,14 @@ body[data-namespace="null" data-controller="home" data-action="no_region"]
           li.group= 'Sul'
           -@region_south.each do |region|
             li= link_to region.name, region_path(region)
-        li
-        li
+
         -if @region_midwest.present?
           li.group= 'Centro-Oeste'
           -@region_midwest.each do |region|
             li= link_to region.name, region_path(region)
-        
+
+        li
+
         -if @region_south_west.present?
           li.group= 'Sudeste'
           -@region_south_west.each do |region|
@@ -48,3 +49,5 @@ body[data-namespace="null" data-controller="home" data-action="no_region"]
           li.group= 'Nordeste'
           -@region_northeast.each do |region|
             li= link_to region.name, region_path(region)
+  #video
+    iframe.alpha width="580px" height="325px" src="//www.youtube.com/embed/LJ1OsXwzP_I?showinfo=0&controls=0"?showinfo=0&controls=0" frameborder="0" allowfullscreen
