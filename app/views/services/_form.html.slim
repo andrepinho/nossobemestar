@@ -7,6 +7,9 @@
           li= msg
   = f.hidden_field :region_id, value: current_region.id
   .field
+    = f.label :region_id
+    = f.select :region_id, Region.all.map { |region| [region.name, region.id]}, :selected => current_region.id
+  .field
     = f.label :name
     = f.text_field :name, class: "medium"
   .field

@@ -49,6 +49,7 @@ pt-BR:
         phone_number: Telefone
         created_at: Criado em
         updated_at: Atualizado em
+        region_id: Em qual portal você quer publicar seu evento?
       service:
         id: Id
         name: Nome
@@ -60,6 +61,7 @@ pt-BR:
         phone_number: Telefone
         created_at: Criado em
         updated_at: Atualizado em
+        region_id: Em qual portal você quer publicar seu evento?
       user:
         id: Id
         name: Nome
