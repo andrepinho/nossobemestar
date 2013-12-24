@@ -62,6 +62,7 @@ html lang="#{I18n.locale}" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http:/
         - else
           .sign_in
             = link_to "Cadastre-se", new_user_registration_path
+            || 
             = link_to "Conecte-se", new_user_session_path
     #menu_wrapper style="background-image: url('#{(current_region.background.present? ? current_region.background : '/assets/default_bg.jpg' )}')"
       #menu
