@@ -1,0 +1,6 @@
+= form_tag "http://nossobemestar.us3.list-manage.com/subscribe/post?u=48559b27d67eaa3c39ff20581&amp;id=#{current_region.newsletter_id}", class: 'newsletter_form', method: 'post' do
+  h5 Receba nosso conteúdo em seu email
+  = text_field_tag 'FULLNAME', nil, placeholder: 'Seu nome', label: 'fullname'
+  = text_field_tag 'EMAIL', nil, placeholder: 'seu@email.com', label: 'email'
+  = hidden_field_tag 'REGION', (current_region ? current_region.name : nil), label: 'region'
+  = submit_tag "✓"

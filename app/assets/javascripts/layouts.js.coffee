@@ -3,6 +3,8 @@ $(document).ready ->
     event.preventDefault()
     event.stopPropagation()
     $(@).parent().find("nav").toggle()
+  $("input").click (event) ->
+    event.stopPropagation()
   setTimeout (->
     $('#flash').slideDown('slow')
   ), 100
