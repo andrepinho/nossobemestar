@@ -65,7 +65,7 @@ html lang="#{I18n.locale}" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http:/
             || 
             = link_to "Conecte-se", new_user_session_path
         = render partial: "layouts/facebook_like", locals: {url: current_region.facebook}
-    #menu_wrapper style="background-image: url('#{(current_region.background.present? ? current_region.background : '/assets/default_bg.jpg' )}')"
+    #menu_wrapper style="background-image: url('#{(current_region.background.present? ? current_region.background : '/assets/default_bg.jpg')}')"
       #menu
         nav#sections
           - if current_region
@@ -88,7 +88,7 @@ html lang="#{I18n.locale}" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http:/
         - if content_for?(:sidebar)
           = yield :sidebar
         - else
-          =link_to image_tag("ad_enquete.jpg"), static_pages_survey_path
+          =link_to image_tag("ad_newsletter.jpg"), "http://nossobemestar.us3.list-manage.com/subscribe?u=48559b27d67eaa3c39ff20581&id=#{current_region.newsletter_id}", :target => '_blank'
     #footer_wrapper
       #footer
         .facebook
