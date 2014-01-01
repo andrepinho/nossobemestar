@@ -28,7 +28,7 @@
     = f.text_field :author, class: "medium"
   .field
     = f.label :section_id
-    = f.select :section_id, Section.all.map { |section| [section.name, section.id]}
+    = f.select :section_id, [nil] + Section.all.map { |section| [section.name, section.id]}
   .field
     = f.label :ordering
     = f.select :ordering, [nil,1,2,3,4]

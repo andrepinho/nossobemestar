@@ -1,7 +1,10 @@
 - content_for :title do
   = post.title
 - content_for :color do
-  = post.section.color
+  -if post.section.present?
+    = post.section.color
+  -else
+    = '#555'
 - content_for :meta_tags do
   meta name="description"         content=post.subtitle
   meta name="keywords"            content="#{post.title} #{post.subtitle} #{current_region.name if current_region} Nosso Bem Estar"
@@ -15,11 +18,18 @@
   meta property="fb:admins"       content="100000316028111"
 
 = div_for post do
-  h1 style="background-color: #{post.section.color}"= post.section.name
-  #left_triangle style="border-color: transparent #{post.section.color} transparent transparent "
+  -if post.section.present?
+    h1 style="background-color: #{post.section.color}"= post.section.name
+    #left_triangle style="border-color: transparent #{post.section.color} transparent transparent "
+  -else
+    h1 style="background-color: #555"="Notícia"
+    #left_triangle style="border-color: transparent #555 transparent transparent "
   h4.when
     = l post.published_at, format: :simple
-  h2 style="color: #{post.section.color}"= post.title
+  -if post.section.present?
+    h2 style="color: #{post.section.color}"= post.title
+  -else
+    h2 style="color: #555"= post.title
   h3= post.subtitle
   h4.author= "Por #{post.author}"
   .social

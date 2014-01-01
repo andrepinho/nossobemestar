@@ -26,7 +26,10 @@ table
           td= '-'
         -else
           td=post.ordering
-        td= post.section.name
+        -if post.section.blank?
+          td= '-'
+        -else
+          td=post.section.name
         -if post.region_id != nil
           td= post.region.name
         -else
