@@ -45,4 +45,10 @@
       h4= post.image_caption
       
   .content= post.content.html_safe
+  -if @post.section.present?
+    .related
+      h2 style="color: #{@section.color}"= "Você também poderá gostar de"
+      ul= render partial: "layouts/post", collection: @related, locals: ({color: @section.color} if @section)
+      .more
+            = link_to "+", section_path(@section), style: "background-color: #{@section.color}"
   .fb-comments[data-href=post_url(post) data-num-posts=50 data-width="760"]

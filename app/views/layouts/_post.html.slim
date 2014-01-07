@@ -2,7 +2,7 @@ li
   .image= link_to image_tag(post.image.url(:medium)), post_path(post)
   .text
     h3= link_to post.front_title, post_path(post), style: "color: #{defined?(color) ? color : '#777'}"
-    -if post.front_content.empty?
+    -if post.front_content.blank?
       h4= link_to post.subtitle , post_path(post)
     -else
       h4= link_to post.front_content , post_path(post)

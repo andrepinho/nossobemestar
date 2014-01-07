@@ -11,6 +11,10 @@ class PostsController < ApplicationController
   end
 
   def show
+    if @post.section
+      @section = @post.section
+      @related = @section.posts.where("region_id IS NULL").order('RANDOM()').limit(3)
+    end
     hide_title!
   end
 
