@@ -1,12 +1,14 @@
 - content_for :sidebar do
-  =link_to image_tag("ad_newsletter.jpg"), "http://nossobemestar.us3.list-manage.com/subscribe?u=48559b27d67eaa3c39ff20581&id=#{current_region.newsletter_id}", :target => '_blank'
+  = link_to image_tag("ad_newsletter.jpg"), "http://nossobemestar.us3.list-manage.com/subscribe?u=48559b27d67eaa3c39ff20581&id=#{current_region.newsletter_id}", :target => '_blank'
 h1 style="background-color: #a2a2a2"="Destaques"
 #left_triangle style="border-color: transparent #a2a2a2 transparent transparent "
 .section
   ul= render partial: "layouts/post", collection: @posts
   .more= link_to "+", highlighted_sections_path, style: "background-color: #a2a2a2"
+-@section_number = 0
 - @sections.each do |section|
   - unless section.posts.highlighted.empty?
+    -@section_number += 1
     h1 style="background-color: #{section.color}"= section.name
     #left_triangle style="border-color: transparent #{section.color} transparent transparent "
     .section
@@ -15,3 +17,36 @@ h1 style="background-color: #a2a2a2"="Destaques"
         = link_to "+", section_path(section), style: "background-color: #{section.color}"
   - content_for :sidebar do
     = image_tag("ad_#{section.name.parameterize}.jpg")
+  -if @section_number == 1
+    #events
+      h1 style="background-color: #555"="Agenda"
+      #left_triangle style="border-color: transparent #555 transparent transparent "
+      - @events.each do |event|
+          = link_to event_path(event), class: "event#{' past' if event.past?}" do
+            .image= image_tag(event.image.present? ? event.image : (current_region.background if current_region))
+            .content
+              .date
+                .month= l event.starts_at, format: "%B"
+                .day= l event.starts_at, format: "%d"
+              h2
+                = truncate event.name, length: 60
+              .description= truncate event.description, length: 180
+      .more
+        = link_to "+", events_path(@event), style: "background-color: #555"
+    - content_for :sidebar do
+      = link_to image_tag("events.jpg"), new_event_path
+  -if @section_number == 3
+    #services
+      h1 style="background-color: #555"="Guia de Qualidade"
+      #left_triangle style="border-color: transparent #555 transparent transparent "
+      - @services.each do |service|
+        = link_to service_path(service), class: "service" do
+          .image= image_tag(service.image.present? ? service.image : (current_region.background if current_region))
+          .content
+            h2
+              = truncate service.name, length: 60
+            .description= truncate service.description, length: 180
+      .more
+        = link_to "+", services_path(@service), style: "background-color: #555"
+    - content_for :sidebar do
+      = link_to image_tag("services.jpg"), new_event_path

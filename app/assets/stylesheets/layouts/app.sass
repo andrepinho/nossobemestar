@@ -161,3 +161,27 @@
     background-color: $flash_success_color
   .failure, .error, .alert
     background-color: $flash_failure_color
+#events, #services
+  +clearfix
+  margin-left: -10px
+  padding-bottom: 15px
+  h1
+    margin-left: -20px
+  #left_triangle
+    margin-left: -20px
+  .more
+    +grid(1)
+    +omega
+    a
+      text-align: center
+      font-size: $big_size
+      font-weight: bold
+      display: block
+      width: 100%
+      padding-top: 60px
+      height: 77px
+      color: $title_text_color
+      text-decoration: none
+      +transition(0.3s)
+      &:hover
+        +opacity(0.8)
