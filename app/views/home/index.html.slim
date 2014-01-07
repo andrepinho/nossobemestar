@@ -17,7 +17,7 @@ h1 style="background-color: #a2a2a2"="Destaques"
         = link_to "+", section_path(section), style: "background-color: #{section.color}"
   - content_for :sidebar do
     = image_tag("ad_#{section.name.parameterize}.jpg")
-  -if @section_number == 1
+  -if @section_number == 1 && @events.present?
     #events
       h1 style="background-color: #555"="Agenda"
       #left_triangle style="border-color: transparent #555 transparent transparent "
@@ -35,7 +35,7 @@ h1 style="background-color: #a2a2a2"="Destaques"
         = link_to "+", events_path(@event), style: "background-color: #555"
     - content_for :sidebar do
       = link_to image_tag("events.jpg"), new_event_path
-  -if @section_number == 3
+  -if @section_number == 3 && @services.present?
     #services
       h1 style="background-color: #555"="Guia de Qualidade"
       #left_triangle style="border-color: transparent #555 transparent transparent "
