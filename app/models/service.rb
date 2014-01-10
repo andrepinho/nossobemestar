@@ -1,7 +1,7 @@
 class Service < ActiveRecord::Base
 
   has_attached_file :image
-  before_save :smart_add_url_protocol
+  before_validation :smart_add_url_protocol
   validates_presence_of :name, :image, :description
   belongs_to :region
   belongs_to :user

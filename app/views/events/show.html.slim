@@ -31,8 +31,7 @@ h1 Agenda
     = render partial: "layouts/mail_to", locals: { subject: @event.name }
     = render "layouts/google_plus_one"
     = render "layouts/twitter"
-    = render "layouts/facebook_share"
-    = render partial: "layouts/facebook_like", locals: { url: event_url(@event) }
+    = render "layouts/facebook_share", locals: { url: event_url(@event) }
   .description= @event.display_description
   .info
     - if @event.latitude && @event.longitude
