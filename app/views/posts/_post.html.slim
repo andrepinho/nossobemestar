@@ -46,7 +46,7 @@
   .content= post.content.html_safe
   -if @post.section.present?
     .related
-      h2 style="color: #{@section.color}"= "Você também poderá gostar de"
+      h2 style="color: #{@section.color}"= "Você também irá gostar de"
       ul= render partial: "layouts/post", collection: @related, locals: ({color: @section.color} if @section)
       .more
             = link_to "+", section_path(@section), style: "background-color: #{@section.color}"
