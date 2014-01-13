@@ -18,7 +18,7 @@
   meta property="fb:app_id"       content="222690041241578"
   meta property="og:description"  content=@event.description
   meta property="fb:admins"       content="100000316028111"
-h1 Agenda
+h1= link_to "Agenda", events_path
 #left_triangle
 .show_event
   .image= image_tag(@event.image.present? ? @event.image : (current_region.background if current_region))
