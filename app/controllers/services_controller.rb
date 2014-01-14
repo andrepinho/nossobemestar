@@ -54,7 +54,7 @@ class ServicesController < ApplicationController
   def destroy
     @service.destroy
     respond_to do |format|
-      format.html { redirect_to admin_services_path, notice: 'Serviço excluido com sucesso.' }
+      format.html { redirect_to services_path, notice: 'Serviço excluido com sucesso.' }
       format.json { head :no_content }
     end
   end

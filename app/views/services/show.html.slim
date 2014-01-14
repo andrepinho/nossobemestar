@@ -45,6 +45,9 @@ h1= link_to "Guia de qualidade", services_path
     .actions
       - if can? :update, @service
         = link_to "Clique aqui para editar seu serviço", edit_service_path(@service), class: "button"
+        br
+        br
+        td= link_to 'Deletar serviço', @service, method: :delete, data: { confirm: 'Seu serviço será deletado. Você está certo disso?' }
       - else
         = link_to "Cadastre seu serviço gratuitamente", new_service_path, class: "button"
   .description= @service.display_description

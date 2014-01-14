@@ -53,7 +53,7 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to admin_events_path, notice: 'Evento excluido com sucesso.' }
+      format.html { redirect_to events_path, notice: 'Evento excluido com sucesso.' }
       format.json { head :no_content }
     end
   end

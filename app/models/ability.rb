@@ -14,7 +14,7 @@ class Ability
     cannot :index, User
 
     unless user.new_record?
-      can [:create, :update], [Event, Service], user_id: user.id
+      can [:create, :update, :destroy], [Event, Service], user_id: user.id
     end
     can [:events, :services], [User], id: user.id
 
