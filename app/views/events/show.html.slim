@@ -53,6 +53,6 @@ h1= link_to "Agenda", events_path
         = link_to "Clique aqui para editar o seu evento", edit_event_path(@event), class: "button"
         br
         br
-        = link_to 'Deletar Evento', @event, method: :delete, data: { confirm: 'Seu evento será deletado. Você está certo disso?' }
+        = link_to 'Excluir Evento', @event, method: :delete, data: { confirm: 'Seu evento será excluído. Você está certo disso?' }
       - else
         = link_to "Cadastre seu evento gratuitamente", new_event_path, class: "button"

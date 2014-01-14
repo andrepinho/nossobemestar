@@ -29,5 +29,5 @@ table
         - else
           td=region.newsletter_id
         td= link_to 'Editar', edit_region_path(region)
-        td= link_to 'Deletar', region, method: :delete, data: { confirm: 'Você está certo disso?' }
+        td= link_to 'Excluir', region, method: :delete, data: { confirm: 'Você está certo disso?' }
 .actions= link_to 'Nova região', new_region_path, class: "button"

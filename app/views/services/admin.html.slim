@@ -19,6 +19,6 @@ table
         td= service.phone_number
         td= service.region.name
         td= link_to 'Editar', edit_service_path(service)
-        td= link_to 'Deletar', service, method: :delete, data: { confirm: 'Você está certo disso?' }
+        td= link_to 'Excluir', service, method: :delete, data: { confirm: 'Você está certo disso?' }
 = paginate @services
 .actions= link_to 'Novo serviço', new_service_path, class: "button"

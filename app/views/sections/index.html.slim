@@ -16,5 +16,5 @@ table
         td= link_to section.name, section
         td style="color:#{section.color}"   =section.color
         td= link_to 'Editar', edit_section_path(section)
-        td= link_to 'Deletar', section, method: :delete, data: { confirm: 'Você está certo disso?' }
+        td= link_to 'Excluir', section, method: :delete, data: { confirm: 'Você está certo disso?' }
 .actions= link_to 'Nova seção', new_section_path, class: "button"

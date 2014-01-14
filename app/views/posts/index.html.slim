@@ -35,6 +35,6 @@ table
         -else
           td= 'Todas'
         td= link_to 'Editar', edit_post_path(post)
-        td= link_to 'Deletar', post, method: :delete, data: { confirm: 'Você está certo disso?' }
+        td= link_to 'Excluir', post, method: :delete, data: { confirm: 'Você está certo disso?' }
 = paginate @posts
 .actions= link_to 'Novo post', new_post_path, class: "button"

@@ -19,6 +19,6 @@ table
         td= event.region.name
         td= event.phone_number
         td= link_to 'Editar', edit_event_path(event)
-        td= link_to 'Deletar', event, method: :delete, data: { confirm: 'Você está certo disso?' }
+        td= link_to 'Excluir', event, method: :delete, data: { confirm: 'Você está certo disso?' }
 = paginate @events
 .actions= link_to 'Novo evento', new_event_path, class: "button"
