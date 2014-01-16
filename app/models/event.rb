@@ -2,7 +2,7 @@
 class Event < ActiveRecord::Base
 
   has_attached_file :image
-  before_save :smart_add_url_protocol
+  before_validation :smart_add_url_protocol
   validates_presence_of :name, :image, :starts_at, :ends_at, :description
   belongs_to :region
   belongs_to :user
@@ -41,7 +41,7 @@ class Event < ActiveRecord::Base
   end
 
   def smart_add_url_protocol
-    if self.url && !url_protocol_present?
+    if self.url.present? && !url_protocol_present?
       self.url = "http://#{self.url}"
     end
   end

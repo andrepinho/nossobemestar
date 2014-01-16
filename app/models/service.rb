@@ -38,7 +38,7 @@ class Service < ActiveRecord::Base
   end
 
   def smart_add_url_protocol
-    if self.url && !url_protocol_present?
+    if self.url.present? && !url_protocol_present?
       self.url = "http://#{self.url}"
     end
   end
