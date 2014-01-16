@@ -6,7 +6,7 @@ class EventsController < ApplicationController
 
   def index
     @events = ((current_region && current_region.events ) || Event.where("region_id IS NULL")).by_relevance.page(params[:page]).per(9)
-    @events = @events.search(params[:search]) if params[:search].present?
+    @events = @events.search(params[:search]).by_relevance if params[:search].present?
   end
 
   def admin
