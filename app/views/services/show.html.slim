@@ -24,7 +24,7 @@
 h1= link_to "Guia de qualidade", services_path
 #left_triangle
 .show_service
-  #map data-latitude=@service.latitude data-longitude=@service.longitude
+  .image= image_tag(@service.image.present? ? @service.image : (current_region.background if current_region))
   .name= @service.name
   .user= "De #{@service.user ? @service.user.name : 'anônimo'}"
   .social
@@ -32,8 +32,10 @@ h1= link_to "Guia de qualidade", services_path
     = render "layouts/google_plus_one"
     = render "layouts/twitter"
     = render "layouts/facebook_share", locals: { url: service_url(@service) }
-  .image= image_tag(@service.image.present? ? @service.image : (current_region.background if current_region))
+  .description= @service.display_description
   .info
+    - if @service.latitude && @service.longitude
+      #map data-latitude=@service.latitude data-longitude=@service.longitude
     - if @service.address.present?
       .address.icon-location= @service.address
     - if @service.url.present?
@@ -50,4 +52,3 @@ h1= link_to "Guia de qualidade", services_path
         td= link_to 'Excluir serviço', @service, method: :delete, data: { confirm: 'Seu serviço será excluído. Você está certo disso?' }
       - else
         = link_to "Cadastre seu serviço gratuitamente", new_service_path, class: "button"
-  .description= @service.display_description

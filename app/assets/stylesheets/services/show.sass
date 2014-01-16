@@ -2,16 +2,16 @@ body[data-action="show"][data-controller="services"][data-namespace="null"]
   .show_service
     position: relative
   #map
-    +grid(13)
+    +grid(6)
     +alpha
     +omega
-    height: 290px
-    margin-bottom: 10px
+    height: 210px
+    margin-bottom: 20px
   .name
     position: absolute
     top: 0
     left: 0
-    height: 44px
+    height: 47px
     width: 736px
     padding: 12px
     background: $box_title_color
@@ -25,14 +25,14 @@ body[data-action="show"][data-controller="services"][data-namespace="null"]
     +grid(8)
     +omega
   .image
-    +grid(7)
+    +grid(13)
     +alpha
-    width: 389px
-    border-right: 1px solid $border_color
-    padding-right: 10px
-    min-height: 180px
+    +omega
+    max-height: 290px
+    margin-bottom: 10px
+    overflow: hidden
     img
-      max-width: 389px
+      width: 760px
   .info
     +grid(6)
     +omega
@@ -41,9 +41,10 @@ body[data-action="show"][data-controller="services"][data-namespace="null"]
       &:before
         margin-right: 10px
   .description
-    +grid(13)
+    +grid(7)
+    width: 389px
+    border-right: 1px solid $border_color
+    padding-right: 10px
+    min-height: 450px
+    overflow: hidden
     +alpha
-    +omega
-    border-top: 1px solid $border_color
-    margin-top: 20px
-    padding-top: 20px
