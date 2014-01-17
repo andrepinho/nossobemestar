@@ -226,7 +226,17 @@
   height: 136px
   margin-bottom: 20px
   text-decoration: none
+  .past_sign
+    position: absolute
+    z-index: 110
+    text-align: center
+    background-color: $text_color
+    color: $title_text_color
+    padding: 2px 67px
+    display: none
   &.past
+    .past_sign
+      display: inline
     +opacity(0.6)
   .description
     display: none

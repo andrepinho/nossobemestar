@@ -1,4 +1,5 @@
 = link_to event_path(event), class: "event#{' past' if event.past?}" do
+  .past_sign= "Já Realizado"
   .image= image_tag(event.image.present? ? event.image : (current_region.background if current_region))
   .content
     .date
