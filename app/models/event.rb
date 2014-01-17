@@ -35,6 +35,10 @@ class Event < ActiveRecord::Base
     ends_at < Time.now
   end
 
+  def ongoing?
+    starts_at < Time.now && ends_at > Time.now
+  end
+
   def full_address
     return self.address unless self.region and not self.address.match(/#{self.region.name}/i)
     "#{self.address} #{self.region.name}".strip

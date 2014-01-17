@@ -23,6 +23,8 @@ h1 style="background-color: #a2a2a2"="Destaques"
       #left_triangle style="border-color: transparent #555 transparent transparent "
       - @events.each do |event|
           = link_to event_path(event), class: "event#{' past' if event.past?}" do
+            - if event.ongoing?
+              .ongoing_sign= "Em andamento"
             .image= image_tag(event.image.present? ? event.image : (current_region.background if current_region))
             .content
               .date

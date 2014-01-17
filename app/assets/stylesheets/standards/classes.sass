@@ -226,17 +226,17 @@
   height: 136px
   margin-bottom: 20px
   text-decoration: none
-  .past_sign
+  .past_sign, .ongoing_sign
     position: absolute
     z-index: 110
     text-align: center
-    background-color: $text_color
+    background-color: $box_subtitle_color
     color: $title_text_color
+  .past_sign
     padding: 2px 67px
-    display: none
+  .ongoing_sign
+    padding: 2px 58px
   &.past
-    .past_sign
-      display: inline
     +opacity(0.6)
   .description
     display: none
