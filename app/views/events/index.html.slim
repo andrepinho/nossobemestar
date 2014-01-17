@@ -1,5 +1,7 @@
 - content_for :title do
   = "Agenda"
+h1= link_to "Agenda", events_path
+#left_triangle
 .search
   = form_tag events_path, :method => 'GET' do
     = text_field_tag :search, params[:search], autocomplete: "off"

@@ -1,3 +1,5 @@
 - content_for :title do
   = "Notícias#{" de #{current_region.name}" if current_region}"
+h1= link_to "Notícias#{" de #{current_region.name}" if current_region}", local_sections_path
+#left_triangle
 = render "section"
