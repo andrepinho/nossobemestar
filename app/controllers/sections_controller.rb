@@ -64,7 +64,7 @@ class SectionsController < ApplicationController
 
   def local
     return redirect_to root_path, alert: 'Você precisa estar em uma região para ver notícias locais.' unless current_region
-    @posts = current_region.posts.visible.order("published_at desc").page(params[:page]).per(10)
+    @posts = current_region.posts.visible.order("published_at desc").page(params[:page]).per(9)
     hide_title!
   end
 
