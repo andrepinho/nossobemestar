@@ -20,6 +20,7 @@ pt-BR:
         image_credit: Crédito da imagem
         image_caption: Legenda da imagem
         highlighted: Destaque
+        original_title: URL
       section:
         id: Id
         name: Nome

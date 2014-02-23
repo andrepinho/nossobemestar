@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131218053057) do
+ActiveRecord::Schema.define(version: 20140220045939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20131218053057) do
     t.string   "image_caption"
     t.text     "subtitle"
     t.boolean  "highlighted"
+    t.string   "original_title"
   end
 
   add_index "posts", ["section_id"], name: "index_posts_on_section_id", using: :btree
