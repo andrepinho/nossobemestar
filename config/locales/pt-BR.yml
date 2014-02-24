@@ -11,8 +11,8 @@ pt-BR:
         created_at: Criado em
         updated_at: Atualizado em
         section_id: Seção
-        front_title: Título da manchete
-        front_content: Texto da manchete
+        front_title: Manchete
+        front_content: Chamada da manchete
         ordering: Ordem na Seção
         home_ordering: Ordem na Home
         region_id: Região

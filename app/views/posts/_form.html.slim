@@ -9,17 +9,17 @@
     = f.label :region_id
     = f.select :region_id, [nil] + Region.all.map { |region| [region.name, region.id]}
   .field
-    = f.label :original_title
-    = f.text_field :original_title
-  .field
     = f.label :title
     = f.text_field :title
   .field
-    = f.label :subtitle
-    = f.text_field :subtitle
-  .field
     = f.label :front_title
     = f.text_field :front_title
+  .field
+    = f.label :original_title
+    = f.text_field :original_title
+  .field
+    = f.label :subtitle
+    = f.text_field :subtitle
   .field
     = f.label :front_content
     = f.text_area :front_content
