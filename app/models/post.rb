@@ -7,6 +7,18 @@ class Post < ActiveRecord::Base
   belongs_to :section
   belongs_to :region
 
+  include PgSearch
+  pg_search_scope :search, against: [
+      [:title, 'A'],
+      [:content, 'B'],
+      [:front_title, 'B'],
+      [:front_content, 'B'],
+      [:subtitle, 'C'],
+      [:author, 'C']
+    ],
+    using: {tsearch: {dictionary: "portuguese"}},
+    ignoring: :accents
+
   def to_param
     "#{self.id}-#{self.original_title.parameterize}"
   end

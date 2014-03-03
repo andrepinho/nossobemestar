@@ -341,3 +341,22 @@
   z-index: 10
   background-color: rgba(0,0,0,0.7)
   overflow: auto
+.search
+  +clearfix
+  margin-bottom: 20px
+  [type=text]
+    +grid(12)
+    +alpha
+    +omega
+    padding: 9px
+  [type=submit]
+    +grid(1)
+    +alpha
+    +omega
+    padding: 9px
+    border: 1px solid $background_color
+    background-color: $link_color
+    color: $title_text_color
+    transition: background-color 0.3s
+    &:hover
+      background-color: $hover_color
