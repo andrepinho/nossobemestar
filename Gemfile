@@ -33,7 +33,7 @@ gem "slim"
 gem "kaminari"
 gem "geocoder"
 gem "sass-rails"
-gem "compass-rails"
+gem 'compass-rails', '~> 1.1.2'
 gem 'uglifier'
 gem 'compass-960-plugin'
 gem 'icomoon-rails'
