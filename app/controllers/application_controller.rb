@@ -33,7 +33,6 @@ class ApplicationController < ActionController::Base
         redirect_to url_for(params.merge(subdomain: region.subdomain)), notice: "Você está no portal <strong>#{region.name}.</strong> Se preferir, escolha outra região abaixo.".html_safe
       elsif request.subdomain == "www"
         @url_for_subdomain = url_for(params.merge(subdomain: "{subdomain}"))
-        return render nothing: true, layout: "no_region"
       else
         redirect_to url_for(params.merge(subdomain: "www"))
       end
