@@ -31,7 +31,10 @@ class ApplicationController < ActionController::Base
     unless current_region
       if region = (Region.find_by_id(cookies[:current_region_id]) || Region.closest_to(current_coordinates))
         redirect_to url_for(params.merge(subdomain: region.subdomain)), notice: "Você está no portal <strong>#{region.name}.</strong> Se preferir, escolha outra região abaixo.".html_safe
-      elsif request.subdomain != "www"
+      elsif request.subdomain == "www"
+        @url_for_subdomain = url_for(params.merge(subdomain: "{subdomain}"))
+        return render nothing: true, layout: "no_region"
+      else
         redirect_to url_for(params.merge(subdomain: "www"))
       end
     end

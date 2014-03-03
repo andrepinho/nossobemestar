@@ -1,3 +1,9 @@
+- @region_south = Region.where(group: 'Sul').order(:name)
+- @region_north = Region.where(group: 'Norte').order(:name)
+- @region_midwest = Region.where(group: 'Centro-Oeste').order(:name)
+- @region_south_west = Region.where(group: 'Sudeste').order(:name)
+- @region_northeast = Region.where(group: 'Nordeste').order(:name)
+
 doctype 5
 head
   title= "Nosso Bem Estar"
@@ -16,7 +22,7 @@ head
   meta property="og:description"  content=yield(:title)
   meta property="fb:admins"       content="100000316028111"
 
-body[data-namespace="null" data-controller="home" data-action="no_region"]
+body[data-layout="no_region"]
   #wrapper
     #logo= link_to image_tag("logo.png"), root_path
     #video
@@ -29,7 +35,7 @@ body[data-namespace="null" data-controller="home" data-action="no_region"]
         -if @region_south.present?
           li.group= 'Sul'
           -@region_south.each do |region|
-            li= link_to region.name, region_path(region)
+            li= link_to region.name, @url_for_subdomain.gsub('{subdomain}', region.subdomain)
 
         li
         li
@@ -38,20 +44,19 @@ body[data-namespace="null" data-controller="home" data-action="no_region"]
         -if @region_midwest.present?
           li.group= 'Centro-Oeste'
           -@region_midwest.each do |region|
-            li= link_to region.name, region_path(region)
+            li= link_to region.name, @url_for_subdomain.gsub('{subdomain}', region.subdomain)
 
         -if @region_south_west.present?
           li.group= 'Sudeste'
           -@region_south_west.each do |region|
-            li= link_to region.name, region_path(region)
+            li= link_to region.name, @url_for_subdomain.gsub('{subdomain}', region.subdomain)
 
         -if @region_north.present?
           li.group= 'Norte'
           -@region_north.each do |region|
-            li= link_to region.name, region_path(region)
+            li= link_to region.name, @url_for_subdomain.gsub('{subdomain}', region.subdomain)
 
         -if @region_northeast.present?
           li.group= 'Nordeste'
           -@region_northeast.each do |region|
-            li= link_to region.name, region_path(region)
-
+            li= link_to region.name, @url_for_subdomain.gsub('{subdomain}', region.subdomain)
