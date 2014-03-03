@@ -73,4 +73,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :surname
   end
 
+  def require_region_admin
+    unless current_user && current_user.admin?
+      unless current_user && current_user.region_admin? && current_region && current_region == current_user.region
+        return redirect_to root_url, :alert => "Você não possui as permissões necessárias para realizar esta ação."
+      end
+    end
+  end
+
 end

@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @users = @users.search(params[:search]) if params[:search].present?
   end
 
   def events
@@ -46,6 +47,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name,:surname, :email, :admin, :region_id)
+    params.require(:user).permit(:name,:surname, :email, :admin, :region_id, :region_admin)
   end
 end

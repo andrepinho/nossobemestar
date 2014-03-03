@@ -2,6 +2,7 @@ class EventsController < ApplicationController
 
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :require_region_admin, only: [:admin]
   authorize_resource
 
   def index
@@ -11,7 +12,7 @@ class EventsController < ApplicationController
   end
 
   def admin
-    @events = Event.all.by_relevance.page(params[:page]).per(10)
+    @events = ((current_region && current_region.events ) || Event.where("region_id IS NULL")).by_relevance.page(params[:page]).per(10)
   end
 
   def show

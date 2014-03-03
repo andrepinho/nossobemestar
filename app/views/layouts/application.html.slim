@@ -58,6 +58,10 @@ html lang="#{I18n.locale}" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http:/
                 = link_to "Adm. eventos", admin_events_path
                 = link_to "Adm. serviços", admin_services_path
                 = link_to "Adm. usuários", users_path
+              - elsif current_user && current_user.region_admin? && current_region && current_region == current_user.region
+                hr
+                = link_to "Adm. eventos", admin_events_path
+                = link_to "Adm. serviços", admin_services_path
               hr
               = link_to "Sair", destroy_user_session_path, method: :delete
         - else

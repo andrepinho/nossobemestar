@@ -7,4 +7,18 @@ class User < ActiveRecord::Base
   has_many :events
   has_many :services
   belongs_to :region
+
+  include PgSearch
+  pg_search_scope :search, against: [
+      [:name, 'A'],
+      [:surname, 'A'],
+      [:email, 'B']
+    ],
+    using: {tsearch: {dictionary: "portuguese"}},
+    ignoring: :accents
+
+  def full_name
+    "#{self.name} #{self.surname}".strip
+  end
+
 end

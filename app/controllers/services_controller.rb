@@ -3,6 +3,7 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :require_region_admin, only: [:admin]
   authorize_resource
 
   def index
@@ -12,7 +13,7 @@ class ServicesController < ApplicationController
   end
 
   def admin
-    @services = Service.all.page(params[:page]).per(10)
+    @services = ((current_region && current_region.services ) || Service.where("region_id IS NULL")).page(params[:page]).per(10)
   end
 
   def show

@@ -1,5 +1,9 @@
 -content_for :title do
   ="Listando usuários"
+.search
+  = form_tag users_path, :method => 'GET' do
+    = text_field_tag :search, params[:search], autocomplete: "off"
+    button.icon-search type="submit"
 table
   thead
     tr
@@ -14,7 +18,7 @@ table
   tbody
     - @users.each do |user|
       tr class= cycle("even", "odd")
-        td= user.name
+        td= user.full_name
         td= user.email
         td= user.admin ? "Sim" : "Não"
         -if user.region.present?

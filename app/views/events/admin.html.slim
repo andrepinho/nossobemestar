@@ -16,7 +16,7 @@ table
         td= link_to event.name, event_path(event)
         td= l event.starts_at, format: :simple
         td= l event.ends_at, format: :simple
-        td= event.region.name
+        td= event.region.name if event.region
         td= event.phone_number
         td= link_to 'Editar', edit_event_path(event)
         td= link_to 'Excluir', event, method: :delete, data: { confirm: 'Você está certo disso?' }

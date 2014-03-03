@@ -18,6 +18,11 @@ class Ability
     end
     can [:events, :services], [User], id: user.id
 
+    if user.region_admin?
+      can :manage, Event, region_id: user.region.id
+      can :manage, Service, region_id: user.region.id
+    end
+
     can :manage, :all if user.admin?
 
   end
