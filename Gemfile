@@ -25,7 +25,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem 'rack-google-analytics'
+gem 'rack-google-analytics', '1.0.0'
 gem "ckeditor"
 gem "paperclip"
 gem "aws-sdk"

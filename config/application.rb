@@ -20,7 +20,5 @@ module Portal
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :"pt-BR"
 
-    config.middleware.use Rack::GoogleAnalytics, :tracker => 'UA-46003782-1'
-
   end
 end
