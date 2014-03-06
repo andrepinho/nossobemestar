@@ -27,14 +27,22 @@ class ApplicationController < ActionController::Base
     @hide_title = true
   end
 
+  def url_for_subdomain(subdomain)
+    if controller_name == "home" && action_name == "index"
+      root_url(subdomain: subdomain)
+    else
+      url_for(params.merge(subdomain: subdomain))
+    end
+  end
+
   def detect_region
     unless current_region
       if region = (Region.find_by_id(cookies[:current_region_id]) || Region.closest_to(current_coordinates))
-        redirect_to url_for(params.merge(subdomain: region.subdomain)), notice: "Você está no portal <strong>#{region.name}.</strong> Se preferir, escolha outra região abaixo.".html_safe
+        redirect_to url_for_subdomain(region.subdomain), notice: "Você está no portal <strong>#{region.name}.</strong> Se preferir, escolha outra região abaixo.".html_safe
       elsif request.subdomain == "www"
-        @url_for_subdomain = url_for(params.merge(subdomain: "{subdomain}"))
+        @url_for_subdomain = url_for_subdomain("{subdomain}")
       else
-        redirect_to url_for(params.merge(subdomain: "www"))
+        redirect_to url_for_subdomain("www")
       end
     end
   end
