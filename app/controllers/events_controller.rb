@@ -13,6 +13,7 @@ class EventsController < ApplicationController
 
   def admin
     @events = ((current_region && current_region.events ) || Event.where("region_id IS NULL")).by_relevance.page(params[:page]).per(10)
+    @events = @events.search(params[:search]) if params[:search].present?
   end
 
   def show
