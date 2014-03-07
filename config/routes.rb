@@ -25,9 +25,10 @@ Portal::Application.routes.draw do
       get 'events'
     end
   end
-  resources :home do
+  resources :home, only: [:index] do
     collection do
       get 'email'
+      post 'set_highlighted'
     end
   end
   root 'home#index'

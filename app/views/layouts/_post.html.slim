@@ -1,5 +1,23 @@
 li
-  .image= link_to image_tag(post.image.url(:medium)), post_path(post)
+  .image
+    = link_to image_tag(post.image.url(:medium)), post_path(post)
+    - if current_user && current_user.admin?
+      .admin.menu.button
+        a.open.icon-pencil href="#"
+        nav
+          - if controller_name = "home" and action_name == "index"
+            = form_tag set_highlighted_home_index_path do
+              = hidden_field_tag :id_from, post.id
+              = hidden_field_tag :home_highlighted, (defined?(home_highlighted) && home_highlighted)
+              = hidden_field_tag :append, true
+              = text_field_tag :id_to, nil, class: "small"
+              button.button type="submit" Inserir e mover
+            = form_tag set_highlighted_home_index_path do
+              = hidden_field_tag :id_from, post.id
+              = hidden_field_tag :home_highlighted, (defined?(home_highlighted) && home_highlighted)
+              = text_field_tag :id_to, nil, class: "small"
+              button.button type="submit" Substituir
+          = link_to "Editar", edit_post_path(post)
   .text
     h3= link_to post.front_title, post_path(post), style: "color: #{defined?(color) ? color : '#777'}"
     -if post.front_content.blank?

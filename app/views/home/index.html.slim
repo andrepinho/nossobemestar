@@ -3,12 +3,12 @@
 h1 style="background-color: #a2a2a2"="Destaques"
 #left_triangle style="border-color: transparent #a2a2a2 transparent transparent "
 .section
-  ul= render partial: "layouts/post", collection: @posts
+  ul= render partial: "layouts/post", collection: @posts, locals: {home_highlighted: true}
   .more= link_to "+", highlighted_sections_path, style: "background-color: #a2a2a2"
 -@section_number = 0
 - @sections.each do |section|
   - unless section.posts.highlighted.empty?
-    -@section_number += 1
+    - @section_number += 1
     h1 style="background-color: #{section.color}"= section.name
     #left_triangle style="border-color: transparent #{section.color} transparent transparent "
     .section
@@ -17,7 +17,7 @@ h1 style="background-color: #a2a2a2"="Destaques"
         = link_to "+", section_path(section), style: "background-color: #{section.color}"
   - content_for :sidebar do
     = image_tag("ad_#{section.name.parameterize}.jpg")
-  -if @section_number == 1 && @events.present?
+  - if @section_number == 1 && @events.present?
     #events
       h1 style="background-color: #555"="Agenda"
       #left_triangle style="border-color: transparent #555 transparent transparent "
@@ -37,7 +37,7 @@ h1 style="background-color: #a2a2a2"="Destaques"
         = link_to "+", events_path(@event), style: "background-color: #555"
     - content_for :sidebar do
       = link_to image_tag("events.jpg"), new_event_path
-  -if @section_number == 3 && @services.present?
+  - if @section_number == 3 && @services.present?
     #services
       h1 style="background-color: #555"="Guia de Qualidade"
       #left_triangle style="border-color: transparent #555 transparent transparent "

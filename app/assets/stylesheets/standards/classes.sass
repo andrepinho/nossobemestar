@@ -72,6 +72,7 @@
         margin-bottom: 4px
         height: 144px
         overflow: hidden
+        position: relative
         a
           text-transform: uppercase
           text-decoration: none
@@ -79,6 +80,23 @@
             text-decoration: underline
           img
             width: 100%
+        .admin
+          position: absolute
+          top: 0
+          left: 0
+          padding: 9px 12px
+          nav
+            width: 98px
+          a
+            text-decoration: none
+            text-transform: none
+            &.open
+              color: $title_text_color
+          form
+            padding: 4px
+            label
+              text-transform: none
+              color: $text_color
       .text
         +grid(4)
         +alpha

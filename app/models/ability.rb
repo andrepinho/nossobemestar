@@ -12,6 +12,7 @@ class Ability
     cannot :index, Region
     cannot :index, Section
     cannot :index, User
+    cannot :set_highlighted, :home
 
     unless user.new_record?
       can [:create, :update, :destroy], [Event, Service], user_id: user.id
