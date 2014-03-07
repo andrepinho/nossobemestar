@@ -21,4 +21,18 @@ class User < ActiveRecord::Base
     "#{self.name} #{self.surname}".strip
   end
 
+  def region_name
+    self.region.name if self.region
+  end
+
+  def self.to_csv
+    columns = ["id", "name", "surname", "email", "region_id", "region_name", "admin", "region_admin", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip"]
+    CSV.generate do |csv|
+      csv << columns
+      all.each do |row|
+        csv << columns.map { |column| row.send(column) }
+      end
+    end
+  end
+
 end
