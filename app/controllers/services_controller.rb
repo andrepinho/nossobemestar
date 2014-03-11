@@ -15,6 +15,10 @@ class ServicesController < ApplicationController
   def admin
     @services = ((current_region && current_region.services ) || Service.where("region_id IS NULL")).page(params[:page]).per(10)
     @services = @services.search(params[:search]) if params[:search].present?
+    respond_to do |format|
+      format.html
+      format.csv { send_data @services.to_csv }
+    end
   end
 
   def show

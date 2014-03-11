@@ -4,6 +4,8 @@
   = form_tag admin_events_path, :method => 'GET' do
     = text_field_tag :search, params[:search], autocomplete: "off"
     button.icon-search type="submit"
+.actions
+  = link_to "Exportar arquivo CSV", admin_events_path(format: "csv"), class: "button"
 table
   thead
     tr

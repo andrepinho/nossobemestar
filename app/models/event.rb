@@ -53,4 +53,15 @@ class Event < ActiveRecord::Base
   def url_protocol_present?
     self.url[/^http:\/\//] || self.url[/^https:\/\//]
   end
+
+  def self.to_csv
+    columns = ["id", "name", "starts_at", "ends_at", "description", "address", "url", "email", "phone_number"]
+    CSV.generate do |csv|
+      csv << columns
+      all.each do |row|
+        csv << columns.map { |column| row.send(column) }
+      end
+    end
+  end
+
 end

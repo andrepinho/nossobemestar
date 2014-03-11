@@ -46,4 +46,15 @@ class Service < ActiveRecord::Base
   def url_protocol_present?
     self.url[/^http:\/\//] || self.url[/^https:\/\//]
   end
+
+  def self.to_csv
+    columns = ["id", "name", "description", "address", "url", "email", "phone_number", "postal_code"]
+    CSV.generate do |csv|
+      csv << columns
+      all.each do |row|
+        csv << columns.map { |column| row.send(column) }
+      end
+    end
+  end
+
 end
