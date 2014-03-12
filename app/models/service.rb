@@ -48,7 +48,7 @@ class Service < ActiveRecord::Base
   end
 
   def self.to_csv
-    columns = ["id", "name", "description", "address", "url", "email", "phone_number", "postal_code"]
+    columns = ["id", "name", "address", "url", "email", "phone_number", "postal_code"]
     CSV.generate do |csv|
       csv << columns
       all.each do |row|

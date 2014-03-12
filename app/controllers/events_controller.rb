@@ -12,10 +12,12 @@ class EventsController < ApplicationController
   end
 
   def admin
-    @events = ((current_region && current_region.events ) || Event.where("region_id IS NULL")).by_relevance.page(params[:page]).per(10)
+    @events = ((current_region && current_region.events ) || Event.where("region_id IS NULL")).by_relevance
     @events = @events.search(params[:search]) if params[:search].present?
     respond_to do |format|
-      format.html
+      format.html do
+        @events = @events.page(params[:page]).per(10)
+      end
       format.csv { send_data @events.to_csv }
     end
   end
