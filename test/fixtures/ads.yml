@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  code: MyString
+  starts_at: 2014-03-16 15:48:42
+  ends_at: 2014-03-16 15:48:42
+  image: 
+  url: MyText
+  observations: MyText
+
+two:
+  code: MyString
+  starts_at: 2014-03-16 15:48:42
+  ends_at: 2014-03-16 15:48:42
+  image: 
+  url: MyText
+  observations: MyText

@@ -31,6 +31,7 @@ Portal::Application.routes.draw do
       post 'set_highlighted'
     end
   end
+  resources :ads, except: [:show]
   root 'home#index'
 
 end

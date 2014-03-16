@@ -12,6 +12,7 @@ class Ability
     cannot :index, Region
     cannot :index, Section
     cannot :index, User
+    cannot :index, Ad
     cannot :set_highlighted, :home
 
     unless user.new_record?
@@ -22,6 +23,7 @@ class Ability
     if user.region_admin?
       can :manage, Event, region_id: user.region.id
       can :manage, Service, region_id: user.region.id
+      can :manage, Ad, region_id: user.region.id
     end
 
     can :manage, :all if user.admin?

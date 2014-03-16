@@ -76,6 +76,15 @@ pt-BR:
         updated_at: Atualizado em
         region_id: Região
         region_admin: Admin da região
+      ad:
+        id: Id
+        code: Código
+        starts_at: Início
+        ends_at: Fim
+        image: Imagem
+        url: URL
+        observations: Observações
+        region_id: Região
     models:
       section: Seção
       post: Post
@@ -83,6 +92,7 @@ pt-BR:
       event: Evento
       service: Serviço
       user: Usuário
+      ad: Anúncio
   views:
     pagination:
       first: "<<"
