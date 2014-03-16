@@ -55,6 +55,11 @@
       h4= post.image_caption
       
   .content= post.content.html_safe
+  .social.ending
+    = render partial: "layouts/mail_to", locals: { subject: post.title }
+    = render "layouts/google_plus_one"
+    = render "layouts/twitter"
+    = render partial: "layouts/facebook_share", locals: { url: post_url(post) }
   -if @post.section.present?
     .related
       h2 style="color: #{@section.color}"= "Você também irá gostar"
