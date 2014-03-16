@@ -5,6 +5,17 @@
     = post.section.color
   -else
     = '#555'
+- content_for :sidebar do
+  - ad = Ad.for(current_region, (post.section ? :c2 : :n2), section: post.section)
+  - if ad
+    = link_to image_tag(ad.image.url(:thumb), style: "width: 156px; height: 585px"), ad.track_url, :target => '_blank'
+  - else
+    - ads = Ad.for(current_region, (post.section ? :c : :n), quantity: 2, section: post.section)
+    - if ads
+      - first_ad = ads[0]
+      - second_ad = ads[1] || first_ad
+      = link_to image_tag(first_ad.image.url(:thumb), style: "width: 156px; height: 282px; margin-bottom: 11px"), first_ad.track_url, :target => '_blank'
+      = link_to image_tag(second_ad.image.url(:thumb), style: "width: 156px; height: 282px"), second_ad.track_url, :target => '_blank'
 - content_for :meta_tags do
   meta name="description"         content=post.subtitle
   meta name="keywords"            content="#{post.title} #{post.subtitle} #{current_region.name if current_region} Nosso Bem Estar"
@@ -51,3 +62,9 @@
       .more
             = link_to "+", section_path(@section), style: "background-color: #{@section.color}"
   .fb-comments[data-href=post_url(post) data-num-posts=50 data-width="760"]
+- if post.section
+  - ads = Ad.for(current_region, :dc, quantity: 3, section: post.section)
+  - if ads
+    .content_ads
+      - ads.each do |ad|
+        = link_to image_tag(ad.image.url(:thumb)), ad.track_url, :target => '_blank'

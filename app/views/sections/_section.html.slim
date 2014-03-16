@@ -4,7 +4,18 @@
   - content_for :color do
     = @section.color
   - content_for :sidebar do
-    = image_tag("ad_#{@section.name.parameterize}.jpg")
+    - ad = Ad.for(current_region, :s2, section: @section)
+    - if ad
+      = link_to image_tag(ad.image.url(:thumb), style: "width: 156px; height: 585px"), ad.track_url, :target => '_blank'
+    - else
+      - ads = Ad.for(current_region, :s, quantity: 2, section: @section)
+      - if ads
+        - first_ad = ads[0]
+        - second_ad = ads[1] || first_ad
+        = link_to image_tag(first_ad.image.url(:thumb), style: "width: 156px; height: 282px; margin-bottom: 11px"), first_ad.track_url, :target => '_blank'
+        = link_to image_tag(second_ad.image.url(:thumb), style: "width: 156px; height: 282px"), second_ad.track_url, :target => '_blank'
+      - else
+        = image_tag("ad_#{@section.name.parameterize}.jpg")
 
 - if @highlighted && !@highlighted.empty? && !@page
   .highlighted
@@ -12,3 +23,9 @@
 .posts
   ul= render partial: "layouts/post", collection: @posts, locals: ({color: @section.color} if @section)
 = paginate @posts
+- if @section
+  - ads = Ad.for(current_region, :ds, quantity: 3, section: @section)
+  - if ads
+    .content_ads
+      - ads.each do |ad|
+        = link_to image_tag(ad.image.url(:thumb)), ad.track_url, :target => '_blank'

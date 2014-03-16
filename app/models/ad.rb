@@ -37,7 +37,7 @@ class Ad < ActiveRecord::Base
   end
 
   def self.by_relevance
-    order("region_id DESC, code, CASE WHEN ends_at >= current_timestamp THEN starts_at END ASC, CASE WHEN ends_at < current_timestamp THEN starts_at END DESC")
+    order("region_id DESC, code, section_id, CASE WHEN ends_at >= current_timestamp THEN starts_at END ASC, CASE WHEN ends_at < current_timestamp THEN starts_at END DESC")
   end
 
   def track_url
