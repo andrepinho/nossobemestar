@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ad_id: 
+  request: MyText
+
+two:
+  ad_id: 
+  request: MyText

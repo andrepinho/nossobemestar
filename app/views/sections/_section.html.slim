@@ -6,14 +6,14 @@
   - content_for :sidebar do
     - ad = Ad.for(current_region, :s2, section: @section)
     - if ad
-      = link_to image_tag(ad.image.url(:thumb), style: "width: 156px; height: 585px"), ad.track_url, :target => '_blank'
+      = link_to image_tag(ad.image.url(:thumb), style: "width: 156px; height: 585px"), click_ad_path(ad), :target => '_blank'
     - else
       - ads = Ad.for(current_region, :s, quantity: 2, section: @section)
       - if ads
         - first_ad = ads[0]
         - second_ad = ads[1] || first_ad
-        = link_to image_tag(first_ad.image.url(:thumb), style: "width: 156px; height: 282px; margin-bottom: 11px"), first_ad.track_url, :target => '_blank'
-        = link_to image_tag(second_ad.image.url(:thumb), style: "width: 156px; height: 282px"), second_ad.track_url, :target => '_blank'
+        = link_to image_tag(first_ad.image.url(:thumb), style: "width: 156px; height: 282px; margin-bottom: 11px"), click_ad_path(first_ad), :target => '_blank'
+        = link_to image_tag(second_ad.image.url(:thumb), style: "width: 156px; height: 282px"), click_ad_path(second_ad), :target => '_blank'
       - else
         = image_tag("ad_#{@section.name.parameterize}.jpg")
 
@@ -28,4 +28,4 @@
   - if ads
     .content_ads
       - ads.each do |ad|
-        = link_to image_tag(ad.image.url(:thumb)), ad.track_url, :target => '_blank'
+        = link_to image_tag(ad.image.url(:thumb)), click_ad_path(ad), :target => '_blank'

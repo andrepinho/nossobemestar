@@ -4,6 +4,7 @@ class Ad < ActiveRecord::Base
   validates_attachment :image, :presence => true, :content_type => { :content_type => "image/jpeg" }
   belongs_to :region
   belongs_to :section
+  has_many :clicks
   before_validation :smart_add_url_protocol
 
   before_save do
@@ -38,11 +39,6 @@ class Ad < ActiveRecord::Base
 
   def self.by_relevance
     order("region_id DESC, code, section_id, CASE WHEN ends_at >= current_timestamp THEN starts_at END ASC, CASE WHEN ends_at < current_timestamp THEN starts_at END DESC")
-  end
-
-  def track_url
-    # TODO track URL
-    self.url
   end
 
   def smart_add_url_protocol

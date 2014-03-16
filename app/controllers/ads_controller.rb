@@ -2,7 +2,7 @@
 
 class AdsController < ApplicationController
 
-  before_action :set_ad, only: [:edit, :update, :destroy]
+  before_action :set_ad, only: [:edit, :update, :destroy, :click]
   before_filter :authenticate_user!
   before_filter :require_region_admin
   authorize_resource
@@ -61,6 +61,11 @@ class AdsController < ApplicationController
       format.html { redirect_to ads_path, notice: 'Anúncio excluido com sucesso.' }
       format.json { head :no_content }
     end
+  end
+
+  def click
+    @ad.clicks.create ip: request.remote_ip
+    redirect_to @ad.url
   end
 
   private
