@@ -85,6 +85,7 @@ pt-BR:
         url: URL
         observations: Observações
         region_id: Região
+        section_id: Seção
     models:
       section: Seção
       post: Post

@@ -5,15 +5,24 @@
       ul
         - @ad.errors.full_messages.each do |msg|
           li= msg
+  - if current_user.admin?
+    .field
+      = f.label :region_id
+      = f.select :region_id, [nil] + Region.all.map { |region| [region.name, region.id]}
+  - date_options = {}
+  - date_options.merge!({include_blank: true}) if current_user.admin?
   .field
     = f.label :code
     = f.text_field :code, class: "small"
   .field
+    = f.label :section_id
+    = f.select :section_id, [nil] + Section.all.map { |section| [section.name, section.id]}
+  .field
     = f.label :starts_at
-    = f.datetime_select :starts_at
+    = f.datetime_select :starts_at, date_options
   .field
     = f.label :ends_at
-    = f.datetime_select :ends_at
+    = f.datetime_select :ends_at, date_options
   .field
     = f.label :image
     = f.file_field :image

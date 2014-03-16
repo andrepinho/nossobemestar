@@ -1,5 +1,9 @@
 - content_for :sidebar do
-  = link_to image_tag("ad_newsletter.jpg"), "http://nossobemestar.us3.list-manage.com/subscribe?u=48559b27d67eaa3c39ff20581&id=#{current_region.newsletter_id if current_region}", :target => '_blank'
+  - ad = Ad.for(current_region, :dh)
+  - if ad
+    = link_to image_tag(ad.image.url(:thumb), style: "width: 156px; height: 585px"), ad.track_url, :target => '_blank'
+  - else
+    = link_to image_tag("ad_newsletter.jpg"), "http://nossobemestar.us3.list-manage.com/subscribe?u=48559b27d67eaa3c39ff20581&id=#{current_region.newsletter_id if current_region}", :target => '_blank'
 h1 style="background-color: #a2a2a2"="Destaques"
 #left_triangle style="border-color: transparent #a2a2a2 transparent transparent "
 .section
@@ -16,7 +20,18 @@ h1 style="background-color: #a2a2a2"="Destaques"
       .more
         = link_to "+", section_path(section), style: "background-color: #{section.color}"
   - content_for :sidebar do
-    = image_tag("ad_#{section.name.parameterize}.jpg")
+    - ad = Ad.for(current_region, :h2)
+    - if ad
+      = link_to image_tag(ad.image.url(:thumb), style: "width: 156px; height: 585px"), ad.track_url, :target => '_blank'
+    - else
+      - ads = Ad.for(current_region, :h, quantity: 2, section: section)
+      - if ads
+        - first_ad = ads[0]
+        - second_ad = ads[1] || first_ad
+        = link_to image_tag(first_ad.image.url(:thumb), style: "width: 156px; height: 282px; margin-bottom: 11px"), first_ad.track_url, :target => '_blank'
+        = link_to image_tag(second_ad.image.url(:thumb), style: "width: 156px; height: 282px"), second_ad.track_url, :target => '_blank'
+      - else
+        = image_tag("ad_#{section.name.parameterize}.jpg")
   - if @section_number == 1 && @events.present?
     #events
       h1 style="background-color: #555"="Agenda"
@@ -36,7 +51,11 @@ h1 style="background-color: #a2a2a2"="Destaques"
       .more
         = link_to "+", events_path(@event), style: "background-color: #555"
     - content_for :sidebar do
-      = link_to image_tag("events.jpg"), new_event_path
+      - ad = Ad.for(current_region, :ah)
+      - if ad
+        = link_to image_tag(ad.image.url(:thumb), style: "width: 156px; height: 200px"), ad.track_url, :target => '_blank'
+      - else
+        = link_to image_tag("events.jpg"), new_event_path
   - if @section_number == 3 && @services.present?
     #services
       h1 style="background-color: #555"="Guia de Qualidade"
@@ -51,4 +70,8 @@ h1 style="background-color: #a2a2a2"="Destaques"
       .more
         = link_to "+", services_path(@service), style: "background-color: #555"
     - content_for :sidebar do
-      = link_to image_tag("services.jpg"), new_service_path
+      - ad = Ad.for(current_region, :gh)
+      - if ad
+        = link_to image_tag(ad.image.url(:thumb), style: "width: 156px; height: 200px"), ad.track_url, :target => '_blank'
+      - else
+        = link_to image_tag("services.jpg"), new_service_path

@@ -2,13 +2,17 @@
 
 class AdsController < ApplicationController
 
-  before_action :set_region, only: [:edit, :update, :destroy]
+  before_action :set_ad, only: [:edit, :update, :destroy]
   before_filter :authenticate_user!
   before_filter :require_region_admin
   authorize_resource
 
   def index
-    @ads = current_region.ads.by_relevance
+    if current_user.admin?
+      @ads = Ad.where("region_id = #{current_region.id} OR region_id IS NULL").by_relevance
+    else
+      @ads = current_region.ads.by_relevance
+    end
     @ads = @ads.search(params[:search]) if params[:search].present?
     respond_to do |format|
       format.html do
@@ -26,7 +30,7 @@ class AdsController < ApplicationController
 
   def create
     @ad = Ad.new(ad_params)
-    @ad.region = current_region
+    @ad.region = current_region unless current_user.admin?
 
     respond_to do |format|
       if @ad.save
@@ -66,7 +70,7 @@ class AdsController < ApplicationController
   end
 
   def ad_params
-    params.require(:ad).permit(:code, :starts_at, :ends_at, :image, :url, :observations)
+    params.require(:ad).permit(:region_id, :code, :section_id, :starts_at, :ends_at, :image, :url, :observations)
   end
 
 end
