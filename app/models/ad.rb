@@ -17,11 +17,14 @@ class Ad < ActiveRecord::Base
     if section
       ads_for = active.where(section_id: section.id, region_id: region.id, code: code.upcase).order('random()').limit(quantity)
       ads_for = fallback.where(section_id: section.id, region_id: region.id, code: code.upcase).order('random()').limit(quantity) if ads_for.empty?
+      ads_for = active.where("region_id IS NULL").where(section_id: section.id, code: code.upcase).order('random()').limit(quantity) if ads_for.empty?
       ads_for = fallback.where("region_id IS NULL").where(section_id: section.id, code: code.upcase).order('random()').limit(quantity) if ads_for.empty?
+      ads_for = active.where("region_id IS NULL AND section_id IS NULL").where(code: code.upcase).order('random()').limit(quantity) if ads_for.empty?
       ads_for = fallback.where("region_id IS NULL AND section_id IS NULL").where(code: code.upcase).order('random()').limit(quantity) if ads_for.empty?
     else
       ads_for = active.where(region_id: region.id, code: code.upcase).order('random()').limit(quantity)
       ads_for = fallback.where(region_id: region.id, code: code.upcase).order('random()').limit(quantity) if ads_for.empty?
+      ads_for = active.where("region_id IS NULL").where(code: code.upcase).order('random()').limit(quantity) if ads_for.empty?
       ads_for = fallback.where("region_id IS NULL").where(code: code.upcase).order('random()').limit(quantity) if ads_for.empty?
     end
     return nil if ads_for.empty?
