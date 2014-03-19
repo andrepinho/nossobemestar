@@ -1,10 +1,17 @@
 class Ad < ActiveRecord::Base
   has_attached_file :image, :styles => { :thumb => "220x600>" }
-  validates_presence_of :code, :url
-  validates_attachment :image, :presence => true, :content_type => { :content_type => "image/jpeg" }
   belongs_to :region
   belongs_to :section
+  belongs_to :event
+  belongs_to :service
   has_many :clicks
+  validates_presence_of :code
+  validates_presence_of :url, if: Proc.new { |ad| !['DA', 'DG'].include?(ad.code) }
+  validates_presence_of :image, if: Proc.new { |ad| !['DA', 'DG'].include?(ad.code) }
+  validates_attachment :image, :content_type => { :content_type => /\Aimage\/.*\Z/ }
+  validates_presence_of :event, if: Proc.new { |ad| ad.code == 'DA' }
+  validates_presence_of :service, if: Proc.new { |ad| ad.code == 'DG' }
+  validates_presence_of :section, if: Proc.new { |ad| ["H", "H2", "C", "C2", "DC", "S", "S2", "DS"].include?(ad.code) }
   before_validation :smart_add_url_protocol
 
   before_save do

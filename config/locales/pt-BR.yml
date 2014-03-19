@@ -84,8 +84,14 @@ pt-BR:
         image: Imagem
         url: URL
         observations: Observações
+        region: Região
         region_id: Região
+        section: Seção
         section_id: Seção
+        event: Evento
+        event_id: Evento
+        service: Serviço
+        service_id: Serviço
     models:
       section: Seção
       post: Post

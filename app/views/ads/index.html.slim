@@ -28,7 +28,13 @@ table
         td= ad.section.name if ad.section
         td= l(ad.starts_at, format: :simple) if ad.starts_at
         td= l(ad.ends_at, format: :simple) if ad.ends_at
-        td= link_to image_tag(ad.image.url(:thumb)), ad.url, target: :_blank
+        td
+          - if ad.code == "DA"
+            = link_to(image_tag(ad.event.image.present? ? ad.event.image : (current_region.background if current_region)), event_path(ad.event)) if ad.event
+          - elsif ad.code == "DG"
+            = link_to(image_tag(ad.service.image.present? ? ad.service.image : (current_region.background if current_region)), service_path(ad.service)) if ad.service
+          - else
+            = link_to image_tag(ad.image.url(:thumb)), ad.url, target: :_blank
         td= ad.observations
         - if current_user.admin?
           td= ad.clicks.count

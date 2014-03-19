@@ -13,10 +13,40 @@
   - date_options.merge!({include_blank: true}) if current_user.admin?
   .field
     = f.label :code
-    = f.text_field :code, class: "small"
-  .field
+    = f.select :code, [['DH - Destaque', 'DH'], 
+                      ['H - Banner Lateral da Seção', 'H'], 
+                      ['H2 - Banner Lateral Duplo (patrocínio seção)', 'H2'], 
+                      ['AH - Banner Agenda na Home', 'AH'], 
+                      ['GH - Banner Guia Qualidade na Home', 'GH'], 
+                      ['S - Banner Lateral da Seção', 'S'], 
+                      ['S2 - Banner Lateral Duplo (patrocínio seção)', 'S2'], 
+                      ['DS - Destaques da seção', 'DS'], 
+                      ['C - Banner Lateral da Seção', 'C'],
+                      ['C2 - Banner Lateral Duplo (patrocínio seção)', 'C2'],
+                      ['DC - Destaques do conteúdo', 'DC'],
+                      ['NH - Banner Lateral da Seção', 'NH'],
+                      ['NH2 - Banner Lateral Duplo (patrocínio seção)', 'NH2'],
+                      ['N - Banner Lateral da Seção', 'N'],
+                      ['N2 - Banner Lateral Duplo (patrocínio seção)', 'N2'],
+                      ['A - Banner Lateral da Agenda', 'A'],
+                      ['A2 - Banner Lateral Duplo (patrocínio agenda)', 'A2'],
+                      ['DA - Destaques da Agenda', 'DA'],
+                      ['AI - Banner Lateral da Agenda', 'AI'],
+                      ['AI2 - Banner Lateral Duplo (patrocínio agenda)', 'AI2'], 
+                      ['G - Banner Lateral do Guia', 'G'], 
+                      ['G2 - Banner Lateral Duplo (patrocínio guia)', 'G2'], 
+                      ['DG - Destaques do Guia', 'DG'], 
+                      ['GI - Banner Lateral do Guia', 'GI'], 
+                      ['GI2 - Banner Lateral Duplo (patrocínio guia)', 'GI2']]
+  .field.dynamic
     = f.label :section_id
-    = f.select :section_id, [nil] + Section.all.map { |section| [section.name, section.id]}
+    = f.select :section_id, [nil] + Section.order(:ordering).map { |section| [section.name, section.id]}
+  .field.dynamic
+    = f.label :event_id
+    = f.select :event_id, [nil] + current_region.events.order(:id).map { |event| ["#{event.id} - #{event.name}", event.id]}
+  .field.dynamic
+    = f.label :service_id
+    = f.select :service_id, [nil] + current_region.services.order(:id).map { |service| ["#{service.id} - #{service.name}", service.id]}
   .field
     = f.label :starts_at
     = f.datetime_select :starts_at, date_options

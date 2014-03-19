@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140316223322) do
+ActiveRecord::Schema.define(version: 20140319134407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20140316223322) do
     t.datetime "updated_at"
     t.integer  "region_id"
     t.integer  "section_id"
+    t.integer  "event_id"
+    t.integer  "service_id"
   end
 
   create_table "ckeditor_assets", force: true do |t|
