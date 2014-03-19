@@ -14,6 +14,7 @@
     background-color: $button_hover_color
     color: $button_text_color
 .actions
+  +clearfix
   margin: 40px 0
   text-align: right
   .button
@@ -382,10 +383,17 @@
     &:hover
       background-color: $hover_color
 .content_ads
+  +grid(13)
+  +alpha
   background: $content_ads_color
   margin-left: -10px
   padding: 10px 0
+  padding-right: 10px
+  margin-bottom: 40px
   +clearfix
-  img
-    height: 135px
-    +grid(4)
+  .banner
+    img
+      height: 135px
+      +grid(4)
+  .event, .service
+    margin-bottom: 0

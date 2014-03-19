@@ -30,9 +30,9 @@ table
         td= l(ad.ends_at, format: :simple) if ad.ends_at
         td
           - if ad.code == "DA"
-            = link_to(image_tag(ad.event.image.present? ? ad.event.image : (current_region.background if current_region)), event_path(ad.event)) if ad.event
+            = link_to(image_tag(ad.event.image.present? ? ad.event.image : (current_region.background if current_region)), event_path(ad.event), target: :_blank) if ad.event
           - elsif ad.code == "DG"
-            = link_to(image_tag(ad.service.image.present? ? ad.service.image : (current_region.background if current_region)), service_path(ad.service)) if ad.service
+            = link_to(image_tag(ad.service.image.present? ? ad.service.image : (current_region.background if current_region)), service_path(ad.service), target: :_blank) if ad.service
           - else
             = link_to image_tag(ad.image.url(:thumb)), ad.url, target: :_blank
         td= ad.observations

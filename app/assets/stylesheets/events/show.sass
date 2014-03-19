@@ -1,68 +1,70 @@
 body[data-action="show"][data-controller="events"][data-namespace="null"]
   .show_event
     position: relative
-  .image
-    +grid(13)
-    +alpha
-    +omega
-    max-height: 290px
-    margin-bottom: 10px
-    overflow: hidden
-    img
-      width: 760px
-  .name
-    position: absolute
-    top: 0
-    right: 0
-    height: 56px
-    width: 645px
-    padding-top: 12px
-    padding-left: 12px
-    background: $box_title_color
-    color: $title_text_color
-    text-transform: uppercase
-  .date
-    position: absolute
-    top: 0
-    left: 0
-    height: 56px
-    width: 103px
-    padding-top: 12px
-    background: $box_subtitle_color
-    text-align: center
-    color: $title_text_color
-    .month
-      text-transform: uppercase
-      font-size: $standard_size
-      line-height: 110%
-    .day
-      font-weight: bold
-      font-size: $big_size
-      line-height: 150%
-  .user
-    color: $subtitle_color
-    +grid(5)
-    +alpha
-  .social
-    +grid(8)
-    +omega
-  .description
-    +grid(7)
-    width: 389px
-    border-right: 1px solid $border_color
-    padding-right: 10px
-    min-height: 450px
-    +alpha
-  .info
-    +grid(6)
-    +omega
-    div
-      margin-bottom: 10px
-      &:before
-        margin-right: 10px
-    #map
-      +grid(6)
+    margin-bottom: 40px
+    +clearfix
+    .image
+      +grid(13)
       +alpha
       +omega
-      height: 210px
-      margin-bottom: 20px
+      max-height: 290px
+      margin-bottom: 10px
+      overflow: hidden
+      img
+        width: 760px
+    .name
+      position: absolute
+      top: 0
+      right: 0
+      height: 56px
+      width: 645px
+      padding-top: 12px
+      padding-left: 12px
+      background: $box_title_color
+      color: $title_text_color
+      text-transform: uppercase
+    .date
+      position: absolute
+      top: 0
+      left: 0
+      height: 56px
+      width: 103px
+      padding-top: 12px
+      background: $box_subtitle_color
+      text-align: center
+      color: $title_text_color
+      .month
+        text-transform: uppercase
+        font-size: $standard_size
+        line-height: 110%
+      .day
+        font-weight: bold
+        font-size: $big_size
+        line-height: 150%
+    .user
+      color: $subtitle_color
+      +grid(5)
+      +alpha
+    .social
+      +grid(8)
+      +omega
+    .description
+      +grid(7)
+      width: 389px
+      border-right: 1px solid $border_color
+      padding-right: 10px
+      min-height: 450px
+      +alpha
+    .info
+      +grid(6)
+      +omega
+      div
+        margin-bottom: 10px
+        &:before
+          margin-right: 10px
+      #map
+        +grid(6)
+        +alpha
+        +omega
+        height: 210px
+        margin-bottom: 20px

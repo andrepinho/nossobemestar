@@ -74,4 +74,4 @@
   - if ads
     .content_ads
       - ads.each do |ad|
-        = link_to image_tag(ad.image.url(:thumb)), click_ad_path(ad), :target => '_blank'
+        .banner= link_to image_tag(ad.image.url(:thumb)), click_ad_path(ad), :target => '_blank'

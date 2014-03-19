@@ -65,6 +65,9 @@ class SectionsController < ApplicationController
   def local
     return redirect_to root_path, alert: 'Você precisa estar em uma região para ver notícias locais.' unless current_region
     @posts = current_region.posts.visible.order("published_at desc").page(params[:page]).per(9)
+    @ads = Ad.for(current_region, :da, quantity: 3)
+    @events = @ads.map(&:event) rescue []
+    @events += ((current_region && current_region.events ) || Event.where("region_id IS NULL")).where("ends_at > current_timestamp").order('RANDOM()').limit(3 - @events.length)
     hide_title!
   end
 

@@ -65,3 +65,4 @@ h1= link_to "Guia de qualidade", services_path
         td= link_to 'Excluir serviço', @service, method: :delete, data: { confirm: 'Seu serviço será excluído. Você está certo disso?' }
       - else
         = link_to "Cadastre seu serviço gratuitamente", new_service_path, class: "button"
+.content_ads= render partial: 'service', collection: @ad_services

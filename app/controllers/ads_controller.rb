@@ -75,7 +75,7 @@ class AdsController < ApplicationController
   end
 
   def ad_params
-    params.require(:ad).permit(:region_id, :code, :section_id, :starts_at, :ends_at, :image, :url, :observations)
+    params.require(:ad).permit(:region_id, :code, :section_id, :event_id, :service_id, :starts_at, :ends_at, :image, :url, :observations)
   end
 
 end

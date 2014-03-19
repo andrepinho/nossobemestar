@@ -69,3 +69,4 @@ h1= link_to "Agenda", events_path
         = link_to 'Excluir Evento', @event, method: :delete, data: { confirm: 'Seu evento será excluído. Você está certo disso?' }
       - else
         = link_to "Cadastre seu evento gratuitamente", new_event_path, class: "button"
+.content_ads= render partial: 'event', collection: @ad_events

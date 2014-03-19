@@ -9,6 +9,9 @@ class EventsController < ApplicationController
     hide_title!
     @events = ((current_region && current_region.events ) || Event.where("region_id IS NULL")).by_relevance.page(params[:page]).per(30)
     @events = @events.search(params[:search]).by_relevance if params[:search].present?
+    @ads = Ad.for(current_region, :da, quantity: 3)
+    @ad_events = @ads.map(&:event) rescue []
+    @ad_events += ((current_region && current_region.events ) || Event.where("region_id IS NULL")).where("ends_at > current_timestamp").order('RANDOM()').limit(3 - @ad_events.length)
   end
 
   def admin
@@ -23,6 +26,9 @@ class EventsController < ApplicationController
   end
 
   def show
+    @ads = Ad.for(current_region, :da, quantity: 3)
+    @ad_events = @ads.map(&:event) rescue []
+    @ad_events += ((current_region && current_region.events ) || Event.where("region_id IS NULL")).where("ends_at > current_timestamp").order('RANDOM()').limit(3 - @ad_events.length)
     hide_title!
   end
 

@@ -9,6 +9,9 @@ class ServicesController < ApplicationController
   def index
     @services = ((current_region && current_region.services ) || Service.where("region_id IS NULL")).order("created_at desc").page(params[:page]).per(9)
     @services = @services.search(params[:search]) if params[:search].present?
+    @ads = Ad.for(current_region, :dg, quantity: 3)
+    @ad_services = @ads.map(&:service) rescue []
+    @ad_services += ((current_region && current_region.services ) || Service.where("region_id IS NULL")).order('RANDOM()').limit(3 - @ad_services.length)
     hide_title!
   end
 
@@ -24,6 +27,9 @@ class ServicesController < ApplicationController
   end
 
   def show
+    @ads = Ad.for(current_region, :dg, quantity: 3)
+    @ad_services = @ads.map(&:service) rescue []
+    @ad_services += ((current_region && current_region.services ) || Service.where("region_id IS NULL")).order('RANDOM()').limit(3 - @ad_services.length)
     hide_title!
   end
 

@@ -15,4 +15,5 @@ h1= link_to "Notícias#{" de #{current_region.name}" if current_region}", local_
       - second_ad = ads[1]
       = link_to image_tag(first_ad.image.url(:thumb), style: "width: 156px; height: 282px; margin-bottom: 11px"), click_ad_path(first_ad), :target => '_blank'
       = link_to(image_tag(second_ad.image.url(:thumb), style: "width: 156px; height: 282px"), click_ad_path(second_ad), :target => '_blank') if second_ad
+.content_ads= render partial: 'events/event', collection: @events
 = render "section"
