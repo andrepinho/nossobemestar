@@ -24,7 +24,7 @@ class Event < ActiveRecord::Base
   end
 
   def self.by_relevance
-    order("CASE WHEN ends_at >= current_timestamp THEN starts_at END ASC, CASE WHEN ends_at < current_timestamp THEN starts_at END DESC")
+    order("CASE WHEN starts_at >= current_timestamp THEN starts_at END ASC, CASE WHEN starts_at < current_timestamp THEN starts_at END DESC")
   end
 
   def display_description
