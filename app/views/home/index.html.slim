@@ -21,10 +21,12 @@ h1 style="background-color: #a2a2a2"="Destaques"
         = link_to "+", section_path(section), style: "background-color: #{section.color}"
   - content_for :sidebar do
     - ad = Ad.for(current_region, :h2, section: section)
+    - ads = Ad.for(current_region, :h, quantity: 2, section: section)
+    - if ad && ads
+      - if rand(2) == 0 then ad = nil else ads = nil end
     - if ad
       = link_to image_tag(ad.image.url(:thumb), style: "width: 156px; height: 585px"), click_ad_path(ad), :target => '_blank'
     - else
-      - ads = Ad.for(current_region, :h, quantity: 2, section: section)
       - if ads
         - first_ad = ads[0]
         - second_ad = ads[1]

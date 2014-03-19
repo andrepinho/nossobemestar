@@ -2,10 +2,12 @@
   = "Guia de qualidade"
 - content_for :sidebar do
   - ad = Ad.for(current_region, :g2)
+  - ads = Ad.for(current_region, :g, quantity: 2)
+  - if ad && ads
+    - if rand(2) == 0 then ad = nil else ads = nil end
   - if ad
     = link_to image_tag(ad.image.url(:thumb), style: "width: 156px; height: 585px"), click_ad_path(ad), :target => '_blank'
   - else
-    - ads = Ad.for(current_region, :g, quantity: 2)
     - if ads
       - first_ad = ads[0]
       - second_ad = ads[1]
