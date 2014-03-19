@@ -1,6 +1,10 @@
 #header_wrapper
   background-color: $header_color
   border-bottom: 1px solid $border_color
+  position: fixed
+  top: 0
+  width: 100%
+  z-index: 400
   +clearfix
   #header
     +grid-system(16)
@@ -64,6 +68,7 @@
   background-position: center
   padding-top: 110px
   height: 25px
+  margin-top: 56px
   +clearfix
   #menu
     +grid-system(16)
