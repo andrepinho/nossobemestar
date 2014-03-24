@@ -19,6 +19,7 @@ class Ad < ActiveRecord::Base
   end
 
   def self.for(region, code, options = {})
+    return nil unless region
     quantity = options[:quantity] || 1
     section = options[:section]
     if section
