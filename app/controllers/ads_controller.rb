@@ -3,8 +3,8 @@
 class AdsController < ApplicationController
 
   before_action :set_ad, only: [:edit, :update, :destroy, :click]
-  before_filter :authenticate_user!
-  before_filter :require_region_admin
+  before_filter :authenticate_user!, except: [:click]
+  before_filter :require_region_admin, except: [:click]
   authorize_resource
 
   def index
