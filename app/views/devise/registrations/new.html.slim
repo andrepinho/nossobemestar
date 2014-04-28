@@ -5,7 +5,12 @@
   p= 'Ao se cadastrar você pode divulgar gratuitamente seus eventos na AGENDA e seus produtos/serviços no GUIA DE QUALIDADE.'
   p= 'Seja bem-vindo ao Nosso Bem Estar!'
 
+
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+
+  .facebook= link_to "Entrar com Facebook", user_omniauth_authorize_path(:facebook), class: "button"
+  .separator
+    p ou
 
   = devise_error_messages!
   

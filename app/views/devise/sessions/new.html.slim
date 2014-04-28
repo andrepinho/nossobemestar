@@ -4,7 +4,13 @@
   p= 'Usufrua de todas as possibilidades do Nosso portal!'
   p= 'Ao se conectar você pode divulgar gratuitamente seus eventos na AGENDA e seus produtos/serviços no GUIA DE QUALIDADE.'
   p= 'Seja bem-vindo ao Nosso Bem Estar!'
+
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+
+  .facebook= link_to "Entrar com Facebook", user_omniauth_authorize_path(:facebook), class: "button"
+  .separator
+    p ou
+
   .field
     = f.label :email
     = f.email_field :email, :autofocus => true

@@ -2,7 +2,7 @@ Portal::Application.routes.draw do
 
   get "static_pages/survey"
   get "static_pages/about"
-  devise_for :users, controllers: { :passwords => "passwords" }
+  devise_for :users, controllers: { :passwords => "passwords", :omniauth_callbacks => "users/omniauth_callbacks" }
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :regions
