@@ -6,7 +6,7 @@ class SectionsController < ApplicationController
   authorize_resource
 
   def index
-    @sections = Section.order(:ordering).all
+    @sections = Section.order(:ordering)
   end
 
   def show

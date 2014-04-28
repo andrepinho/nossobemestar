@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   authorize_resource
 
   def index
-    @posts = Post.all.order(sort_column + " " + sort_direction).page(params[:page]).per(10)
+    @posts = Post.order(sort_column + " " + sort_direction).page(params[:page]).per(10)
     @posts = @posts.search(params[:search]) if params[:search].present?
   end
 

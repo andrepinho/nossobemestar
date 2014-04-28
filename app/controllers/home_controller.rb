@@ -3,7 +3,7 @@
 class HomeController < ApplicationController
   def index
     hide_title!
-    @sections = Section.order(:ordering).all
+    @sections = Section.order(:ordering)
     @posts = Post.visible.home_page
     @ads = Ad.for(current_region, :da, quantity: 3)
     @events = @ads.map(&:event) rescue []
