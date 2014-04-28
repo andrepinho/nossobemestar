@@ -1,0 +1,6 @@
+li.document
+  h2= link_to (document.searchable.try(:front_title) || document.searchable.try(:name)), document.searchable
+  h3= I18n.t("activerecord.models.#{document.searchable_type.downcase}")
+  h4= (document.searchable_type == "Event" ? "#{l document.searchable.starts_at, format: :simple} · #{document.searchable.address}" : document.searchable.try(:address))
+  p= truncate(document.searchable.try(:front_content) || document.searchable.try(:description), length: 280)
+  hr

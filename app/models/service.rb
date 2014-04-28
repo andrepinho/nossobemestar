@@ -24,6 +24,8 @@ class Service < ActiveRecord::Base
     using: {tsearch: {dictionary: "portuguese"}},
     ignoring: :accents
 
+  multisearchable :against => [:name, :description, :address]
+
   def to_param
     "#{self.id}-#{self.name.parameterize}"
   end

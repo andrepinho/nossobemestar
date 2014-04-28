@@ -18,6 +18,8 @@ class Post < ActiveRecord::Base
     using: {tsearch: {dictionary: "portuguese"}},
     ignoring: :accents
 
+  multisearchable :against => [:title, :content, :front_title, :front_content, :subtitle, :author]
+
   def to_param
     "#{self.id}-#{self.original_title.parameterize}"
   end

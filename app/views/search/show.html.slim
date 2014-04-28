@@ -1,0 +1,16 @@
+- content_for :title do
+  = "Busca por #{@query}"
+- content_for :meta_tags do
+  meta name="description"         content="Busca por #{@query} no Nosso Bem Estar #{current_region.name if current_region}"
+  meta name="keywords"            content="Busca #{@query} #{current_region.name if current_region} Nosso Bem Estar"
+  meta property="og:title"        content="Busca por #{@query} no Nosso Bem Estar #{current_region.name if current_region}"
+  meta property="og:type"         content="article"
+  meta property="og:url"          content=search_url(@query)
+  meta property="og:image"        content="http://portoalegre.nossobemestar.com/assets/og_image-17be3ac46221fe79b39ce395348d8aa9.png"
+  meta property="og:site_name"    content="Nosso Bem Estar#{" · #{current_region.name}" if current_region}"
+  meta property="fb:app_id"       content="222690041241578"
+  meta property="og:description"  content="Busca por #{@query} no Nosso Bem Estar #{current_region.name if current_region}"
+  meta property="fb:admins"       content="100000316028111"
+ul.documents
+  = render @pg_search_documents
+= paginate @pg_search_documents
