@@ -36,6 +36,8 @@
   meta property="fb:admins"       content="100000316028111"
 h1= link_to "Guia de qualidade", services_path
 #left_triangle
+- breadcrumb :service, @service
+== breadcrumbs semantic: true
 .show_service
   .image= image_tag(@service.image.present? ? @service.image : (current_region.background if current_region))
   .name= @service.name

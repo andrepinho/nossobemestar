@@ -18,7 +18,6 @@
         = link_to(image_tag(second_ad.image.url(:thumb), style: "width: 156px; height: 282px"), click_ad_path(second_ad), :target => '_blank') if second_ad
       - else
         = image_tag("ad_#{@section.name.parameterize}.jpg")
-
 - if @highlighted && !@highlighted.empty? && !@page
   .highlighted
     ul= render partial: "layouts/post", collection: @highlighted, locals: ({color: @section.color} if @section)

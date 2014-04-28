@@ -74,6 +74,8 @@ GEM
     fssm (0.2.10)
     geocoder (1.1.8)
     gmaps4rails (2.1.0)
+    gretel (3.0.6)
+      rails (>= 3.2.0)
     hashie (2.1.1)
     hike (1.2.3)
     i18n (0.6.5)
@@ -228,6 +230,7 @@ DEPENDENCIES
   devise-i18n
   geocoder
   gmaps4rails
+  gretel
   icomoon-rails
   jbuilder (~> 1.2)
   jquery-rails

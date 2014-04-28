@@ -34,9 +34,12 @@
   -if post.section.present?
     h1 style="background-color: #{post.section.color}"= post.section.name
     #left_triangle style="border-color: transparent #{post.section.color} transparent transparent "
+    - breadcrumb :post, post
   -else
     h1 style="background-color: #555"=link_to "Notícia", local_sections_path
     #left_triangle style="border-color: transparent #555 transparent transparent "
+    - breadcrumb :local_post, post
+  == breadcrumbs semantic: true
   h4.when
     = l post.published_at, format: :simple
   -if post.section.present?
