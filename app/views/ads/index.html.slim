@@ -35,7 +35,7 @@ table
             = link_to(image_tag(ad.service.image.present? ? ad.service.image : (current_region.background if current_region)), service_path(ad.service), target: :_blank) if ad.service
           - else
             = link_to image_tag(ad.image.url(:thumb)), ad.url, target: :_blank
-        td= ad.observations
+        td== ad.observations.gsub('.', '.<br>')
         - if current_user.admin?
           td= ad.clicks.count
         td= link_to 'Editar', edit_ad_path(ad)
