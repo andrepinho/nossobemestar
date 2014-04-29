@@ -19,11 +19,8 @@ class User < ActiveRecord::Base
     ignoring: :accents
 
   def self.find_for_facebook_oauth(auth)
-    if user = find_by_email(auth.info.email)
-      user.update provider: auth.provider, uid: auth.uid
-      user
-    else
-      where(auth.slice(:provider, :uid)).first_or_create do |user|
+    unless user = find_by(provider: auth.provider, uid: auth.uid)
+      user = where(email: auth.info.email).first_or_create do |user|
         user.provider = auth.provider
         user.uid = auth.uid
         user.email = auth.info.email
@@ -32,6 +29,7 @@ class User < ActiveRecord::Base
         user.surname = auth.info.last_name
       end
     end
+    user
   end
 
   def full_name

@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
 
   def detect_region
     unless current_region
-      if region = (Region.find_by_id(cookies[:current_region_id]) || Region.closest_to(current_coordinates))
+      if region = (Region.find_by(id: cookies[:current_region_id]) || Region.closest_to(current_coordinates))
         redirect_to url_for_subdomain(region.subdomain), notice: "Você está no portal <strong>#{region.name}.</strong> Se preferir, escolha outra região acima.".html_safe
       elsif request.subdomain == "www"
         @url_for_subdomain = url_for_subdomain("{subdomain}")
@@ -48,7 +48,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_region
-    @current_region ||= Region.find_by_subdomain(request.subdomain)
+    @current_region ||= Region.find_by(subdomain: request.subdomain)
     if @current_region && @current_region.id != cookies[:current_region_id]
       cookies[:current_region_id] = {
         value: @current_region.id,

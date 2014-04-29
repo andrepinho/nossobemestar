@@ -21,7 +21,7 @@ class HomeController < ApplicationController
     append = params[:append].present?
     attribute = (home ? :home_ordering : :ordering)
     post_from = Post.find(params[:id_from])
-    post_to = Post.find_by_id(params[:id_to])
+    post_to = Post.find_by(id: params[:id_to])
     return redirect_to root_path, alert: 'Id de post não encontrado.' unless post_to
     return redirect_to root_path, alert: 'O novo post deve ser da mesma seção do post original.' unless (home || post_from.section == post_to.section)
     ordering = post_from.read_attribute(attribute)
