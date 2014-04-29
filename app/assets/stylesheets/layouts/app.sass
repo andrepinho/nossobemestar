@@ -13,6 +13,26 @@
       +grid(3)
       img
         width: 100%
+    .search
+      margin-bottom: 0
+      padding-top: 10px
+      +grid(5)
+      [type=text]
+        +grid(4)
+        +alpha
+        +omega
+        padding: 4px 9px
+      [type=submit]
+        +grid(1)
+        +alpha
+        +omega
+        padding: 4px 9px
+        border: 1px solid $border_color
+        border-left: none
+        background-color: $background_color
+        color: $subtitle_color
+        &:hover
+          color: $title_color
     .newsletter_form
       +grid(5)
       padding-top: 14px

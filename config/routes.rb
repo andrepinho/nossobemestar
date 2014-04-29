@@ -36,7 +36,7 @@ Portal::Application.routes.draw do
       get 'click'
     end
   end
-  resources :search, only: [:show]
+  resources :search, only: [:index, :show]
   root 'home#index'
 
 end
