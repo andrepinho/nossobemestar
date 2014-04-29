@@ -32,6 +32,10 @@ class User < ActiveRecord::Base
     user
   end
 
+  before_create do
+    self.email = "user_#{self.id}_#{self.full_name}@nossobemestar.com" unless self.email
+  end
+
   def full_name
     "#{self.name} #{self.surname}".strip
   end
