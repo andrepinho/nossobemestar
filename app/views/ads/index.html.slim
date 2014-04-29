@@ -1,7 +1,7 @@
 - content_for :title do
   ="Listando anúncios"
-/.search
-  = form_tag admin_events_path, :method => 'GET' do
+.search
+  = form_tag ads_path, :method => 'GET' do
     = text_field_tag :search, params[:search], autocomplete: "off"
     button.icon-search type="submit"
 table
