@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
     using: {tsearch: {dictionary: "portuguese"}},
     ignoring: :accents
 
-  def self.find_for_facebook_oauth(auth)
+  def self.find_for_facebook_oauth(auth, region)
     unless user = find_by(provider: auth.provider, uid: auth.uid)
       user = where(email: auth.info.email).first_or_create do |user|
         user.provider = auth.provider
@@ -27,13 +27,14 @@ class User < ActiveRecord::Base
         user.password = Devise.friendly_token[0,20]
         user.name = auth.info.first_name
         user.surname = auth.info.last_name
+        user.region = region
       end
     end
     user
   end
 
   before_create do
-    self.email = "user_#{self.id}_#{self.full_name}@nossobemestar.com" unless self.email
+    self.email = "user_#{Time.now.to_i}_#{self.full_name.parameterize}@nossobemestar.com" unless self.email
   end
 
   def full_name
