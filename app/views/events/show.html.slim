@@ -6,14 +6,14 @@
   - if ad && ads
     - if rand(2) == 0 then ad = nil else ads = nil end
   - if ad
-    = link_to image_tag(ad.image.url(:thumb), style: "width: 156px; height: 585px"), click_ad_path(ad), :target => '_blank'
+    = link_to(image_tag(ad.image.url(:thumb), style: "width: 156px; height: 585px"), click_ad_path(ad), :target => '_blank') if ad.image.present?
     == ad.javascript
   - else
     - if ads
       - first_ad = ads[0]
       - second_ad = ads[1]
-      = link_to image_tag(first_ad.image.url(:thumb), style: "width: 156px; height: 282px; margin-bottom: 11px"), click_ad_path(first_ad), :target => '_blank'
-      = link_to(image_tag(second_ad.image.url(:thumb), style: "width: 156px; height: 282px"), click_ad_path(second_ad), :target => '_blank') if second_ad
+      = link_to(image_tag(first_ad.image.url(:thumb), style: "width: 156px; height: 282px; margin-bottom: 11px"), click_ad_path(first_ad), :target => '_blank') if first_ad.image.present?
+      = link_to(image_tag(second_ad.image.url(:thumb), style: "width: 156px; height: 282px"), click_ad_path(second_ad), :target => '_blank') if second_ad && second_ad.image.present?
       == first_ad.try(:javascript)
       == second_ad.try(:javascript)
 - content_for :external_js do

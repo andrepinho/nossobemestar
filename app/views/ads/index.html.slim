@@ -33,9 +33,8 @@ table
             = link_to(image_tag(ad.event.image.present? ? ad.event.image : (current_region.background if current_region)), event_path(ad.event), target: :_blank) if ad.event
           - elsif ad.code == "DG"
             = link_to(image_tag(ad.service.image.present? ? ad.service.image : (current_region.background if current_region)), service_path(ad.service), target: :_blank) if ad.service
-          - elsif ad.image.present?
-            = link_to image_tag(ad.image.url(:thumb)), ad.url, target: :_blank
           - else
+            = link_to(image_tag(ad.image.url(:thumb)), ad.url, target: :_blank) if ad.image.present?
             == ad.javascript
         td== ad.observations.gsub('.', '.<br>')
         - if current_user.admin?
