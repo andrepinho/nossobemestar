@@ -59,6 +59,10 @@
   .field
     = f.label :url
     = f.text_field :url
+  - if current_user.admin?
+    .field
+      = f.label :javascript
+      = f.text_area :javascript
   .field
     = f.label :observations
     = f.text_area :observations

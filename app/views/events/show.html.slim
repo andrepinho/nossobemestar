@@ -7,12 +7,15 @@
     - if rand(2) == 0 then ad = nil else ads = nil end
   - if ad
     = link_to image_tag(ad.image.url(:thumb), style: "width: 156px; height: 585px"), click_ad_path(ad), :target => '_blank'
+    == ad.javascript
   - else
     - if ads
       - first_ad = ads[0]
       - second_ad = ads[1]
       = link_to image_tag(first_ad.image.url(:thumb), style: "width: 156px; height: 282px; margin-bottom: 11px"), click_ad_path(first_ad), :target => '_blank'
       = link_to(image_tag(second_ad.image.url(:thumb), style: "width: 156px; height: 282px"), click_ad_path(second_ad), :target => '_blank') if second_ad
+      == first_ad.try(:javascript)
+      == second_ad.try(:javascript)
 - content_for :external_js do
     script src="//maps.google.com/maps/api/js?v=3.13&libraries=geometry&sensor=false" type="text/javascript"
     script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'

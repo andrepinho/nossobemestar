@@ -7,8 +7,8 @@ class Ad < ActiveRecord::Base
   belongs_to :service
   has_many :clicks
   validates_presence_of :code
-  validates_presence_of :url, if: Proc.new { |ad| !['DA', 'DG'].include?(ad.code) }
-  validates_presence_of :image, if: Proc.new { |ad| !['DA', 'DG'].include?(ad.code) }
+  validates_presence_of :url, if: Proc.new { |ad| !['DA', 'DG'].include?(ad.code) && ad.javascript.blank? }
+  validates_presence_of :image, if: Proc.new { |ad| !['DA', 'DG'].include?(ad.code) && ad.javascript.blank? }
   validates_attachment :image, :content_type => { :content_type => /\Aimage\/.*\Z/ }
   validates_presence_of :event, if: Proc.new { |ad| ad.code == 'DA' }
   validates_presence_of :service, if: Proc.new { |ad| ad.code == 'DG' }
