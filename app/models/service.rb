@@ -6,7 +6,7 @@ class Service < ActiveRecord::Base
   belongs_to :region
   belongs_to :user
 
-  geocoded_by :full_address do |object, results|
+  geocoded_by :address do |object, results|
     if geo = results.first
       object.latitude = geo.latitude
       object.longitude = geo.longitude
