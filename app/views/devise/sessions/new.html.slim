@@ -1,5 +1,12 @@
 - content_for :title do
   = "Conecte-se"
+- content_for :sidebar do
+  - ad = Ad.for(current_region, :dh)
+  - if ad
+    = link_to(image_tag(ad.image.url(:thumb), style: "width: 156px; height: 585px"), click_ad_path(ad), :target => '_blank') if ad.image.present?
+    == ad.javascript
+  - else
+    = link_to image_tag("ad_newsletter.jpg"), "http://nossobemestar.us3.list-manage.com/subscribe?u=48559b27d67eaa3c39ff20581&id=#{current_region.newsletter_id if current_region}", :target => '_blank'
 .text
   p= 'Usufrua de todas as possibilidades do Nosso portal!'
   p= 'Ao se conectar você pode divulgar gratuitamente seus eventos na AGENDA e seus produtos/serviços no GUIA DE QUALIDADE.'
