@@ -35,6 +35,10 @@ class User < ActiveRecord::Base
 
   before_create do
     self.email = "user_#{Time.now.to_i}_#{self.full_name.parameterize}@nossobemestar.com" unless self.email
+    if self.newsletter && self.region
+      Gibbon::API.new.lists.subscribe({:id => self.region.newsletter_id, :email => {:email => self.email}, :merge_vars => {:FULLNAME => self.full_name, :REGION => self.region.name}})
+    end
+  # rescue
   end
 
   def full_name

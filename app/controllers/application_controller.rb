@@ -77,6 +77,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :name
     devise_parameter_sanitizer.for(:sign_up) << :surname
     devise_parameter_sanitizer.for(:sign_up) << :region_id
+    devise_parameter_sanitizer.for(:sign_up) << :newsletter
     devise_parameter_sanitizer.for(:account_update) << :name
     devise_parameter_sanitizer.for(:account_update) << :surname
   end

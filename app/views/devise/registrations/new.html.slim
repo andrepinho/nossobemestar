@@ -36,6 +36,9 @@
   .field
     = f.label :password_confirmation
     = f.password_field :password_confirmation, :autocomplete => "off"
+  .field
+    = f.check_box :newsletter
+    = f.label :newsletter
   .actions
     = f.submit "Efetuar cadastro", class: "button"
     = render "devise/shared/links"

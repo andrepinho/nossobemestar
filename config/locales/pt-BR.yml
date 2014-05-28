@@ -76,6 +76,7 @@ pt-BR:
         updated_at: Atualizado em
         region_id: Região
         region_admin: Admin da região
+        newsletter: Receba nosso conteúdo diretamente em seu email
       ad:
         id: Id
         code: Código
