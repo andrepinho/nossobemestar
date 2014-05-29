@@ -6,6 +6,8 @@ class Event < ActiveRecord::Base
   validates_presence_of :name, :image, :starts_at, :ends_at, :description
   belongs_to :region
   belongs_to :user
+  validates_attachment :image, :content_type => { :content_type => /\Aimage\/.*\Z/ }
+  validates :image, :minimum_dimensions => { :width => 200, :height => 200 }
 
   geocoded_by :address
   after_validation :geocode
