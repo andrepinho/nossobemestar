@@ -1,3 +1,4 @@
+hideNewsletterBait = false
 $(document).ready ->
   $(".open").on "click", (event) ->
     event.preventDefault()
@@ -14,3 +15,14 @@ $(document).ready ->
   $(window).on "click", ->
     $('#flash').slideUp('slow')
     $('.open').parent().find("nav").hide()
+  $(window).on "scroll", ->
+    scrollPercent = ($(window).scrollTop() / ($(document).height()-$(window).height())) * 100
+    if scrollPercent > 40 && hideNewsletterBait == false
+      $('#newsletter_bait_wrapper').show()
+    else
+      $('#newsletter_bait_wrapper').hide()
+  $("#newsletter_bait_wrapper .close").on "click", (event) ->
+    event.preventDefault()
+    event.stopPropagation()
+    hideNewsletterBait = true
+    $('#newsletter_bait_wrapper').hide()

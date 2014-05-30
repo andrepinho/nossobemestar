@@ -50,7 +50,7 @@
       nav
         position: absolute
         padding: 2px 0
-        background-color: $white
+        background-color: $header_color
       [type=text]
         font-size: $tiny_size
         width: 116px
@@ -223,8 +223,8 @@
   padding: 10px 30px
   width: 680px
   text-align: center
-  border-top: 2px solid $white
-  border-bottom: 2px solid $white
+  border-top: 2px solid $header_color
+  border-bottom: 2px solid $header_color
   color: $shadow_color
   font-size: $small_size
   line-height: 140%
@@ -240,7 +240,7 @@
     padding: 0 15px
     ul
       text-align: left
-      color: $white
+      color: $header_color
       height: 100px
       -webkit-column-count: 5
       -moz-column-count: 5
@@ -261,3 +261,33 @@
   #video
     iframe
       border: 2px solid $border_color
+#newsletter_bait_wrapper
+  display: none
+  background-color: $header_color
+  position: fixed
+  bottom: 0
+  width: 100%
+  z-index: 400
+  padding: 20px 0
+  border-top: 1px solid $border_color
+  #newsletter_bait
+    +grid-system(16)
+    .newsletter_form
+      +grid(16)
+      h5
+        font-size: $big_size
+        line-height: 30px
+        +grid(9)
+        +alpha
+      [type=submit]
+        width: 100px
+  .close
+    float: right
+    font-size: $huge_size
+    line-height: 30px
+    padding: 0 30px
+    border-left: 1px solid $border_color
+    color: $title_color
+    text-decoration: none
+    &:hover
+      color: $hover_color
