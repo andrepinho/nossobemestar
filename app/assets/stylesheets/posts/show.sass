@@ -1,4 +1,4 @@
-body[data-action="show"][data-controller="posts"][data-namespace="null"]
+body[data-action="show"][data-controller="posts"][data-namespace="null"] #content
   h2
     color: $text_color
     font-size: $huge_size
@@ -51,64 +51,3 @@ body[data-action="show"][data-controller="posts"][data-namespace="null"]
       font-style: italic
   #left_triangle
     margin-bottom: 10px
-  .related
-    padding-bottom: 230px
-    h2
-      font-size: 25px
-      margin-bottom: 30px
-    li
-      +grid(4)
-      .image
-        +grid(4)
-        +alpha
-        +omega
-        margin-bottom: 4px
-        height: 144px
-        overflow: hidden
-        a
-          text-transform: uppercase
-          text-decoration: none
-          &:hover
-            text-decoration: underline
-          img
-            width: 100%
-      .text
-        +grid(4)
-        +alpha
-        +omega
-        line-height: 94%
-        height: 65px
-        overflow: hidden
-        h3
-          line-height: 94%
-          font-size: 16px
-          margin-bottom: 4px
-          a
-            text-decoration: none
-            font-size: $standard_size
-            &:hover
-              text-decoration: underline
-        h4
-          a
-            color: $subtitle_color
-            text-decoration: none
-            font-size: $small_size
-      &:first-child
-        +alpha
-    .more
-      +grid(1)
-      +omega
-      margin-top: -20px
-      a
-        text-align: center
-        font-size: $big_size
-        font-weight: bold
-        display: block
-        width: 100%
-        padding-top: 97px
-        height: 116px
-        color: $title_text_color
-        text-decoration: none
-        +transition(0.3s)
-        &:hover
-          +opacity(0.8)

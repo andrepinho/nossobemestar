@@ -137,6 +137,69 @@
       max-width: 156px
       margin-bottom: 31px
       border: 2px solid $border_color
+    .related
+      .admin
+        display: none
+      h2
+        font-size: $big_size
+        line-height: $big_size
+      li
+        +grid(3)
+        +alpha
+        +omega
+        margin-bottom: 20px
+        .image
+          +grid(3)
+          +alpha
+          +omega
+          margin-bottom: 4px
+          a
+            text-transform: uppercase
+            text-decoration: none
+            &:hover
+              text-decoration: underline
+            img
+              width: 100%
+              border: none
+              max-width: 100%
+              margin: 0
+        .text
+          +grid(3)
+          +alpha
+          +omega
+          line-height: 94%
+          height: 80px
+          overflow: hidden
+          h3
+            line-height: 94%
+            font-size: 16px
+            margin-bottom: 4px
+            a
+              text-decoration: none
+              font-size: $standard_size
+              &:hover
+                text-decoration: underline
+          h4
+            a
+              color: $subtitle_color
+              text-decoration: none
+              font-size: $small_size
+      .more
+        +grid(3)
+        +alpha
+        +omega
+        a
+          text-align: center
+          font-size: $big_size
+          font-weight: bold
+          display: block
+          width: 100%
+          color: $title_text_color
+          text-decoration: none
+          padding: 6px 0
+          +transition(0.3s)
+          &:hover
+            +opacity(0.8)
 #error_explanation
   border: 2px solid $error_border_color
   padding: 20px
