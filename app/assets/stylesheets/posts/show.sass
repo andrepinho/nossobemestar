@@ -49,5 +49,43 @@ body[data-action="show"][data-controller="posts"][data-namespace="null"] #conten
     em
       color: $text_color
       font-style: italic
+  .likes
+    margin-bottom: 40px
+    h4
+      font-size: $big_size
+    .thumbs
+      text-align: center
+      font-size: $huge_size
+      margin-top: 20px
+      .icon-thumbs-up, .icon-thumbs-down
+        position: relative
+        display: inline-block
+        padding: 10px 20px
+        color: $border_color
+        border: 2px solid $border_color
+        +border-radius(4px)
+        opacity: 0.8
+        &:after
+          content: "✓"
+          color: $flash_success_color
+          position: absolute
+          bottom: -4px
+          right: -8px
+      a
+        text-decoration: none
+        &:hover
+          opacity: 1
+        &:after
+          content: none !important
+      .icon-thumbs-down
+        margin-left: 20px
+        &:after
+          color: $flash_failure_color
+      a.icon-thumbs-up
+        color: $flash_success_color
+        border-color: $flash_success_color
+      a.icon-thumbs-down
+        color: $flash_failure_color
+        border-color: $flash_failure_color
   #left_triangle
     margin-bottom: 10px

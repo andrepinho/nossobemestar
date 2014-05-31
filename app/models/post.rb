@@ -5,6 +5,8 @@ class Post < ActiveRecord::Base
   validates_attachment :image, :presence => true, :content_type => { :content_type => /\Aimage\/.*\Z/ }
   belongs_to :section
   belongs_to :region
+  has_many :likes, as: :likeable
+  has_many :dislikes, as: :dislikeable
 
   include PgSearch
   pg_search_scope :search, against: [

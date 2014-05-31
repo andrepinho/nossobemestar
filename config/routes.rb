@@ -6,7 +6,10 @@ Portal::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :regions
-  resources :posts
+  resources :posts do
+    get 'like', on: :member
+    get 'dislike', on: :member
+  end
   resources :sections do
     collection do
       get 'highlighted'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528225423) do
+ActiveRecord::Schema.define(version: 20140531151448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,17 @@ ActiveRecord::Schema.define(version: 20140528225423) do
 
   add_index "clicks", ["ad_id"], name: "index_clicks_on_ad_id", using: :btree
 
+  create_table "dislikes", force: true do |t|
+    t.integer  "dislikeable_id"
+    t.string   "dislikeable_type"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "dislikes", ["dislikeable_id", "dislikeable_type"], name: "index_dislikes_on_dislikeable_id_and_dislikeable_type", using: :btree
+  add_index "dislikes", ["user_id"], name: "index_dislikes_on_user_id", using: :btree
+
   create_table "events", force: true do |t|
     t.string   "name"
     t.datetime "starts_at"
@@ -81,6 +92,17 @@ ActiveRecord::Schema.define(version: 20140528225423) do
     t.float    "longitude"
     t.integer  "user_id"
   end
+
+  create_table "likes", force: true do |t|
+    t.integer  "likeable_id"
+    t.string   "likeable_type"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "likes", ["likeable_id", "likeable_type"], name: "index_likes_on_likeable_id_and_likeable_type", using: :btree
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
 
   create_table "pg_search_documents", force: true do |t|
     t.text     "content"

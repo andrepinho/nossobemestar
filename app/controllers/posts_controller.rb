@@ -2,7 +2,7 @@
 
 class PostsController < ApplicationController
   helper_method :sort_column, :sort_direction
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :dislike]
   before_filter :authenticate_user!, except: [:show]
   authorize_resource
 
@@ -12,6 +12,9 @@ class PostsController < ApplicationController
   end
 
   def show
+    @likes = @post.likes.count
+    @can_like = !current_user || @post.likes.where(user: current_user).empty?
+    @can_dislike = !current_user || @post.dislikes.where(user: current_user).empty?
     if @post.section
       @section = @post.section
       @related = @section.posts.where("region_id IS NULL").order('RANDOM()').limit(3)
@@ -56,6 +59,34 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to posts_path, notice: 'Post excluido com sucesso.' }
       format.json { head :no_content }
+    end
+  end
+
+  def like
+    respond_to do |format|
+      @like = @post.likes.new user: current_user
+      if @like.save
+        @post.dislikes.where(user: current_user).destroy_all
+        format.html { redirect_to @post, notice: 'Nossa gratidão pela sua participação!' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to @post, flash: { error: "Só é permitido uma participação por pessoa." } }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def dislike
+    respond_to do |format|
+      @dislike = @post.dislikes.new user: current_user
+      if @dislike.save
+        @post.likes.where(user: current_user).destroy_all
+        format.html { redirect_to @post, notice: 'Nossa gratidão pela sua participação!' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to @post, flash: { error: "Só é permitido uma participação por pessoa." } }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
     end
   end
 
