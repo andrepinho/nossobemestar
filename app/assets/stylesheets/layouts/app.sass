@@ -263,22 +263,27 @@
       border: 2px solid $border_color
 #newsletter_bait_wrapper
   display: none
-  background-color: $header_color
+  background-color: $border_color
   position: fixed
   bottom: 0
   width: 100%
   z-index: 400
   padding: 20px 0
-  border-top: 1px solid $border_color
+  border-top: 1px solid $link_color
   #newsletter_bait
     +grid-system(16)
     .newsletter_form
       +grid(16)
       h5
-        font-size: $big_size
+        background: url(image_path('news.png')) no-repeat
+        text-indent: 92px
+        color: $link_color
+        font-size: 20px
         line-height: 30px
         +grid(9)
         +alpha
+      input
+        // border-color: $background-color
       [type=submit]
         width: 100px
   .close
@@ -286,8 +291,5 @@
     font-size: $huge_size
     line-height: 30px
     padding: 0 30px
-    border-left: 1px solid $border_color
-    color: $title_color
+    border-left: 1px solid $link_color
     text-decoration: none
-    &:hover
-      color: $hover_color
