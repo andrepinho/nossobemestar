@@ -3,7 +3,7 @@
 class PostsController < ApplicationController
   helper_method :sort_column, :sort_direction
   before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :dislike]
-  before_filter :authenticate_user!, except: [:show]
+  before_filter :authenticate_user!, except: [:show, :like, :dislike]
   authorize_resource
 
   def index
@@ -66,7 +66,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       @like = @post.likes.new user: current_user
       if @like.save
-        @post.dislikes.where(user: current_user).destroy_all
+        @post.dislikes.where(user: current_user).destroy_all if current_user
         format.html { redirect_to @post, notice: 'Nossa gratidão pela sua participação!' }
         format.json { head :no_content }
       else
@@ -80,7 +80,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       @dislike = @post.dislikes.new user: current_user
       if @dislike.save
-        @post.likes.where(user: current_user).destroy_all
+        @post.likes.where(user: current_user).destroy_all if current_user
         format.html { redirect_to @post, notice: 'Nossa gratidão pela sua participação!' }
         format.json { head :no_content }
       else

@@ -7,6 +7,7 @@ class Ability
     
     can :read, :all
     can [:local, :highlighted], Section
+    can [:like, :dislike], Post
     can :click, Ad
 
     cannot :index, Post
