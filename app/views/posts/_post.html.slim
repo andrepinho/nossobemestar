@@ -70,12 +70,14 @@
       h4= post.image_caption
       
   .content= post.content.html_safe
-  .likes
-    h4 style="color: #{post.section.try(:color) || '#555'}"
+  .likes style="background-color: #{post.section.try(:color) || '#555'}"
+    h4
       - if @likes > 0
-        = "Este conteúdo já beneficiou #{pluralize(@likes, 'pessoa')}. Beneficiou você?"
+        = "Este conteúdo já beneficiou #{pluralize(@likes, 'pessoa')}. "
+        strong Beneficiou você?
       - else
-        = "Este conteúdo ainda não beneficiou nenhuma pessoa. Beneficiou você?"
+        = "Este conteúdo beneficiou você?"
+        br
     .thumbs
       - if @can_like
         a.icon-thumbs-up href=like_post_path(post)
