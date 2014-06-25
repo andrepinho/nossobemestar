@@ -27,6 +27,10 @@ class Event < ActiveRecord::Base
     "#{self.id}-#{self.name.parameterize}"
   end
 
+  def self.not_past
+    where("starts_at >= current_timestamp")
+  end
+
   def self.by_relevance
     order("CASE WHEN starts_at >= current_timestamp THEN starts_at END ASC, CASE WHEN starts_at < current_timestamp THEN starts_at END DESC")
   end
@@ -36,7 +40,7 @@ class Event < ActiveRecord::Base
   end
 
   def past?
-    ends_at < Time.now
+    starts_at < Time.now
   end
 
   def ongoing?

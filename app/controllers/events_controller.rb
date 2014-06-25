@@ -11,7 +11,7 @@ class EventsController < ApplicationController
     @events = @events.search(params[:search]).by_relevance if params[:search].present?
     @ads = Ad.for(current_region, :da, quantity: 3)
     @ad_events = @ads.map(&:event) rescue []
-    @ad_events += ((current_region && current_region.events ) || Event.where("region_id IS NULL")).where("ends_at > current_timestamp").order('RANDOM()').limit(3 - @ad_events.length)
+    @ad_events += ((current_region && current_region.events.not_past ) || Event.not_past.where("region_id IS NULL")).order('RANDOM()').limit(3 - @ad_events.length)
   end
 
   def admin
