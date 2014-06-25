@@ -29,18 +29,32 @@ class AdsController < ApplicationController
   end
 
   def create
-    @ad = Ad.new(ad_params)
-    @ad.region = current_region unless current_user.admin?
+
+    unless current_user.admin?
+      params[:ad][:region_ids] = [current_region.id]
+    end
+
+    all_regions_ok = true
+    errors = []
+    params[:ad][:region_ids].each do |region_id|
+      @ad = Ad.new(ad_params)
+      @ad.region_id = region_id
+      unless @ad.save
+        all_regions_ok = false
+        errors << @ad.errors
+      end
+    end
 
     respond_to do |format|
-      if @ad.save
+      if all_regions_ok
         format.html { redirect_to ads_path, notice: 'Anúncio criado com sucesso.' }
         format.json { render action: 'show', status: :created, location: @ad }
       else
         format.html { render action: 'new' }
-        format.json { render json: @ad.errors, status: :unprocessable_entity }
+        format.json { render json: errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   def update

@@ -7,8 +7,14 @@
           li= msg
   - if current_user.admin?
     .field
-      = f.label :region_id
-      = f.select :region_id, [nil] + Region.all.map { |region| [region.name, region.id]}
+      - if @ad.new_record?
+        - Region.order(:name).each do |region|
+          input id="ad_region_ids_#{region.id}" name="ad[region_ids][]" type="checkbox" value=region.id
+          = label_tag "ad[region_ids][#{region.id}]", region.name
+          == " &nbsp;|&nbsp; "
+      - else
+        = f.label :region_id
+        = f.select :region_id, [nil] + Region.all.map { |region| [region.name, region.id]}
   - date_options = {}
   - date_options.merge!({include_blank: true}) if current_user.admin?
   .field
