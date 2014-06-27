@@ -114,7 +114,7 @@ html lang="#{I18n.locale}" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http:/
             = mail_to "contato@nossobemestar.com","contato@nossobemestar.com"
         .video
           iframe.alpha width="160px" height="90px" src="//www.youtube.com/embed/LJ1OsXwzP_I?rel=0&showinfo=0&controls=0" frameborder="0" allowfullscreen
-          = link_to "Descubra o Nosso Bem Estar", "https://www.youtube.com/watch?v=LJ1OsXwzP_I"
+          = link_to "Descubra o Nosso Bem Estar", "https://www.youtube.com/watch?v=LJ1OsXwzP_I", target: :_blank
 
     - if display_newsletter_bait?
       #newsletter_bait_wrapper
