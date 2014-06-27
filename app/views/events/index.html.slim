@@ -15,6 +15,7 @@
     = link_to(image_tag(second_ad.image.url(:thumb), style: "width: 156px; height: 282px"), click_ad_path(second_ad), :target => '_blank') if second_ad && second_ad.image.present?
     == first_ad.try(:javascript)
     == second_ad.try(:javascript)
+  = render partial: "layouts/facebook_like", locals: { url: (current_region ? current_region.facebook : request.url), layout: 'standard', show_faces: true, show_headline: true }
 h1= link_to "Agenda", events_path
 #left_triangle
 .search

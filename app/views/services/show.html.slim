@@ -16,6 +16,7 @@
       = link_to(image_tag(second_ad.image.url(:thumb), style: "width: 156px; height: 282px"), click_ad_path(second_ad), :target => '_blank') if second_ad && second_ad.image.present?
       == first_ad.try(:javascript)
       == second_ad.try(:javascript)
+  = render partial: "layouts/facebook_like", locals: { url: (current_region ? current_region.facebook : request.url), layout: 'standard', show_faces: true, show_headline: true }
 - content_for :external_js
     script src="//maps.google.com/maps/api/js?v=3.13&libraries=geometry&sensor=false" type="text/javascript"
     script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'

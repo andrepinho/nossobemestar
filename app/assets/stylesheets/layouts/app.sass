@@ -132,18 +132,23 @@
   #content
     +grid(13)
   #sidebar
+    overflow: hidden
     +grid(3)
     img
       max-width: 156px
       margin-bottom: 31px
       border: 2px solid $border_color
+    #facebook
+      h5
+        font-weight: bold
+        margin-bottom: 8px
     .related
       .admin
         display: none
       h2
         font-size: $big_size
         line-height: $big_size
-        padding-top: 0
+        padding-top: 32px
       li
         +grid(3)
         +alpha

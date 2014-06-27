@@ -1,2 +1,4 @@
 #facebook
-  .fb-like data-href="#{defined?(url) && url ? url : request.url}" data-send="false" data-width="#{defined?(width) ? width : '260'}" data-colorscheme="#{defined?(color_scheme) ? color_scheme : 'light'}" data-show-faces="false" data-layout="#{defined?(layout) ? layout : 'button_count'}"
+  - if defined?(show_headline) && show_headline
+    h5 Curta nosso Facebook
+  .fb-like data-href="#{defined?(url) && url ? url : request.url}" data-send="false" data-width="#{defined?(width) ? width : '260'}" data-colorscheme="#{defined?(color_scheme) ? color_scheme : 'light'}" data-show-faces="#{defined?(show_faces) ? show_faces : false}" data-layout="#{defined?(layout) ? layout : 'button_count'}"
