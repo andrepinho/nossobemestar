@@ -224,7 +224,7 @@
 #footer_wrapper
   background-color: $footer_color
   color: $title_text_color
-  padding: 40px 0
+  padding: 40px 0 20px 0
   +clearfix
   #footer
     +grid-system(16)
@@ -237,10 +237,30 @@
     .facebook
       +grid(5)
     .contact
-      +grid(5)
+      +grid(8)
       a
         font-size: $medium_size
         text-decoration: none
+      .newsletter_form
+        +grid(8)
+        +alpha
+        +omega
+        margin-bottom: 8px
+    .video
+      margin-top: -15px
+      +grid(3)
+      a
+        display: block
+        font-weight: bold
+        text-decoration: none
+        background: $link_color
+        color: $title_text_color
+        padding: 2px 4px
+        font-size: $tiny_size
+        text-align: center
+        margin-top: -5px
+        &:hover
+          background-color: $hover_color
 #flash
   display: none
   position: fixed

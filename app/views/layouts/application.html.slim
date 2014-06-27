@@ -26,7 +26,7 @@ html lang="#{I18n.locale}" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http:/
       meta property="og:description"  content=yield(:title)
       meta property="fb:admins"       content="100000316028111"
     = render "layouts/analytics"
-    = render "layouts/clicktale_top" if current_region.subdomain == "portoalegre"
+    = render "layouts/clicktale_top" if current_region.try(:subdomain) == "portoalegre"
   body[data-namespace="#{namespace}" data-controller="#{controller_name}" data-action="#{action_name}" data-locale="#{I18n.locale}" data-region="#{current_region.name if current_region}" data-coordinates="#{current_coordinates}"]
     = render "layouts/facebook_sdk"
     = render "layouts/flash" unless flash.empty?
@@ -108,12 +108,17 @@ html lang="#{I18n.locale}" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http:/
           h5 Curta nosso Facebook
           = render partial: "layouts/facebook_like", locals: { url: (current_region ? current_region.facebook : request.url), color_scheme: 'dark', layout: 'standard' }
         .contact
-          h5 Entre em contato
-          =mail_to "contato@nossobemestar.com","contato@nossobemestar.com"
-        = render "layouts/newsletter_form"
+          = render "layouts/newsletter_form"
+          h5
+            = "Entre em contato "
+            = mail_to "contato@nossobemestar.com","contato@nossobemestar.com"
+        .video
+          iframe.alpha width="160px" height="90px" src="//www.youtube.com/embed/LJ1OsXwzP_I?rel=0&showinfo=0&controls=0" frameborder="0" allowfullscreen
+          = link_to "Descubra o Nosso Bem Estar", "https://www.youtube.com/watch?v=LJ1OsXwzP_I"
+
     - if display_newsletter_bait?
       #newsletter_bait_wrapper
         #newsletter_bait
           = render partial: "layouts/newsletter_form", locals: { headline: "Receba nosso conteúdo e novidades em seu email", submit: "Receber"}
         a.close href="#" X
-    = render "layouts/clicktale_bottom" if current_region.subdomain == "portoalegre"
+    = render "layouts/clicktale_bottom" if current_region.try(:subdomain) == "portoalegre"
