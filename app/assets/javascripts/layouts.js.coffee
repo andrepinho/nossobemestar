@@ -17,7 +17,7 @@ $(document).ready ->
     $('.open').parent().find("nav").hide()
   $(window).on "scroll", ->
     scrollPercent = ($(window).scrollTop() / ($(document).height()-$(window).height())) * 100
-    if scrollPercent > 40 && scrollPercent < 95.57739557739558 && hideNewsletterBait == false
+    if scrollPercent > 40 && scrollPercent < 92 && hideNewsletterBait == false
       $('#newsletter_bait_wrapper').show()
     else
       $('#newsletter_bait_wrapper').hide()
