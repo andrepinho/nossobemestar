@@ -1,7 +1,6 @@
 # coding: utf-8
 
 class ApplicationController < ActionController::Base
-
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_section instead.
   protect_from_forgery with: :exception
@@ -44,19 +43,11 @@ class ApplicationController < ActionController::Base
   end
 
   def detect_region
-    unless current_region
-      if region = (Region.find_by(id: cookies[:current_region_id]) || Region.closest_to(current_coordinates))
-        redirect_to url_for_subdomain(region.subdomain), notice: "Você está no portal <strong>#{region.name}.</strong> Se preferir, escolha outra região acima.".html_safe
-      elsif request.subdomain == "www"
-        @url_for_subdomain = url_for_subdomain("{subdomain}")
-      else
-        redirect_to url_for_subdomain("www")
-      end
-    end
-  end
+    default_region = Region.find_by(name: ENV['DEFAULT_REGION_NAME'])
+    cookies[:current_region_id] ||= default_region.id
 
-  def current_region
-    @current_region ||= Region.find_by(subdomain: request.subdomain)
+    @current_region ||= Region.find_by(id: cookies[:current_region_id])
+
     if @current_region && @current_region.id != cookies[:current_region_id]
       cookies[:current_region_id] = {
         value: @current_region.id,
@@ -64,6 +55,10 @@ class ApplicationController < ActionController::Base
         domain: ( Rails.env.production? ? ".nossobemestar.com" : ".lvh.me" )
       }
     end
+    @current_region
+  end
+
+  def current_region
     @current_region
   end
 
