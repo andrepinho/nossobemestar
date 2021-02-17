@@ -10,7 +10,10 @@ class RegionsController < ApplicationController
   end
 
   def show
-    redirect_to root_url(subdomain: @region.subdomain)
+
+    cookies[:current_region_id] =  @region.id if cookies[:current_region_id].to_i != @region.id
+
+    redirect_to root_path
   end
 
   def new

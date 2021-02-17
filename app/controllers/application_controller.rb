@@ -45,16 +45,8 @@ class ApplicationController < ActionController::Base
   def detect_region
     default_region = Region.find_by(name: ENV['DEFAULT_REGION_NAME'])
     cookies[:current_region_id] ||= default_region.id
-
     @current_region ||= Region.find_by(id: cookies[:current_region_id])
 
-    if @current_region && @current_region.id != cookies[:current_region_id]
-      cookies[:current_region_id] = {
-        value: @current_region.id,
-        expires: 1.year.from_now,
-        domain: ( Rails.env.production? ? ".nossobemestar.com" : ".lvh.me" )
-      }
-    end
     @current_region
   end
 
