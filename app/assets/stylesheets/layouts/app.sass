@@ -68,14 +68,12 @@
         width: 80px
         &:hover
           text-decoration: underline
-    #current_region, #current_user
+    #spacer
+      +grid(3)
+      height: 53px
+    #current_user
       height: 35px
       padding-top: 17px
-    #current_region
-      text-align: center
-      +grid(3)
-      nav
-        text-align: left
     #current_user
       text-align: center
       +grid(3)
@@ -121,7 +119,6 @@
             border: none
             &:hover
               color: $title_text_color
-
 #content_wrapper
   +grid-system(16)
   +clearfix
@@ -338,3 +335,8 @@
     padding: 0 30px
     border-left: 1px solid $link_color
     text-decoration: none
+#regions_menu
+  +clearfix
+  margin-bottom: 30px
+  .menu
+    text-align: center

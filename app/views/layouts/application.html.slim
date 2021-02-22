@@ -33,13 +33,7 @@ html lang="#{I18n.locale}" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http:/
     #header_wrapper
       #header
         #logo= link_to image_tag("logo.png"), root_path
-        #current_region.menu
-          a.open href="#"
-            = (current_region ? current_region.name : "Sua região")
-            span=" " + "▾"
-          nav
-            - Region.order(:name).each do |region|
-              = link_to region.name, region_path(region)
+        #spacer
         .search
           = form_tag search_index_path, :method => 'GET' do
             = text_field_tag :query, nil, autocomplete: "off"
@@ -75,12 +69,12 @@ html lang="#{I18n.locale}" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http:/
             ||
             = link_to "Conecte-se", new_user_session_path
         = render partial: "layouts/facebook_like", locals: {url: (current_region ? current_region.facebook : request.url)}
-    #menu_wrapper style="background-image: url('#{(current_region && current_region.background.present? ? current_region.background : '/assets/default_bg.jpg')}')"
+    #menu_wrapper style="background-image: url('#{(default_region && default_region.background.present? ? default_region.background : '/assets/default_bg.jpg')}')"
       #menu
         nav#sections
           - if current_region
             #region_menu.menu
-              a.open href="#"= "+ Sua região ▾"
+              a.open href="#"= "Minha região ▾"
               nav
                 - unless current_region.posts.visible.empty?
                   = link_to "Notícias", local_sections_path

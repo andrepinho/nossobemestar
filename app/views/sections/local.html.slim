@@ -20,4 +20,5 @@ h1= link_to "Notícias#{" de #{current_region.name}" if current_region}", local_
       == second_ad.try(:javascript)
   = render partial: "layouts/facebook_like", locals: { url: (current_region ? current_region.facebook : request.url), layout: 'standard', show_faces: true, show_headline: true }
 .content_ads= render partial: 'events/event', collection: @events
+= render '/regions/menu', collection: Region.joins(:posts).uniq
 = render "section"

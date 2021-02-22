@@ -5,8 +5,9 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_section instead.
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_filter :remove_subdomain
   before_filter :detect_region
-  helper_method :current_region, :namespace, :current_coordinates, :display_title!, :hide_title!, :display_title?, :display_newsletter_bait!, :display_newsletter_bait?
+  helper_method :current_region, :namespace, :current_coordinates, :display_title!, :hide_title!, :display_title?, :display_newsletter_bait!, :display_newsletter_bait?, :default_region
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => "Você não possui as permissões necessárias para realizar esta ação."
@@ -42,12 +43,22 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def remove_subdomain
+    if request.subdomain.present?
+      url = URI.parse(request.url).tap { |uri| uri.host = request.domain }.to_s
+      redirect_to url
+    end
+  end
+
   def detect_region
-    default_region = Region.find_by(name: ENV['DEFAULT_REGION_NAME'])
     cookies[:current_region_id] ||= default_region.id
     @current_region ||= Region.find_by(id: cookies[:current_region_id])
 
     @current_region
+  end
+
+  def default_region
+    Region.find_by(name: ENV['DEFAULT_REGION_NAME'])
   end
 
   def current_region

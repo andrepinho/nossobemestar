@@ -13,7 +13,7 @@ class RegionsController < ApplicationController
 
     cookies[:current_region_id] =  @region.id if cookies[:current_region_id].to_i != @region.id
 
-    redirect_to root_path
+    redirect_to request.referer
   end
 
   def new

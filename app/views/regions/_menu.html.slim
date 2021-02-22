@@ -1,0 +1,10 @@
+- collection ||= Region.all
+#regions_menu
+  .grid_4.prefix_8
+    .menu
+      a.open href="#"
+        = (current_region ? current_region.name : "Sua região")
+        span=" " + "▾"
+      nav
+        - collection.order(:name).each do |region|
+          = link_to region.name, region_path(region)

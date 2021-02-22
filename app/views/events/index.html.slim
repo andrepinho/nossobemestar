@@ -24,6 +24,7 @@ h1= link_to "Agenda", events_path
     button.icon-search type="submit"
 .actions= link_to "Cadastre seu evento gratuitamente", new_event_path, class: "button"
 .content_ads= render partial: 'event', collection: @ad_events
+= render '/regions/menu'
 - if @events.empty?
   h2 Nenhum evento encontrado.
 - else

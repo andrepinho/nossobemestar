@@ -19,12 +19,14 @@
   = render partial: "layouts/facebook_like", locals: { url: (current_region ? current_region.facebook : request.url), layout: 'standard', show_faces: true, show_headline: true }
 h1= link_to "Guia de qualidade", services_path
 #left_triangle
+
 .search
   = form_tag services_path, :method => 'GET' do
     = text_field_tag :search, params[:search], autocomplete: "off"
     button.icon-search type="submit"
 .actions= link_to "Cadastre seu serviço gratuitamente", new_service_path, class: "button"
 .content_ads= render partial: 'service', collection: @ad_services
+= render '/regions/menu'
 - if @services.empty?
   h2 Nenhum serviço encontrado.
 - else
