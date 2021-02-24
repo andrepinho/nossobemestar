@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "2.0.0"
+ruby "2.3.8"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
@@ -33,7 +33,7 @@ gem "slim"
 gem "kaminari"
 gem "geocoder"
 gem "sass-rails"
-gem 'compass-rails', '~> 1.1.2'
+gem 'compass-rails'
 gem 'uglifier'
 gem 'compass-960-plugin'
 gem 'icomoon-rails'
