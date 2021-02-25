@@ -56,3 +56,5 @@ group :doc do
 end
 
 gem 'rails_12factor', group: :production
+
+gem 'dotenv-rails', groups: [:development, :test]
