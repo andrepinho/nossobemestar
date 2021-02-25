@@ -69,7 +69,7 @@
     = image_tag post.image.url(:medium)
     -if post.image_caption.present?
       h4= post.image_caption
-      
+
   .content= post.content.html_safe
   .likes style="background-color: #{post.section.try(:color) || '#555'}"
     h4
@@ -82,12 +82,15 @@
     .thumbs
       - if @can_like
         a.icon-thumbs-up href=like_post_path(post)
+          = fa_icon "thumbs-up"
       - else
         .icon-thumbs-up
       - if @can_dislike
         a.icon-thumbs-down href=dislike_post_path(post)
+          = fa_icon "thumbs-down"
       - else
         .icon-thumbs-down
+          = fa_icon "thumbs-down"
   .social.ending
     = render partial: "layouts/mail_to", locals: { subject: post.title }
     = render "layouts/google_plus_one"

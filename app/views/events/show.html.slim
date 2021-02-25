@@ -56,14 +56,23 @@ h1= link_to "Agenda", events_path
     - if @event.latitude && @event.longitude
       #map data-latitude=@event.latitude data-longitude=@event.longitude
     - if @event.address.present?
-      .address.icon-location= @event.address
+      .address.icon-location
+        = fa_icon 'map-marker', style: 'margin: 0 5px 0 3px'
+        = @event.address
     - if @event.url.present?
-      .url.icon-link= link_to truncate(@event.url, length: 40), @event.url, target: :_blank
+      .url.icon-link
+        = fa_icon 'link', style: 'margin-right: 5px'
+        = link_to truncate(@event.url, length: 40), @event.url, target: :_blank
     - if @event.email.present?
-      .email.icon-mail= mail_to @event.email
+      .email.icon-mail
+        = fa_icon 'envelope-square', style: 'margin-right: 5px'
+        = mail_to @event.email
     - if @event.phone_number.present?
-      .email.icon-phone= @event.phone_number
+      .email.icon-phone
+        = fa_icon 'phone', style: 'margin-right: 5px'
+        = @event.phone_number
     .dates.icon-calendar
+      = fa_icon 'calendar', style: 'margin-right: 5px'
       = l @event.starts_at, format: :simple
       = " - "
       = l @event.ends_at, format: :simple

@@ -56,13 +56,21 @@ h1= link_to "Guia de qualidade", services_path
     - if @service.latitude && @service.longitude
       #map data-latitude=@service.latitude data-longitude=@service.longitude
     - if @service.address.present?
-      .address.icon-location= @service.address
+      .address.icon-location
+        = fa_icon 'map-marker', style: 'margin: 0 5px 0 3px'
+        = @service.address
     - if @service.url.present?
-      .url.icon-link= link_to truncate(@service.url, length: 40), @service.url, target: :_blank
+      .url.icon-link
+        = fa_icon 'link', style: 'margin-right: 5px'
+        = link_to truncate(@service.url, length: 40), @service.url, target: :_blank
     - if @service.email.present?
-      .email.icon-mail= mail_to @service.email
+      .email.icon-mail
+        = fa_icon 'envelope-square', style: 'margin-right: 5px'
+        = mail_to @service.email
     - if @service.phone_number.present?
-      .email.icon-phone= @service.phone_number
+      .email.icon-phone
+        = fa_icon 'phone', style: 'margin-right: 5px'
+        = @service.phone_number
     .actions
       - if can? :update, @service
         = link_to "Clique aqui para editar seu serviço", edit_service_path(@service), class: "button"

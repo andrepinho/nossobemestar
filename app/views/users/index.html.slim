@@ -4,6 +4,7 @@
   = form_tag users_path, :method => 'GET' do
     = text_field_tag :search, params[:search], autocomplete: "off"
     button.icon-search type="submit"
+      = fa_icon "search"
 .actions
   = link_to "Exportar arquivo CSV", users_path(format: "csv"), class: "button"
 table

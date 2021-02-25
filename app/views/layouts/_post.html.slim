@@ -4,6 +4,7 @@ li
     - if current_user && current_user.admin?
       .admin.menu.button
         a.open.icon-pencil href="#"
+          = fa_icon 'pencil'
         nav
           - if controller_name = "home" and action_name == "index"
             = form_tag set_highlighted_home_index_path do

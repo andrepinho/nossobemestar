@@ -36,7 +36,7 @@ gem "sass-rails"
 gem 'compass-rails'
 gem 'uglifier'
 gem 'compass-960-plugin'
-gem 'icomoon-rails'
+gem 'font-awesome-rails'
 gem 'underscore-rails'
 gem 'gmaps4rails'
 gem 'pg_search'

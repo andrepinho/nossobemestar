@@ -22,6 +22,7 @@ h1= link_to "Agenda", events_path
   = form_tag events_path, :method => 'GET' do
     = text_field_tag :search, params[:search], autocomplete: "off"
     button.icon-search type="submit"
+      = fa_icon "search"
 .actions= link_to "Cadastre seu evento gratuitamente", new_event_path, class: "button"
 .content_ads= render partial: 'event', collection: @ad_events
 = render '/regions/menu'
