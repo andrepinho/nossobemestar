@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby "2.7.4"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.4'
+gem 'rails', '4.2.8'
 
 gem 'thin'
 
@@ -49,6 +49,7 @@ gem 'quiet_assets', :group => :development
 gem "lograge"
 gem "gretel"
 gem "gibbon"
+gem 'bigdecimal', '1.3.5'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
