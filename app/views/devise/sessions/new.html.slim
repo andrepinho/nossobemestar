@@ -15,7 +15,7 @@
 
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
 
-  .facebook= link_to "Entrar com Facebook", user_omniauth_authorize_path(:facebook), class: "button"
+  .facebook= link_to "Entrar com Facebook", user_facebook_omniauth_authorize_path(:facebook), class: "button"
   .separator
     p ou
 
