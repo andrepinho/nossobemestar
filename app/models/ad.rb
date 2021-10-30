@@ -15,7 +15,7 @@ class Ad < ActiveRecord::Base
   validates_presence_of :section, if: Proc.new { |ad| ["H", "H2", "C", "C2", "DC", "S", "S2", "DS"].include?(ad.code) }
   before_validation :smart_add_url_protocol
 
-  include PgSearch
+  include PgSearch::Model
   pg_search_scope :search, against: [
       [:code, 'A'],
       [:observations, 'B'],

@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
   has_many :likes, as: :likeable
   has_many :dislikes, as: :dislikeable
 
-  include PgSearch
+  include PgSearch::Model
   pg_search_scope :search, against: [
       [:title, 'A'],
       [:content, 'B'],

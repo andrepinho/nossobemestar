@@ -12,7 +12,7 @@ class Event < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode
 
-  include PgSearch
+  include PgSearch::Model
   pg_search_scope :search, against: [
       [:name, 'A'],
       [:description, 'B'],

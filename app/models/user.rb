@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :services
   belongs_to :region
 
-  include PgSearch
+  include PgSearch::Model
   pg_search_scope :search, against: [
       [:name, 'A'],
       [:surname, 'A'],
