@@ -80,12 +80,8 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << :name
-    devise_parameter_sanitizer.for(:sign_up) << :surname
-    devise_parameter_sanitizer.for(:sign_up) << :region_id
-    devise_parameter_sanitizer.for(:sign_up) << :newsletter
-    devise_parameter_sanitizer.for(:account_update) << :name
-    devise_parameter_sanitizer.for(:account_update) << :surname
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :surname, :region_id, :newsletter])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :surname])
   end
 
   def require_region_admin
