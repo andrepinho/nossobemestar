@@ -6,7 +6,7 @@ h1= link_to "Notícias#{" de #{current_region.name}" if current_region}", local_
   - ad = Ad.for(current_region, :nh2)
   - ads = Ad.for(current_region, :nh, quantity: 2)
   - if ad && ads
-    - if rand(2) == 0 then ad = nil else ads = nil end
+    - rand(2) == 0 ? ad = nil : ads = nil
   - if ad
     = link_to(image_tag(ad.image.url(:thumb), style: "width: 156px; height: 585px"), click_ad_path(ad), :target => '_blank') if ad.image.present?
     == ad.javascript
