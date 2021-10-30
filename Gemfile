@@ -7,8 +7,8 @@ gem 'rails', '4.2.8'
 
 gem 'thin'
 
-# Use sqlite3 as the database for Active Record
-gem 'pg'
+# Use PostgreSQL as the database for Active Record
+gem 'pg', '~> 0.20'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'

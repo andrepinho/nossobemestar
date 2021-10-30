@@ -1348,7 +1348,7 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
-    pg (1.2.3)
+    pg (0.21.0)
     pg_search (2.3.0)
       activerecord (>= 4.2)
       activesupport (>= 4.2)
@@ -1478,7 +1478,7 @@ DEPENDENCIES
   lograge
   omniauth-facebook
   paperclip
-  pg
+  pg (~> 0.20)
   pg_search
   quiet_assets
   rack-google-analytics (= 1.0.0)
@@ -1497,4 +1497,4 @@ RUBY VERSION
    ruby 2.7.4p191
 
 BUNDLED WITH
-   1.17.3
+   2.0.0.pre.3
