@@ -46,6 +46,7 @@ gem 'omniauth-facebook'
 gem "letter_opener", :group => :development
 gem "cancan"
 gem 'quiet_assets', :group => :development
+gem 'byebug', :group => :development
 gem "lograge"
 gem "gretel"
 gem "gibbon"

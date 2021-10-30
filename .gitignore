@@ -33,3 +33,4 @@ pickle-email-*.html
 /config/database.yml
 .DS_Store
 .env
+.byebug_history
