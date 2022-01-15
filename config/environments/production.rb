@@ -89,7 +89,7 @@ Portal::Application.configure do
     }
   }
 
-  config.action_mailer.default_url_options = { :host => 'nossobemestar.com' }
+  config.action_mailer.default_url_options = { :host => 'arquivonossobemestar.com' }
 
   # config.middleware.use Rack::GoogleAnalytics, tracker: 'UA-46003782-1', domain: "nossobemestar.com"
 
